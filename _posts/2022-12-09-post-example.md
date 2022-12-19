@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Dark Mode
-tags: [Katex, Mermaid, Markdown]
+title: Post Example
+feature-img: "assets/img/posts/circuit.jpeg"
+thumbnail: "assets/img/posts/circuit.jpeg"
+tags: [Markdown]
 ---
 
 More colors with less light. Click the **half-moon** most top-right button to turn the lights ON/OFF.
@@ -9,8 +11,8 @@ Here is a bit of everything, so you can check how the theme look, have fun! 👌
 
 
 # Headers
-가나다
-<img src="/assets/img/picture.jpg" width="150px" height="200px">
+
+<img src="/assets/img/posts/circuit.jpeg" width="1000px" height="400px">
 
 ```cpp
 #includ <iostream>
@@ -105,3 +107,37 @@ flowchart TB
     c1-->c2
     end
 </div>
+
+Diagrams with mermaid, make sure it is enabled in the `_config.yml`.
+Here is a simple example:
+
+```html
+<!-- To generate a diagram -->
+<div class="mermaid">
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+</div>
+```
+
+That will be rendered into this:
+
+{% include aligner.html images="mermaid-example.png" column=1 %}
+
+You can also go with more complex features and diagrams from the [documentation](https://mermaid-js.github.io/mermaid/):
+<details>
+<summary>▶ More complex diagram</summary>
+<div class="mermaid">
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts prevail!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+</div>
+</details>
