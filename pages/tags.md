@@ -2,7 +2,7 @@
 layout: tags
 title: Tags
 permalink: /tags/
-feature-img: "assets/img/thumbnails/wallpaperbetter.jpg"
+feature-img: "assets/img/thumbnails/UR.jpg"
 icon: "fa-tags"
 ---
 
