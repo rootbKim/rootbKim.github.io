@@ -29,3 +29,6 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ## 6. Domestic Conference
 * [김지용, 김정엽, "역동역학 기반의 보행 재활 로봇의 수동 모드 보행 훈련 알고리즘", 한국정밀공학회 학술발표대회 논문집, 21-22, 2020.](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10489383)
+
+## 7. Developer Conference
+* [Daniel Park, Lucy Kwon, Paul Kim, "RMF based multi-robot traffic management application use case", ROS World2021](https://vimeo.com/649654300/698c1da5a6)
