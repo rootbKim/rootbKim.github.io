@@ -17,7 +17,7 @@
   }
 
   /* --- Responsive --- */
-  @media screen and (max-width: $m-break) {
+  @media screen and (max-width: $m-break) { 
     background-size: 170% auto;
   }
 
@@ -60,9 +60,12 @@
       vertical-align: middle;
       border-radius: 10px;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       @media (min-width: $break) {
-        height: 250px;
+        height: 200px;
       }
 
       //Smaller screen

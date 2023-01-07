@@ -43,7 +43,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 실제 물류창고 내 개발한 솔루션 적용 및 운용
 - 프로젝트 개발 일정 관리
 
-#### Social Layer 개발 (2022.6. ~ 2022.9.)
+#### 로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발 (2022.6. ~ 2022.9.)
 
 - 로봇 간 회피를 위한 global costmap layer 개발
 - 기존에 제안된 사람을 회피하기 위한 social layer를 멀티로봇에 적용
@@ -59,7 +59,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 - 연구용 플랫폼은 모바일 로봇의 기본 베이스 플랫폼으로, 모바일 로봇의 기본 오픈소스 패키지를 구성하는 프로젝트
 - description, navigation, slam, simulation, serial 등의 기본 패키지 구성
-- ROS 1, ROS 2 패키지 구성
+- ROS 1(noetic), ROS 2(foxy) 패키지 구성
 - rosdistro에 패키지 등록 및 배포
 
 #### MIP를 이용한 우회경로 알고리즘의 연구 (2021.5. ~ 2021.8.)
@@ -68,6 +68,18 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - MIP 계산을 위한 노드-링크 구조 맵의 수학적 모델링
 - 최적화 계산을 위하여 OR-Tools와 Gurobi 사용
 - GAZEBO Simulation을 이용한 알고리즘 검증
+
+### Researcher, Humanoid Robot Reaserch Lab(HRRLAB) (2019.3. ~ 2021.5.)
+
+#### 2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)
+
+- 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션
+
+#### 역동역학 기반의 보행재활 알고리즘 개발 (2019. 12. ~ 2020. 12.)
+
+- 보행재활 로봇에서의 훈련을 위한 Passive, Assisted-Active, Active 모드의 개발 및 이를 위한 역동역학 기반의 훈련 알고리즘 개발
+- 실제 뇌졸중 환자를 대상으로 한 사용성 평가 및 효과 검증
+- 의료기기 인증
 
 ## 4. Education
 
