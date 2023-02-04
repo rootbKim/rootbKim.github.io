@@ -81,6 +81,8 @@ int main(int argc, char ** argv)
 
 `rclcpp::executors::MultiThreadedExecutor`를 이용하여 여러 개의 노드를 한번에 실행한다.
 
+> SingleThreadedExecutor 역시 멀티 노드로 사용이 가능하지만, 쓰레드가 하나이기 때문에 멀티 노드인 경우에는 MultiThreadedExecutor를 사용하려고 한다.
+
 ```cpp
 #include <ros2_design_example/ros2_design_example.hpp>
 #include <ros2_design_example/ros2_design_example2.hpp>
@@ -168,26 +170,26 @@ public:
   using ExampleSub = example_msgs::msg::ExampleSub;
   using ExampleClient = example_msgs::srv::ExampleClient;
   using ExampleServer = example_msgs::srv::ExampleServer;
-  
+
   DesignExample();
   ~DesignExample();
-  
+
 private:
   // ROS2 인터페이스
   void example_pub();
   rclcpp::Publisher<ExamplePub>::SharedPtr example_pub_;
-  
+
   void example_sub_callback(ExampleSub::UniquePtr msg);
   rclcpp::Subscription<ExampleSub>::SharedPtr example_sub_;
-  
+
   void request_example_client();
   rclcpp::Client<ExampleClient>::SharedPtr example_cli_;
-  
+
   void example_server_callback(
     const std::shared_ptr<ExampleServer::Request> request,
     const std::shared_ptr<ExampleServer::Response> response);
   rclcpp::Service<ExampleServer>::SharedPtr example_srv_;
-  
+
   // thread
   void example_thread(unsigned int ms);
   std::shared_ptr<std::thread> example_thread_;
@@ -215,7 +217,7 @@ DesignExample::DesignExample()
   auto example_pub_qos = rclcpp::QoS(rclcpp::KeepLast(1));
   example_pub_ =
     create_publishe<ExamplePub>("/example/pub", example_pub_qos)
-    
+
   // subscription
   auto example_sub_qos = rclcpp::QoS(rclcpp::KeepLast(1));
   example_sub_ = create_subscription<ExampleSub>(
@@ -225,11 +227,11 @@ DesignExample::DesignExample()
       example_sub_callback(std::move(msg));
     },
     rclcpp::Subscriptions());
-    
+
   // Service Client
   example_cli_ =
     create_client<ExampleClient>("/example/client");
-    
+
   // Service Server
   example_srv_ = create_service<ExampleServer>(
     "/example/server",
@@ -239,10 +241,10 @@ DesignExample::DesignExample()
     {
       example_server_callback(request, response);
     });
-  
+
   // thread 설정
   const unsigned int thread_ms = 1000;
-  example_thread_ = 
+  example_thread_ =
     std::make_shared<std::thread>(
     std::bind(&DesignExample::example_thread, this, thread_ms));
 }
@@ -257,9 +259,9 @@ DesignExample::~DesignExample()
 void DesignExample::example_pub()
 {
   auto msg = std::make_unique<ExamplePub>();
-  
+
   // msg-> 으로 publish할 message에 저장
-  
+
   example_pub_->publish(std::move(msg));
 }
 
@@ -274,7 +276,7 @@ void DesignExample::request_example_client()
 {
   auto req = std::make_shared<ExampleClient::Request>();
   // req-> 으로 request에 저장
-  
+
   using namespace std::chrono_literals;
   while(!example_cli_->wait_for_service(1s)){
     if(!rclcpp::ok()){
@@ -288,11 +290,11 @@ void DesignExample::request_example_client()
       "[RequestRobotState]service not available, waiting again...");
     return;
   }
-  
+
   auto tp = std::chrono::system_clock::now() + std::chrono::seconds(1);
   auto res = example_cli_->async_send_request(req).get();
   auto status = res.wait_until(tp);
-  
+
   if(status == std::future_status::ready){
     // res-> 으로 response에 접근
   } else {
@@ -308,9 +310,9 @@ void DesignExample::example_server_callback(
   const std::shared_ptr<ExampleServer::Response> response)
 {
   // request-> 으로 request에 접근
-  
+
   // request 처리
-  
+
   // response-> 으로 response에 저장
 }
 
@@ -320,7 +322,7 @@ void DesignExample::example_thread(unsigned int ms)
   while (true) {
     // sleep_for을 맨 처음 또는 맨 끝에서 실행
     std::this_thread::sleep_for(wait_duration);
-    
+
     // example_mutex_를 이용하여 lock, unlock
     std::unique_lock<std::mutex> example_lock(example_mutex_);
     // ... //
@@ -353,10 +355,10 @@ namespace ros2_design_example
 class DesignExample : public rclcpp::Node
 {
 // class 구현
-public:  
+public:
   DesignExample(std::shared_ptr<rclcpp::executors::MultiThreadedExecutor> executor);
   ~DesignExample();
-  
+
 private:
   std::shared_ptr<rclcpp::executors::MultiThreadedExecutor> executor_;
   std::map<std::string, std::shared_ptr<DesignExample2> inner_node_set_;
@@ -424,10 +426,10 @@ namespace ros2_design_example
 class DesignExample2 : public rclcpp::Node
 {
 // class 구현
-public:  
+public:
   DesignExample2(std::string node_id);
   ~DesignExample2();
-  
+
 private:
 
 };
