@@ -253,11 +253,13 @@ CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
 docker build [OPTIONS] PATH | URL | -
 ```
 
--t 옵션을 이용하면 빌드시 생성되는 이미지의 이름을 지정할 수 있는데, 그 현재 경로에 ros-foxy라는 이름으로 빌드하는 경우 그 예는 다음과 같다.
+-t 옵션을 이용하면 빌드시 생성되는 이미지의 이름을 지정할 수 있는데, 그 현재 경로에 위에서 만든 `Dockerfile`을 저장하고, ros-foxy라는 이름으로 빌드하는 경우 그 예는 다음과 같다.
 
 ```bash
 docker build -t ros-foxy .
 ```
+
+빌드가 완료되고, image를 확인하면 `ros-foxy:latest`라는 새로운 이미지가 생성된 것을 확인할 수 있다.
 
 ## 참고문헌
 
