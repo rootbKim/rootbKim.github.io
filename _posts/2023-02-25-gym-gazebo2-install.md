@@ -6,7 +6,7 @@ thumbnail: "assets/img/portfolio/alr_logo.png"
 tags: [Gym Gazebo]
 ---
 
-ROS2 환경에서 구동되는 gym-gazebo2의 설치 및 예제 에 대해서 정리한다.
+ROS2 환경에서 구동되는 gym-gazebo2의 설치 및 예제에 대해서 정리한다.
 
 ## 1. Docker를 이용한 설치
 
