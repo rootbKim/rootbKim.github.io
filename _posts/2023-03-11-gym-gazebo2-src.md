@@ -6,6 +6,8 @@ thumbnail: "assets/img/portfolio/alr_logo.png"
 tags: [Gym Gazebo]
 ---
 
+OpenAI Gym 라이브러리를 이용해 구현된 gym-gazebo2 패키지의 코드 내용을 분석한다.
+
 ## 1. gg_random.py
 
 해당 코드는 강화학습을 위한 코드는 아니고, gym-gazebo2 환경을 학습하기 위한 코드라고 한다. 정의된 `MARA-v0` 환경을 등록하고, 랜덤한 `action`을 부여하는 코드라고 보면 될 것 같다.

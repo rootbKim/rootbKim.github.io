@@ -6,6 +6,8 @@ thumbnail: "assets/img/posts/dynamics.webp"
 tags: [Robot Dynamics]
 ---
 
+로봇동역학에서 기본이 되는 회전 행렬 및 Homogeneous 변환 행렬에 대해서 정리한다.
+
 ## 1. Orientation Matrix(Rotation Matrix)
 
 2차원 평면 상에서 $$o_0x_0y_0$$ 좌표계에 대하여 $$\theta$$만큼 회전한 $$o_1x_1y_1$$ 좌표계의 Rotation Matrix $$R^0_1$$는 다음과 같다.

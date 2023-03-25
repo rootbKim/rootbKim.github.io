@@ -6,6 +6,8 @@ thumbnail: "assets/img/portfolio/alr_logo.png"
 tags: [Gym Gazebo]
 ---
 
+OpenAI에서 제공하는 GYM 라이브러리에 대해서 정리하고, gym 라이브러리를 사용하기 위한 기본 API 문서를 정리한다.
+
 ## 1. OpenAI gym
 
 [Open AI Gym 소개](https://c548adc0c815.gitbooks.io/javacafe-ml/content/open-ai-gym.html) 포스팅에서 Open AI Gym에 대해서 간략하게 잘 정리해주고 있다. 포스팅 내용을 간략하게 정리하면, 강화학습 알고리즘을 비교해보고 테스트해 볼 수 있도록 돕는 도구로써 강화학습을 위한 환경을 제공해주는 역할을 한다.
