@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Robot State Publisher 이해하기
-feature-img: "assets/img/portfolio/openai.png"
-thumbnail: "assets/img/portfolio/openai.png"
-tags: [Gym ROS]
+feature-img: "assets/img/posts/ros.png"
+thumbnail: "assets/img/posts/ros.png"
+tags: [ROS2 GAZEBO]
 ---
 
-Gym 프로젝트에 사용되는 로봇의 robot state publisher 튜토리얼을 통해 robot state publisher의 동작을 이해한다.
+로봇의 robot state publisher 튜토리얼을 통해 robot state publisher의 동작을 이해한다.
 
 ## 1. robot_state_publisher 패키지란?
 
