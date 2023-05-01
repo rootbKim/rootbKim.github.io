@@ -3,7 +3,7 @@ layout: post
 title: ROS Controller Manager 이해하기
 feature-img: "assets/img/posts/ros.png"
 thumbnail: "assets/img/posts/ros.png"
-tags: [ROS2 GAZEBO]
+tags: [ROS2, GAZEBO]
 ---
 
 Gazebo에 spawn된 로봇 또는 ROS2 기반의 실제 로봇의 관절을 제어하기 위한 `controller_manager`에 대해서 알아본다.

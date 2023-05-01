@@ -3,7 +3,7 @@ layout: post
 title: Robot State Publisher 이해하기
 feature-img: "assets/img/posts/ros.png"
 thumbnail: "assets/img/posts/ros.png"
-tags: [ROS2 GAZEBO]
+tags: [ROS2, GAZEBO]
 ---
 
 로봇의 robot state publisher 튜토리얼을 통해 robot state publisher의 동작을 이해한다.

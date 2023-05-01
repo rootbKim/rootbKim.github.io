@@ -3,7 +3,7 @@ layout: post
 title: ROS GAZEBO Spawner 이해하기
 feature-img: "assets/img/posts/ros.png"
 thumbnail: "assets/img/posts/ros.png"
-tags: [ROS2 GAZEBO]
+tags: [ROS2, GAZEBO]
 ---
 
 로봇 모델을 Gazebo나 RViz와 같은 시뮬레이션 환경에 로드하고 실행할 때 사용되는는 도구인 spawner에 대해 알아본다.

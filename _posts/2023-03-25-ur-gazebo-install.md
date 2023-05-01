@@ -3,7 +3,7 @@ layout: post
 title: UR GAZEBO Simulation 설치하기
 feature-img: "assets/img/portfolio/openai.png"
 thumbnail: "assets/img/portfolio/openai.png"
-tags: [Gym Simulation]
+tags: [Gym]
 ---
 
 Gym을 이용한 시뮬레이션 환경을 구성하기 위하여 UR 로봇에서 제공하는 ROS2 Gazebo Simulation 패키지를 설치하고, CLI를 이용하여 로봇을 컨트롤한다.
