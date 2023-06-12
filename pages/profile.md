@@ -75,7 +75,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 - 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션
 
-#### 역동역학 기반의 보행재활 알고리즘 개발 (2019. 12. ~ 2020. 12.)
+#### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2023-06-08-gait-rehabilitation-robot.html)
 
 - 보행재활 로봇에서의 훈련을 위한 Passive, Assisted-Active, Active 모드의 개발 및 이를 위한 역동역학 기반의 훈련 알고리즘 개발
 - 실제 뇌졸중 환자를 대상으로 한 사용성 평가 및 효과 검증
