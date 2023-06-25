@@ -40,6 +40,6 @@ tags: [Portfolio]
 
 - [연구 배경 및 보행재활로봇 DDgo Pro](/2023/06/17/gait-background.html)
 - [Inverse Dynamics](/2023/06/18/gait-inverse-dynamics.html)
-- 훈련 모드(Passive Mode, Active Assisted Mode, Active Mode)
-- 훈련 알고리즘의 검증 및 결과
+- [훈련 모드(Passive Mode, Active Assisted Mode, Active Mode)](/2023/06/24/gait-mode.html)
+- [훈련 알고리즘의 검증 및 결과](/2023/06/25/gait-experiments)
 - 사용성 평가
