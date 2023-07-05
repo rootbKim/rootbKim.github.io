@@ -1,9 +1,15 @@
 <div class="posts">
-    {% unless paginator.posts %}
-    <article><section class="post-content"><p>There are no blog posts</p></section></article>
-    {% endunless %}
-    {% for post in paginator.posts %}
+  {% unless paginator.posts %}
+    <article>
+      <section class="post-content">
+        <p>There are no blog posts</p>
+      </section>
+    </article>
+  {% endunless %}
+
+  {% for post in paginator.posts %}
     <div class="post-teaser">
+      <div class="teaser">
         {% if post.thumbnail %}
         <div class="post-img">
             <a aria-label="{{ post.title }}" href="{{ post.url | relative_url }}">
@@ -11,27 +17,35 @@
             </a>
         </div>
         {% endif %}
+      </div>
+      <div class="post-section">
         <span>
           <header>
-            <h1>
-              <a aria-label="{{ post.title }}" class="post-link" href="{{ post.url | relative_url }}">
+            {% include blog/post_info.liquid author=post.author date=post.date %}
+            <h2>
+              <a
+                aria-label="{{ post.title }}"
+                class="post-link"
+                href="{{ post.url | relative_url }}">
                 {{ post.title }}
               </a>
-            </h1>
-            {% include blog/post_info.liquid author=post.author date=post.date %}
+            </h2>
           </header>
           {% if site.excerpt or site.theme_settings.excerpt %}
-              <div class="excerpt">
-                  {% if site.excerpt == "truncate" %}
-                     {{ post.content | strip_html | truncate: '250' | escape }}
-                  {% else %}
-                     {{ post.excerpt | strip_html | escape }}
-                  {% endif %}
-              </div>
+            <div class="excerpt">
+              {% if site.excerpt == "truncate" %}
+                {{ post.content | strip_html | truncate: '250' | escape }}
+              {% else %}
+                {{ post.excerpt | strip_html | escape }}
+              {% endif %}
+            </div>
           {% endif %}
-      </span>
+          {% capture tag_list %}{{ post.tags | join: "|"}}{% endcapture %}
+          {% include default/tags_list.liquid tags=tag_list %}
+        </span>
+      </div>
     </div>
-    {% endfor %}
+  {% endfor %}
 </div>
 
 {% include blog/blog_nav.liquid %}

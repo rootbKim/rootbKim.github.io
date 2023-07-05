@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
 
 /* TYPOGRAPHY */
-$font-family-main: 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
-$font-family-headings: 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
+$font-family-main: 'NanumSquareNeo-Variable', 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
+$font-family-headings: 'NanumSquareNeo-Variable', 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
+$font-family-pages: 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
 $font-family-logo: 'Petit Formal Script', 'Source Sans Pro', 'Noto Sans KR', Helvetica, Arial, sans-serif;
 $font-size: 1.25em;
 
@@ -15,7 +16,7 @@ $border-radius: 4px !default;
 /* PADDING */
 $padding-x-large: 23%;
 $padding-large: 9%;
-$padding-medium: 6%;
+$padding-medium: 10%;
 $padding-small: 4%;
 $padding-x-small: 3%;
 $title-padding: 1%;

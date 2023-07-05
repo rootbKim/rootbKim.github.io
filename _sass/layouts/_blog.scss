@@ -45,12 +45,23 @@
 /* --- Post listing --- */
 .posts {
   .post-teaser {
-    @extend %padding-post;
     width: 100%;
-    margin-bottom: 0;
-    display: inline-block;
+    margin-bottom: 60px;
+    padding-bottom: 45px;
+    // display: inline-block;
+    display: flex;
     background-size: cover;
-    border-bottom: 0px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    .teaser {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .post-section{
+      flex: 4;
+      padding: 20px;
+    }
 
     p a {
       @extend .body-link;
@@ -99,6 +110,7 @@
   }
 
   .excerpt {
-    margin-top: 1em;
+    margin-top: 0em;
+    margin-bottom: 1em;
   }
 }

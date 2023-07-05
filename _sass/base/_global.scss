@@ -45,19 +45,33 @@ h6 {
 }
 
 h1 {
-  font-size: 2.3em;
-}
-
-h2 {
-  font-size: 1.75em;
-}
-
-h3 {
   font-size: 1.5em;
 }
 
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
 h4 {
-  font-size: 1.15em;
+  font-size: 0.9em;
+}
+
+p, li, td, th {
+  font-size: 0.8em;
+}
+li li {
+  font-size: 1em;
+}
+li li * {
+  font-size: 1em;
+}
+
+span {
+  font-size: 0.98em;
 }
 
 iframe,
@@ -87,19 +101,19 @@ summary {
 
 @media screen and (max-width: $break) {
   h1 {
-    font-size: 2em;
+    font-size: 1.0em;
   }
   h2 {
-    font-size: 1.5em;
+    font-size: 0.8em;
   }
   h3 {
-    font-size: 1em;
+    font-size: 0.7em;
   }
   h4, tr, th, .meta {
-    font-size: 0.9em;
+    font-size: 0.6em;
   }
   p, li, td {
-    font-size: 0.8em;
+    font-size: 0.5em;
   }
 
   iframe,
@@ -114,25 +128,25 @@ summary {
 
 @media screen and (max-width: $sm-break) {
   h1 {
-    font-size: 1.5em;
+    font-size: 1.0em;
   }
   h2 {
-    font-size: 1em;
-  }
-  h3 {
-    font-size: 0.9em;
-  }
-  h4, th, tr, .meta {
-    font-size: 0.85em;
-  }
-  p, li, td {
     font-size: 0.8em;
   }
+  h3 {
+    font-size: 0.7em;
+  }
+  h4, th, tr, .meta {
+    font-size: 0.6em;
+  }
+  p, li, td {
+    font-size: 0.5em;
+  }
   li li {
-    font-size: 0.95em;
+    font-size: 0.5em;
   }
   li li * {
-    font-size: 1em;
+    font-size: 0.5em;
   }
 
   table {
@@ -188,7 +202,7 @@ ul,
 dl,
 .math-display {
   line-height: 1.5;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 // Lists within lists

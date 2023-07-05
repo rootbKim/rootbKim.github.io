@@ -3,10 +3,9 @@ layout: post
 title: Gait Rehabilitation Robot - Experimental results
 feature-img: "assets/img/portfolio/gait.jpg"
 thumbnail: "assets/img/portfolio/gait.jpg"
-tags: [Gait Rehabilitation Robot]
+tags: [Gait Rehabilitation Robot, Robotics]
+excerpt: "역동역학 기반의 파워어시스트 보행재활로봇인 DDgo Pro의 역동역학 기반 훈련 알고리즘의 검증을 위해 실험적으로 검증하고 그 결과를 정리한다."
 ---
-
-역동역학 기반의 파워어시스트 보행재활로봇인 DDgo Pro의 역동역학 기반 훈련 알고리즘의 검증을 위해 실험적으로 검증하고 그 결과를 정리한다.
 
 ## 1. 역동역학 해석의 검증
 

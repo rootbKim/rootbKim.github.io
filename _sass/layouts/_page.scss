@@ -1,17 +1,18 @@
-.title-padder {
-  padding: $title-padding;
+.page-layout {
+  margin-left: 100px;
+  margin-right: 100px;
+
+  h1 {
+    margin-top: -2%;
+    margin-bottom: 0%;
+    font-size: 1.2em;
+  }
 }
 
-h1.title {
-  @extend .subtle-txt-shadow;
-  padding: 0.5em 0;
-}
-
-
-.subtitle {
-  font-weight: normal;
-  margin-top: 5px;
-  text-shadow: 1px 1px 2px var(--text-shadow);
+.page-content {
+  margin-top: 80px;
+  margin-left: 400px;
+  margin-right: 400px;
 }
 
 //Shared css in _post.scss
