@@ -29,7 +29,6 @@
   &:after {
     content: " ";
     display: table;
-    z-index: 5000;
   }
 }
 
@@ -125,57 +124,21 @@ nav {
 @media screen and (max-width: $break) {
   .site-header {
     img.avatar {
-      margin-top: 10px;
-      font-size: 15px;
+      font-size: 1em;
+      padding-bottom: 0.5em;
     }
 
     .site-title {
-      margin-top: 15px;
-      font-size: 15px;
+      font-size: 1em;
     }
   }
 
   nav {
     height: auto;
-
+    margin-top: 10px;
+    font-size: 1em;
     .separator {
       display: none !important;
-    }
-
-    ul {
-      width: 100%;
-      overflow: hidden;
-
-      /* fade out, then shrink */
-      transition: opacity .25s 0s, font-size .25s 0s;
-      transition-delay: 0s;
-
-      &.hide {
-        font-size: 0;
-        margin: 0;
-        opacity: 0;
-        padding: 0;
-      }
-    }
-
-    li {
-      width: 100%;
-      text-align: center;
-      font-size: 1em;
-      position: relative;
-      background-color: var(--background);
-      backdrop-filter: brightness(0.98);
-
-      &:nth-of-type(4n) {
-        background-color: var(--background);
-      }
-
-      a {
-        width: 100%;
-        margin: 0;
-        display: block;
-      }
-
     }
   }
 }
