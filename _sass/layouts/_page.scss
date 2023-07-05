@@ -9,10 +9,25 @@
   }
 }
 
+@media screen and (max-width: $break) {
+  .page-layout {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+
 .page-content {
   margin-top: 80px;
   margin-left: 400px;
   margin-right: 400px;
+}
+
+@media screen and (max-width: $break) {
+  .page-content {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 //Shared css in _post.scss

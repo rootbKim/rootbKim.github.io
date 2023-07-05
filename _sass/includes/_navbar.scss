@@ -3,6 +3,13 @@
   margin-right: 380px;
 }
 
+@media screen and (max-width: $break) {
+  .head-layout {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 // To clear things when we float the element inside nav and ul
 .clear {
   *zoom: 1;
@@ -110,11 +117,13 @@ nav {
 @media screen and (max-width: $break) {
   .site-header {
     img.avatar {
-      margin-top: -7px
+      margin-top: 10px;
+      font-size: 15px;
     }
 
     .site-title {
-      margin-top: 7px;
+      margin-top: 15px;
+      font-size: 15px;
     }
   }
 

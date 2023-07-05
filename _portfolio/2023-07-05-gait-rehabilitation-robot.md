@@ -3,8 +3,8 @@ layout: post
 title: 역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구
 feature-img: "assets/img/portfolio/gait.jpg"
 img: "assets/img/portfolio/gait.jpg"
-date: 08 June 2023
-tags: [Portfolio]
+date: 05 July 2023
+tags: [Gait Rehabilitation Robots]
 ---
 
 ## 프로젝트 개요
@@ -29,17 +29,14 @@ tags: [Portfolio]
 ## 기술 스택
 
 - Embedded System(TI TMS320F28335)
-- Motor Control
+- Motor Control(Maxon Motor Driver, Oriental BLDC Motor)
 - Inverse Dynamics
 - NX
 - AutoCAD
 - MATLAB
+- Webot
 - Recurdyn
+- CATIA
 
 ## 프로젝트 세부 내용
 
-- [연구 배경 및 보행재활로봇 DDgo Pro](/2023/06/17/gait-background.html)
-- [Inverse Dynamics](/2023/06/18/gait-inverse-dynamics.html)
-- [훈련 모드(Passive Mode, Active Assisted Mode, Active Mode)](/2023/06/24/gait-mode.html)
-- [훈련 알고리즘의 검증 및 결과](/2023/06/25/gait-experiments)
-- 사용성 평가

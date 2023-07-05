@@ -11,6 +11,13 @@
   }
 }
 
+@media screen and (max-width: $break) {
+  .post-layout {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
 .post-header {
   margin-bottom: 10%;
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);

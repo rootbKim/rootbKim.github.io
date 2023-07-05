@@ -3,7 +3,7 @@ layout: page
 title: Profile
 permalink: /profile/
 feature-img: "assets/img/thumbnails/hubo.png"
-tags: [Page]
+tags: []
 ---
 
 ## 1. Profile
@@ -12,27 +12,31 @@ tags: [Page]
 
 #### Manager / Platform Business Team, [CLOBOT Co., Ltd.](https://www.clobot.co.kr)
 
-I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and M.S degrees in Department of Mechanical Design and Robot Enginnering from Seoul National University of Science and Technology, Seoul, South Korea in 2017 and 2021, respectively. I am interested in scheduling of multi mobile robots, dynamics control of manipulators, and service robot platform based on the open source.
+I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and M.S degrees in Department of Mechanical Design and Robot Enginnering from Seoul National University of Science and Technology, Seoul, South Korea in 2017 and 2021, respectively. I am interested in autonomous driving, traffic management, task scheduling, service management of multi-robots, dynamics control of manipulators and mobile robots.
 
 ## 2. Key Skills Assement
 
 - 멀티로봇: 멀티로봇 관제 시스템 아키텍처 설계 및 개발, 멀티로봇 간 교통/충돌 관리, 작업 분배 알고리즘, 멀티로봇 DB 서버 설계 및 구축
-- 오픈소스: ROS 오픈소스 패키지 구성 및 관리, 오픈소스 라이브러리 이용
-- 다양한 로봇: 서빙, 호텔, 방역 로봇 등 AMR, KIVA 타입 AGV
-- 개발 툴: ROS, ROS2, 모던 C++, Nav2, Git
+- 오픈소스: 오픈소스 컨트리뷰트, RMF
+- 다양한 로봇: 서빙, 호텔, 방역 로봇 등 AMR, KIVA, Sorting 타입 AGV 등
+- 개발 툴: ROS, ROS2, Mordern C++, Python, Nav2, Git
 
 ## 3. Professional Experience
 
 ### Manager, CLOBOT Co., Ltd. (2021.5. ~ PRESENT)
 
-#### Traffic Management Server (2022.12. ~ PRESENT)
+#### 저상형 주차로봇의 서비스 관리 (2023. 07. ~ PRESENT)
+
+- 저상형 주차로봇의 서비스 관리를 위한 서비스 매니저 개발
+
+#### 이기종 멀티 로봇 관제를 위한 Traffic Management Server (2022.12. ~ PRESENT)
 
 - 같은 공간 내 이기종 로봇의 원활한 서비스 수행이 가능하도록 교통 정보를 관리하고 중계할 수 있는 교통관리 서버 시스템을 개발
-- 로봇 간 충돌을 방지하기 위한 충돌 감지 로직 구현
-- 로봇 간 충돌을 방지하기 위해 충돌 회피 로직 적용
-- 로봇 간 우선순위 판단을 위한 우선순위 판단 로직 구현
-- 로봇의 교통관리를 위해 필요한 데이터의 정의 및 DB 설계 및 구현
+- 이기종 로봇 간 충돌을 방지하기 위해 충돌 회피 로직 적용
+- 이기종 로봇 간 우선순위 판단을 위한 우선순위 판단 로직 구현
+- 이기종 로봇의 교통관리를 위해 필요한 데이터의 정의(R2R, R2P)
 - 로봇의 교통관리를 위한 서버 아키텍처 설계
+- 로봇 및 메타 정보의 등록 시퀀스 관리
 
 #### Warehouse Control System(WCS)과 연동된 다중 AGV Control System(ACS) (2021.9. ~ 2022.12.)
 
@@ -69,17 +73,21 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 최적화 계산을 위하여 OR-Tools와 Gurobi 사용
 - GAZEBO Simulation을 이용한 알고리즘 검증
 
-### Researcher, Humanoid Robot Reaserch Lab(HRRLAB) (2019.3. ~ 2021.5.)
+---
+
+### [Researcher, Humanoid Robot Reaserch Lab(HRRLAB) (2019.3. ~ 2021.5.)](http://www.hrrlab.com/)
 
 #### 2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)
 
 - 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션
 
-#### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2023-06-08-gait-rehabilitation-robot.html)
+#### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2023-07-05-gait-rehabilitation-robot.html)
 
 - 보행재활 로봇에서의 훈련을 위한 Passive, Assisted-Active, Active 모드의 개발 및 이를 위한 역동역학 기반의 훈련 알고리즘 개발
 - 실제 뇌졸중 환자를 대상으로 한 사용성 평가 및 효과 검증
 - 의료기기 인증
+
+---
 
 ## 4. Education
 
