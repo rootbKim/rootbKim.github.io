@@ -16,6 +16,12 @@
   }
 }
 
+@media screen and (max-width: $sm-break) {
+  .page-layout {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
 .page-content {
   margin-top: 80px;
@@ -30,6 +36,12 @@
   }
 }
 
+@media screen and (max-width: $sm-break) {
+  .page-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 //Shared css in _post.scss
 
 

@@ -3,6 +3,13 @@
   margin-right: 380px;
 }
 
+@media screen and (max-width: $sm-break) {
+  .head-layout {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+  
 @media screen and (max-width: $break) {
   .head-layout {
     margin-left: 0;
