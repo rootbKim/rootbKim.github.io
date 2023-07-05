@@ -29,6 +29,7 @@
   &:after {
     content: " ";
     display: table;
+    z-index: 5000;
   }
 }
 

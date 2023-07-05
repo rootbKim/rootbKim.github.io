@@ -115,6 +115,12 @@ summary {
   p, li, td {
     font-size: 0.5em;
   }
+  li li {
+    font-size: 1em;
+  }
+  li li * {
+    font-size: 1em;
+  }
 
   iframe,
   img,
@@ -143,10 +149,10 @@ summary {
     font-size: 0.5em;
   }
   li li {
-    font-size: 0.5em;
+    font-size: 1em;
   }
   li li * {
-    font-size: 0.5em;
+    font-size: 1em;
   }
 
   table {
