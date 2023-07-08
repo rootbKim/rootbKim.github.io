@@ -23,7 +23,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ## 3. Professional Experience
 
-### Manager, CLOBOT Co., Ltd. (2021.5. ~ PRESENT)
+### Manager, [CLOBOT Co., Ltd.](https://www.clobot.co.kr) (2021.5. ~ PRESENT)
 
 #### 저상형 주차로봇의 서비스 관리 (2023. 07. ~ PRESENT)
 
@@ -75,7 +75,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ---
 
-### [Researcher, Humanoid Robot Reaserch Lab(HRRLAB) (2019.3. ~ 2021.5.)](http://www.hrrlab.com/)
+### Researcher, [Humanoid Robot Reaserch Lab(HRRLAB)](http://www.hrrlab.com/) (2019.3. ~ 2021.5.)
 
 #### 2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)
 
