@@ -49,7 +49,7 @@ excerpt: 석사 논문 연구 주제인 '역동역학 기반의 파워어시스�
 
 #### 5절 링크 메커니즘 및 엑츄에이터
 
-* Inverse Dynamics를 해석한 보행재활로봇의 5절링크와 Freewheel을 이용한 병렬 구동 시스템
+* Inverse Dynamics를 해석한 보행재활로봇의 5절링크와 Freewheel을 이용한 병렬 구동 시스템이다.
 
 <img src="/assets/img/portfolio/gait/actuator.png">
 
@@ -73,7 +73,11 @@ excerpt: 석사 논문 연구 주제인 '역동역학 기반의 파워어시스�
 
 <img src="/assets/img/portfolio/gait/five_link_mechanism.png">
 
-* 두 개의 5절링크의 구동을 위한 토크 프로파일
+* Newton-Euler 방식을 이용하여 다음과 같이 크랭크 관절의 위치에 따른 모터의 토크를 계산할 수 있었다.
+
+<img src="/assets/img/portfolio/gait/newton_euler.png">
+
+* 다음은 위의 식에 대한 결과로, 최종적으로 두 개의 5절링크의 구동을 위한 토크 프로파일을 다음과 같이 구할 수 있다.
     * 2km/h의 속도로 DDgo Pro에서 보행을 구현하기 위한 토크 프로파일
     * 자세한 역동역학 해석 과정은 [논문](https://doi.org/10.1007/s11370-021-00357-8)을 참조
 
@@ -82,12 +86,52 @@ excerpt: 석사 논문 연구 주제인 '역동역학 기반의 파워어시스�
 
 #### 3 가지 보행재활 모드
 
-* 해석된 역동역학을 기반으로 세 가지 모드(Passive, Active-Assisted, Active)에 대한 동작과 그 효과에 대한 검증
+* 해석된 역동역학을 기반으로 세 가지 모드(Passive, Active-Assisted, Active)에 대한 동작과 그 효과에 대한 검증하였다.
 
 <iframe width="840" height="315" src="https://www.youtube.com/embed/AY8eiaZwY9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 #### 근력보조성능 검증
 
-* 세 가지 모드의 근육 활성도에 대한 비교 그래프로, 점진적인 훈련을 수행할 수 있음을 나타냄
+* 세 가지 모드의 근육 활성도에 대한 비교 그래프로, 점진적인 훈련을 수행할 수 있음을 보여준다.
 
 <img src="/assets/img/portfolio/gait/3mode_emg.png">
+
+#### 환자 사용성 평가
+
+* 보행 수준이 FAC(Functional Ambulation Category)가 3~4 단계인 뇌병변 환자 3명을 대상으로 실험을 진행하였다.
+
+<img src="/assets/img/portfolio/gait/test_table.png">
+
+* 보행 자세의 개선 여부를 측정하기 위하여 환측 다리와 건측 다리의 보행 모션 유사성을 측정하기 위하여 IMU 센서를 장착하고 실험을 진행하였다.
+
+<img src="/assets/img/portfolio/gait/subjects.png">
+
+* 보행 모션 유사성 검증은 다음의 상호 상관 관계 식을 이용하여 계산하였다.
+
+<img src="/assets/img/portfolio/gait/cross_correlation.png">
+
+* Active Assisted Mode와 Active Mode 를 대상으로 진행하였으며, Active Assisted Mode는 2.6km/h 목표 보행속도와 보조강도가 50%일 때, 보행을 하였고, Active Mode에서는 Active Assisted Mode에서 보행했던 속도로 각각 1분간 보행 훈련을 진행하였다. 훈련은 각 모드별로 5회씩 진행하였으며, 각 훈련마다 보행 유사도를 측정하여, 평균값을 비교하였다.
+
+* 실험 결과는 다음과 같으며, 대부분 Active Assisted Mode의 상호상관계수가 높기 때문에, 구현된 Active Assisted Mode의 모터 보조가 보행 자세를 개선하는데 효과적임을 알 수 있다.
+    * 1번 환자의 경우, 고관절에서만 모터 보조가 유효함을 보였으며, 2번, 3번 환자는 고관절과 슬관절에서 모두 모터 보조가 유효함을 보여주었는데, 1번 환자의 경우 인터뷰 자료를 토대로 분석한 결과 무릎의 힘이 다른 환자들보다 좋았기 때문에 이러한 결과가 나온 것으로 판단했다.
+
+<img src="/assets/img/portfolio/gait/test_table.png">
+
+* 다음은 각 환자의 결과 그래프이다.
+    * 1번 환자
+    <img src="/assets/img/portfolio/gait/test_graph1.png">
+    * 2번 환자
+    <img src="/assets/img/portfolio/gait/test_graph2.png">
+    * 3번 환자
+    <img src="/assets/img/portfolio/gait/test_graph3.png">
+
+#### Conclusion
+
+* 이 연구를 통해 DDgo Pro의 5절 링크가 사람이 보행 훈련을 할 수 있도록 사람의 보행 패턴에 맞는 움직임을 만들기 위한 5절 링크의 동역학 식을 계산하였다.
+* 일반적인 매니퓰레이터 형태가 아닌, 병렬 구조의 링크를 Newton-Euler 방법을 이용하여 역동역학을 해석하였다.
+* 계산된 역동역학 관계를 이용하여, 보행 훈련을 단계적으로 수행할 수 있도록 Passive Mode, Active-Assisted Mode, Active Mode를 구현하였고, 각 모드에 대한 효과를 검증하였다.
+* 본 연구를 검증하기 위하여 3명의 뇌병변 환자를 대상으로 실험하였으며, 보행 자세 개선의 효과를 검증하였다.
+* 본 연구를 통해 개발된 훈련 알고리즘은 기본의 보행 궤적만 추종하는 제어 알고리즘과는 다르게 사람의 의도 파악하여 제어를 함으로써 보행 궤적의 이질감을 줄이고, 보행 궤적에 유연하게 대처할 수 있으면서, 보행 궤적을 추종할 수 있도록 할 수 있는 보행 훈련을 생성할 수 있었다.
+* 향후 연구의 방향을 다음과 같이 제시하였다.
+    * 양쪽의 5절 링크를 하나의 모터로 제어하는 것이 아닌 두 개의 모터로 각각의 링크를 제어하는 것. 하나의 모터로 제어하게 되면, 양 발에 대한 독립적인 근력 보조가 불가능하기 때문.
+    * 해당 연구는 환자의 보행 힘을 정확히 측정하기 위한 장치가 없었기 때문에 이를 가정하여 보상하였는데, 향후에는 발판에 힘 센서를 부착하여 환자의 보행 힘을 측정하여 정확하게 보상하는 것이 필요.

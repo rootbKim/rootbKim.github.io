@@ -2,7 +2,6 @@
 layout: page
 title: Profile
 permalink: /profile/
-feature-img: "assets/img/thumbnails/hubo.png"
 tags: []
 ---
 
@@ -16,9 +15,9 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ## 2. Key Skills Assement
 
-- 멀티로봇: 멀티로봇 관제 시스템 아키텍처 설계 및 개발, 멀티로봇 간 교통/충돌 관리, 작업 분배 알고리즘, 멀티로봇 DB 서버 설계 및 구축
-- 오픈소스: 오픈소스 컨트리뷰트, RMF
-- 다양한 로봇: 서빙, 호텔, 방역 로봇 등 AMR, KIVA, Sorting 타입 AGV 등
+- 멀티로봇: 멀티로봇 관제 시스템 아키텍처 설계 및 개발, 멀티로봇 간 교통/충돌 관리, 작업 분배 알고리즘, 멀티로봇 관제서버 설계 및 구축
+- 오픈소스: 오픈소스 컨트리뷰트, RMF / ROS
+- 다양한 로봇: 서빙, 호텔, 방역 로봇 등 다양한 종류의 AMR / KIVA, Sorting 타입의 AGV / 보행재활로봇 / 2족보행로봇 & 매니퓰레이터 / 주차로봇
 - 개발 툴: ROS, ROS2, Mordern C++, Python, Nav2, Git
 
 ## 3. Professional Experience
@@ -28,6 +27,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 #### 저상형 주차로봇의 서비스 관리 (2023. 07. ~ PRESENT)
 
 - 저상형 주차로봇의 서비스 관리를 위한 서비스 매니저 개발
+- 두 대의 저상형 주차로봇에 대한 협조제어
 
 #### 이기종 멀티 로봇 관제를 위한 Traffic Management Server (2022.12. ~ PRESENT)
 
@@ -57,7 +57,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 #### Robot Middleware Framework(RMF)에 우회경로 알고리즘의 적용 (2021.8. ~ 2021.10.)
 
 - OSRF에서 개발 중인 오픈소스 패키지인 RMF에 MIP를 이용한 우회경로 생성 알고리즘을 적용하고, 해당 프레임워크를 이용하여 시뮬레이션 및 실 환경에서 다수의 로봇에 대한 트레픽 관리를 수행
-- 해당 수행 내용은 2021 ROS World에서 'RMF based multi-robot traffic management application use case'라는 제목으로 발표
+- 해당 수행 내용은 2021 ROS World에서 ['RMF based multi-robot traffic management application use case'](https://vimeo.com/649654300)라는 제목으로 발표
 
 #### 연구용 플랫폼의 ROS 오픈소스 패키지 (2021.5. ~ 2021.10.)
 
@@ -77,9 +77,9 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ### Researcher, [Humanoid Robot Reaserch Lab(HRRLAB)](http://www.hrrlab.com/) (2019.3. ~ 2021.5.)
 
-#### 2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)
+#### [2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)](/portfolio/2023-07-08-biped-walking-robot.html)
 
-- 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션
+- 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 RBDL, Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션 연구
 
 #### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2023-07-05-gait-rehabilitation-robot.html)
 
@@ -102,6 +102,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 ## 6. International Conference
 
 - [Ji-Yong Kim, Jae-Wong Cho, Ji-Hyeon Kwon, "Multi-robot traffic management using MIP path negotiation scheduler," International Conference on Control, Automation and Systems, 2021.](https://ieeexplore.ieee.org/document/9649860)
+- Jihyeon Kwon, Jiyong Kim, "Avoidance Driving Method Through Costmap Reflection Using Path Information Between Autonomous Driving Robots," The 7th International Conference on Advanced Engineering – Theory and Applications, 2022.
 
 ## 7. Domestic Conference
 
