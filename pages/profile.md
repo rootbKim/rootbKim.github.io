@@ -38,6 +38,13 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 로봇의 교통관리를 위한 서버 아키텍처 설계
 - 로봇 및 메타 정보의 등록 시퀀스 관리
 
+#### 로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발 (2022.6. ~ 2022.9.)
+
+- 로봇 간 회피를 위한 global costmap layer 개발
+- 기존에 제안된 사람을 회피하기 위한 social layer를 멀티로봇에 적용
+- 로봇 간 상태정보를 공유하기 위한 시스템 아키텍처 구성
+- 실 로봇에 적용 및 테스트, 관련 내용 학술대회 논문 게제
+
 #### Warehouse Control System(WCS)과 연동된 다중 AGV Control System(ACS) (2021.9. ~ 2022.12.)
 
 - 물류창고 내의 Goods-to-person 시스템에서 사용되는 KIVA 타입의 AGV를 관제하는 시스템을 개발
@@ -47,26 +54,19 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 실제 물류창고 내 개발한 솔루션 적용 및 운용
 - 프로젝트 개발 일정 관리
 
-#### 로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발 (2022.6. ~ 2022.9.)
-
-- 로봇 간 회피를 위한 global costmap layer 개발
-- 기존에 제안된 사람을 회피하기 위한 social layer를 멀티로봇에 적용
-- 로봇 간 상태정보를 공유하기 위한 시스템 아키텍처 구성
-- 실 로봇에 적용 및 테스트, 관련 내용 학술대회 논문 게제
-
 #### Robot Middleware Framework(RMF)에 우회경로 알고리즘의 적용 (2021.8. ~ 2021.10.)
 
 - OSRF에서 개발 중인 오픈소스 패키지인 RMF에 MIP를 이용한 우회경로 생성 알고리즘을 적용하고, 해당 프레임워크를 이용하여 시뮬레이션 및 실 환경에서 다수의 로봇에 대한 트레픽 관리를 수행
 - 해당 수행 내용은 2021 ROS World에서 ['RMF based multi-robot traffic management application use case'](https://vimeo.com/649654300)라는 제목으로 발표
 
-#### 연구용 플랫폼의 ROS 오픈소스 패키지 (2021.5. ~ 2021.10.)
+#### [연구용 로봇 플랫폼의 ROS 오픈소스 패키지 (2021.5. ~ 2021.10.)](/portfolio/2021-05-10-platform-clober.html)
 
-- 연구용 플랫폼은 모바일 로봇의 기본 베이스 플랫폼으로, 모바일 로봇의 기본 오픈소스 패키지를 구성하는 프로젝트
+- 연구용 로봇 플랫폼은 모바일 로봇의 기본 베이스 플랫폼으로, 모바일 로봇의 기본 오픈소스 패키지를 구성하는 프로젝트
 - description, navigation, slam, simulation, serial 등의 기본 패키지 구성
 - ROS 1(noetic), ROS 2(foxy) 패키지 구성
 - rosdistro에 패키지 등록 및 배포
 
-#### MIP를 이용한 우회경로 알고리즘의 연구 (2021.5. ~ 2021.8.)
+#### [MIP를 이용한 우회경로 알고리즘의 연구 (2021.5. ~ 2021.8.)](/portfolio/2021-05-10-mip-detour-path.html)
 
 - 노드-링크 기반의 맵에서의 Mixed Integer Programming을 이용한 우회경로 알고리즘을 연구
 - MIP 계산을 위한 노드-링크 구조 맵의 수학적 모델링
@@ -77,11 +77,11 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ### Researcher, [Humanoid Robot Reaserch Lab(HRRLAB)](http://www.hrrlab.com/) (2019.3. ~ 2021.5.)
 
-#### [2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)](/portfolio/2023-07-08-biped-walking-robot.html)
+#### [2족보행 로봇의 보행 알고리즘 시뮬레이션 (2020.12. ~ 2021.5.)](/portfolio/2020-12-01-biped-walking-robot.html)
 
 - 2족보행 로봇의 하드웨어의 ROS(kinetic) GAZEBO 시뮬레이션 적용 및 RBDL, Eigen 라이브러리를 이용한 12자유도(6자유도 + 6자유도) 다관절 Computed Torque Cotronl(CTC)를 이용한 보행 시뮬레이션 연구
 
-#### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2023-07-05-gait-rehabilitation-robot.html)
+#### [역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구 (2019. 12. ~ 2020. 12.)](/portfolio/2019-12-01-gait-rehabilitation-robot.html)
 
 - 보행재활 로봇에서의 훈련을 위한 Passive, Assisted-Active, Active 모드의 개발 및 이를 위한 역동역학 기반의 훈련 알고리즘 개발
 - 실제 뇌졸중 환자를 대상으로 한 사용성 평가 및 효과 검증

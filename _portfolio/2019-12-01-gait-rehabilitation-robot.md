@@ -3,8 +3,7 @@ layout: post
 title: 역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구
 feature-img: "assets/img/portfolio/gait/gait.jpg"
 img: "assets/img/portfolio/gait/gait.jpg"
-date: 05 July 2023
-tags: [Gait Rehabilitation Robots]
+date: 01 December 2019
 excerpt: 석사 논문 연구 주제인 '역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘'의 내용을 간단하게 정리한다.
 ---
 

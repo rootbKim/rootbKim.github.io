@@ -3,8 +3,7 @@ layout: post
 title: 2족보행 로봇의 보행 알고리즘 시뮬레이션
 feature-img: "assets/img/portfolio/biped/biped.png"
 img: "assets/img/portfolio/biped/biped.png"
-date: 08 July 2023
-tags: [Biped Walking Robot]
+date: 01 December 2020
 excerpt: 2족 보행로봇인 SUBO3의 시뮬레이션 환경을 구축하고, CTC 기반의 보행 알고리즘을 위한 RBDL 라이브러리를 이용한 6자유도 제어 및 로봇의 자세 제어에 대한 연구 내용이다.
 ---
 
