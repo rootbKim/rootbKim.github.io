@@ -54,7 +54,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 실제 물류창고 내 개발한 솔루션 적용 및 운용
 - 프로젝트 개발 일정 관리
 
-#### Robot Middleware Framework(RMF)에 우회경로 알고리즘의 적용 (2021.8. ~ 2021.10.)
+#### [Robot Middleware Framework(RMF)에 우회경로 알고리즘의 적용 (2021.8. ~ 2021.10.)](/portfolio/2021-08-25-rmf.html)
 
 - OSRF에서 개발 중인 오픈소스 패키지인 RMF에 MIP를 이용한 우회경로 생성 알고리즘을 적용하고, 해당 프레임워크를 이용하여 시뮬레이션 및 실 환경에서 다수의 로봇에 대한 트레픽 관리를 수행
 - 해당 수행 내용은 2021 ROS World에서 ['RMF based multi-robot traffic management application use case'](https://vimeo.com/649654300)라는 제목으로 발표
