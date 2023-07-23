@@ -12,6 +12,21 @@
   "content"  : {{ post.content | strip_html | escape | jsonify }}
 } {% unless forloop.last %},{% endunless %}
   {% endfor %}
+
+  {% if site.note.size > 0 %},{% endif %}
+  {% for note in site.note %}
+  {
+  {% if note.title != nil %}
+  "title"    : "{{ note.title | strip_newlines | escape }}",
+  "category" : "{{ note.category }}",
+  "tags"     : "{{ note.tags | join: ', ' | prepend: " " }}",
+  "url"      : "{{ note.url | relative_url }}",
+  "excerpt"  : {{ note.content | strip_html | truncate: '250' | jsonify }},
+  "content"  : {{ note.content | strip_html | escape | jsonify }}
+  {% endif %}
+} {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+    
   {% if site.portfolio.size > 0 %},{% endif %}
   {% for page in site.portfolio %}
   {

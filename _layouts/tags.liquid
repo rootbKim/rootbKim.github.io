@@ -28,6 +28,14 @@ layout: page
     {% endif %}
     {% endfor %}
 
+    <!-- cycles through notes to get tags -->
+    {% for note in site.note %}
+    {% if note.tags.size > 0 %}
+    {% assign note_tags = note.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:note_tags %}
+    {% endif %}
+    {% endfor %}
+
     <!-- Displays the list of tags-->
     {% include default/tags_list.liquid tags=rawtags %}
 
@@ -71,15 +79,27 @@ layout: page
             {% endfor %}
 
             <!-- Portfolio -->
-            {% for note in site.portfolio %}
-            {% if note.tags contains tag %}
+            {% for port in site.portfolio %}
+            {% if port.tags contains tag %}
             <h5 class="tag-title">
-                <a href="{{ note.url | relative_url }}">
+                <a href="{{ port.url | relative_url }}">
                     <i class="far fa-file" aria-hidden="true"></i>
-                    {{ note.title }}
+                    {{ port.title }}
                 </a>
 
-                {% include blog/post_info.liquid date=note.date %}
+                {% include blog/post_info.liquid date=port.date %}
+            </h5>
+            {% endif %}
+            {% endfor %}
+
+            <!-- Notes -->
+            {% for n in site.note %}
+            {% if n.tags contains tag %}
+            <h5 class="tag-title">
+                <a href="{{ n.url | relative_url }}">
+                    <i class="far fa-file" aria-hidden="true"></i>
+                    {{ n.title }}
+                </a>
             </h5>
             {% endif %}
             {% endfor %}

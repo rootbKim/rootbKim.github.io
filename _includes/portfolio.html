@@ -1,10 +1,10 @@
 <!-- Portfolio Grid Section -->
 <div class="portfolio-grid">
     {% for item in site.portfolio %}
-    <a href="{{ item.url }}" id="portfolio-cell" class="portfolio-link" style="background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url({{ item.img | relative_url }}); background-position:center; background-size: cover">
+    <a href="{{ item.url }}" class="portfolio-cell">
+        <div class="background-image" style="background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url({{ item.img | relative_url }}); background-position:center; background-size: cover"></div>
         <div class="cell-text">
-            <!-- <div class="cell-title">{{ item.title }}</div> -->
-            <h4> {{ item.title }}</h4>
+            <h4 style="color: aliceblue;">{{ item.title }}</h4>
         </div>
     </a>
     {% endfor %}
