@@ -45,7 +45,7 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 로봇 간 상태정보를 공유하기 위한 시스템 아키텍처 구성
 - 실 로봇에 적용 및 테스트, 관련 내용 학술대회 논문 게제
 
-#### Warehouse Control System(WCS)과 연동된 다중 AGV Control System(ACS) (2021.9. ~ 2022.12.)
+#### [Warehouse Control System(WCS)과 연동된 다중 AGV Control System(ACS) (2021.9. ~ 2022.12.)](/portfolio/2021-09-23-rcs.html)
 
 - 물류창고 내의 Goods-to-person 시스템에서 사용되는 KIVA 타입의 AGV를 관제하는 시스템을 개발
 - 이기종의 AGV를 하나의 시스템에서 관제하도록 시스템 아키텍처 설계 및 구현

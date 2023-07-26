@@ -22,6 +22,10 @@ excerpt: CLOBOT의 연구용 로봇 플랫폼으로 연구된 clober의 ROS / RO
 
 2021-05-10 ~ 2021-10-06
 
+## 개발 참여 인원 / 담당 역할
+
+2명 / ROS2 Nav2 기능 분석 및 관련 패키지 구현, GAZEBO 시뮬레이션 패키지 구현 
+
 ## 기술 스택
 
 - Open Source Contributing

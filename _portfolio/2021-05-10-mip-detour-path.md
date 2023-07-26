@@ -20,6 +20,10 @@ excerpt: 노드-링크 기반의 맵에서 Mixed Integer Programming을 이용�
 
 2021-05-10 ~ 2021-08-24
 
+## 연구 참여 인원 / 담당 역할
+
+2명 / MIP 모델 설계, OR-Tools 및 Groubi 라이브러리 이용한 계산 알고리즘 구현, 성능 검증을 위한 멀티 로봇 시뮬레이션 환경 구성
+
 ## 기술 스택
 
 - Mixed Integer Programming
