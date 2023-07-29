@@ -29,7 +29,11 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 저상형 주차로봇의 서비스 관리를 위한 서비스 매니저 개발
 - 두 대의 저상형 주차로봇에 대한 협조제어
 
-#### 이기종 멀티 로봇 관제를 위한 Traffic Management Server (2022.12. ~ PRESENT)
+#### 로봇 미들웨어 시스템 유지보수 (2023.2. ~ PRESENT)
+
+- 고객사에서 정한 표준 규격에 따라 개발된 각 미들웨어 모듈에 대한 유지보수
+
+#### 이기종 멀티 로봇 관제를 위한 Traffic Management System(TMS) 개발 (2022.12. ~ PRESENT)
 
 - 같은 공간 내 이기종 로봇의 원활한 서비스 수행이 가능하도록 교통 정보를 관리하고 중계할 수 있는 교통관리 서버 시스템을 개발
 - 이기종 로봇 간 충돌을 방지하기 위해 충돌 회피 로직 적용
@@ -38,12 +42,16 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 - 로봇의 교통관리를 위한 서버 아키텍처 설계
 - 로봇 및 메타 정보의 등록 시퀀스 관리
 
-#### 로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발 (2022.6. ~ 2022.9.)
+#### [로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발 (2022.6. ~ 2022.9.)](/portfolio/2022-06-28-social-layer.html)
 
 - 로봇 간 회피를 위한 global costmap layer 개발
 - 기존에 제안된 사람을 회피하기 위한 social layer를 멀티로봇에 적용
 - 로봇 간 상태정보를 공유하기 위한 시스템 아키텍처 구성
 - 실 로봇에 적용 및 테스트, 관련 내용 학술대회 논문 게제
+
+#### [방역로봇의 방역 Planner 개발 (2021.10. ~ 2022.1.)](/portfolio/2021-10-25-coverage.html)
+
+- 방역로봇의 global planner 로직 개발
 
 #### [Warehouse Control System(WCS)과 연동된 다중 AGV Control System(ACS) (2021.9. ~ 2022.12.)](/portfolio/2021-09-23-rcs.html)
 
