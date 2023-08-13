@@ -17,8 +17,6 @@ excerpt: 2족 보행로봇인 SUBO3의 시뮬레이션 환경을 구축하고, C
     - [Project Github Pages - subo3 pkages](https://github.com/rootbKim/subo3_pkgs)
     - [Project Github Pages - SUBO3 urdef](https://github.com/rootbKim/SUBO3)
     - [Project Github Pages - [TEST] planar robots](https://github.com/rootbKim/planar_robot_pkgs)
-* 영상
-    - [Test Video](https://github.com/rootbKim/subo3_pkgs/blob/master/video/video.gif)
 
 ## 연구 기간
 
@@ -104,7 +102,9 @@ excerpt: 2족 보행로봇인 SUBO3의 시뮬레이션 환경을 구축하고, C
 
 #### 제자리 보행 테스트
 
-이 프로젝트는 최종적으로 2족 보행의 제자리 걸음시 토크 제어를 이용한 자세 유지와, 지면의 장애물을 밟았을 때 안정적으로 자세를 유지하며 제자리 보행을 지속할 수 있도록 자세 제어를 실시하였다. 실험 영상은 [영상 링크](https://github.com/rootbKim/subo3_pkgs/blob/master/video/video.gif)에서 확인할 수 있다.
+이 프로젝트는 최종적으로 2족 보행의 제자리 걸음시 토크 제어를 이용한 자세 유지와, 지면의 장애물을 밟았을 때 안정적으로 자세를 유지하며 제자리 보행을 지속할 수 있도록 자세 제어를 실시하였다.
+
+<img src="/assets/img/portfolio/biped/video.gif">
 
 #### Conclusion
 

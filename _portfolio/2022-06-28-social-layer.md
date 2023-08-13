@@ -77,7 +77,7 @@ excerpt: 로봇 간 회피를 위하여 navigation이 상대 로봇의 이동 �
 * 테스트 결과 Social Layer를 사용했을 때, 서로의 경로가 겹치지 않고 잘 우회하는 것을 볼 수 있었고, Social Layer를 사용하지 않은 경우에는 로봇이 서로 장애물로만 판단하고, 서로 회피하려다가 충돌하는 경우도 발생했다.
 
 <img src="/assets/img/portfolio/social/result_l.png">
-<img src="/assets/img/portfolio/social/result_u .png">
+<img src="/assets/img/portfolio/social/result_u.png">
 
 #### Conclusion
 

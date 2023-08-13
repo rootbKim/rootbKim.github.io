@@ -24,16 +24,16 @@ I am currently a manager at the CLOBOT Co., Ltd since 2021. I received a B.S and
 
 ### Manager, [CLOBOT Co., Ltd.](https://www.clobot.co.kr) (2021.5. ~ PRESENT)
 
-#### 저상형 주차로봇의 서비스 관리 (2023. 07. ~ PRESENT)
+#### [저상형 주차로봇의 서비스 관리 (2023. 07. ~ PRESENT)](/portfolio/2023-07-04-parking-robot.html)
 
 - 저상형 주차로봇의 서비스 관리를 위한 서비스 매니저 개발
 - 두 대의 저상형 주차로봇에 대한 협조제어
 
-#### 로봇 미들웨어 시스템 유지보수 (2023.2. ~ PRESENT)
+#### [로봇 미들웨어 시스템 유지보수 (2023.2. ~ PRESENT)](/portfolio/2023-02-20-middleware.html)
 
 - 고객사에서 정한 표준 규격에 따라 개발된 각 미들웨어 모듈에 대한 유지보수
 
-#### 이기종 멀티 로봇 관제를 위한 Traffic Management System(TMS) 개발 (2022.12. ~ PRESENT)
+#### [이기종 멀티 로봇 관제를 위한 Traffic Management System(TMS) 개발 (2022.12. ~ PRESENT)](/portfolio/2022-11-28-tms.html)
 
 - 같은 공간 내 이기종 로봇의 원활한 서비스 수행이 가능하도록 교통 정보를 관리하고 중계할 수 있는 교통관리 서버 시스템을 개발
 - 이기종 로봇 간 충돌을 방지하기 위해 충돌 회피 로직 적용
