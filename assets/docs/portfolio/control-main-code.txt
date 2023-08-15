@@ -1,0 +1,346 @@
+#include "F28x_Project.h"
+#include "math.h"
+#include "stdio.h"
+#include "stdlib.h"
+
+#define	SYSTEM_CLOCK	200E6	/* 200MHz */
+#define	TBCLK			200E6	/* 200MHz */
+#define	TBCLK2			12500000	/* (200/16)MHz */
+#define	TBCLK3			156250	/* (200/16)MHz */
+#define	PWM_CARRIER		20E3	/* 20kHz */
+#define	PWM_DUTY_RATIO	5E-1	/* 0.2, 20% */
+#define	ENCODER_REV		2048			/* 24 Pulse/Revolution */
+#define CW 1
+#define CCW 2
+
+
+void InitEPwm1Module(void);
+void InitEPwm4Module(void);
+interrupt void EPwm4Isr(void);
+void InitEQep1(Uint32 LineEncoder);
+void MotorDir(Uint32 dir);
+double Calc_angle(void);
+
+Uint16	BackTicker;
+Uint16	IsrTicker;
+Uint32 count = 0;
+
+//Encoder
+Uint32	LineEncoder;
+int32	PositionCounter;
+double theta = 0.0;
+double ratio = 0.55;
+
+//PWM
+float32	PwmCarrier;
+float32	PwmDutyRatio;
+int motordir = 0;
+
+//Model parameters
+#define m 0.4205
+#define g 9.81
+#define l 0.1
+#define J 0.0047
+#define Jmr 0.0000388
+#define R 9.52
+#define Kt 0.039
+#define Kb 0.055
+#define Kf 0.0001
+
+//State variable(radian)
+double X[3] = {0,0,0};
+double X_dot[3] = {0,0,0};
+double X_hat[3] = {0,0,0};
+double X_hat_dot[3] = {0,0,0};
+double pre_X_hat_dot[3] = {0,0,0};
+
+//Swing_up variable
+double theta_up = 0.0;
+double pre_theta_up = 0.0;
+double theta_up_dot = 0.0;
+double fix_theta = 0.0;
+
+//State matrix
+double A[3][3] = {{0, 1, 0},
+                  {m*g*l/J, -(Kt*Kb)/(J*R), (Kt*Kb)/(J*R)+Kf/J},
+                  {0, (Kt*Kb)/(Jmr*R), -(Kt*Kb)/(Jmr*R)-Kf/J}};
+double B[3] = {0, -Kt/(J*R), Kt/(Jmr*R)};
+double C[3] = {1, 0, 0};
+
+//gain
+
+double L[3] = {178.5860381874423, 4389.553262947246, -42665.46393145281};
+double K[3] = {-22794.451162412506, -167.0378912310659, -1.020186610893663};
+
+//Control input,output(모터 전압,theta_up 순서)
+double u = 0.0;
+double y = 0.0;
+double y_hat = 0.0;
+
+int P = 0;
+
+double eq_deg = 12.0;
+
+//time
+float32 dt = 0.001;
+float32 t = 0.0;
+float32 swing_time = 0.0;
+int flag = 0;
+
+void main(void)
+{
+	DINT;
+	IER = 0x0000;
+	IFR = 0x0000;
+
+	InitSysCtrl();
+	InitEQep1Gpio();
+
+	EALLOW;
+	//PWM GPIO 설정//
+	GpioCtrlRegs.GPAPUD.bit.GPIO0 = 0;	/* Enable pull-up on GPIO0 (EPWM1A) */
+    GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 1;	/* Configure GPIO0 as EPWM1A */
+
+	//모터 GPIO 설정//
+	GpioCtrlRegs.GPCMUX2.bit.GPIO85 = 0;
+	GpioCtrlRegs.GPCDIR.bit.GPIO85 = 1;
+
+	EDIS;
+
+    InitPieCtrl();
+
+    InitPieVectTable();
+
+    EALLOW;
+	PieVectTable.EPWM4_INT = &EPwm4Isr;
+	EDIS;
+
+	/* Enable PIE group 3 interrupt 1 for EPWM1_INT */
+	PieCtrlRegs.PIEIER3.bit.INTx4 = 1;
+
+	/* Enable CPU INT3 for EPWM1_INT */
+	IER |= M_INT3;
+
+    EALLOW;
+	CpuSysRegs.PCLKCR0.bit.TBCLKSYNC = 0;
+	ClkCfgRegs.PERCLKDIVSEL.bit.EPWMCLKDIV = 0;	// 0: EPWMCLK = SYSCLKOUT = 200MHz
+	CpuSysRegs.PCLKCR0.bit.TBCLKSYNC = 1;
+	EDIS;
+
+	LineEncoder = ENCODER_REV;
+	InitEPwm1Module();
+	InitEPwm4Module();
+	InitEQep1(LineEncoder);
+	MotorDir(CW);
+
+	BackTicker = 0;
+	IsrTicker = 0;
+
+	PwmCarrier = 500;
+	PwmDutyRatio = 0.0;
+
+	LineEncoder = ENCODER_REV;
+	PositionCounter = 0;
+
+	EPwm1Regs.TBPRD = (TBCLK2/PwmCarrier)-1;	/* Set Timer Period*/
+	GpioDataRegs.GPASET.bit.GPIO3 = 1;
+	GpioDataRegs.GPASET.bit.GPIO6 = 1;
+
+	ERTM;
+	EINT;
+
+	/* IDLE loop. Just sit and loop forever: */
+	for(;;)
+	{
+	}
+}
+
+/*-----------------------------------------------------------------------------
+	Step 10
+	10.1 Local Interrupt Service Routines & Functions
+-----------------------------------------------------------------------------*/
+interrupt void EPwm4Isr(void)
+{
+	t = count*dt;
+	theta_up = Calc_angle();
+	theta_up_dot = (theta_up-pre_theta_up)/dt;
+	if(pre_theta_up > 3.1415 && theta_up < -3.1415) pre_theta_up = -3.1415;
+	else if(pre_theta_up < -3.1415 && theta_up > 3.1415) pre_theta_up = 3.1415;
+	else pre_theta_up = theta_up;
+
+	if(P == 0)
+	{
+		if(theta_up < eq_deg*3.1415/180.0 && theta_up > -eq_deg*3.1415/180.0)
+		{
+			flag = 1;
+
+			y = theta_up;
+
+			X_hat_dot[0] = A[0][0]*X_hat[0] + A[0][1]*X_hat[1] + A[0][2]*X_hat[2] + L[0]*(y-y_hat) + B[0]*u;
+			X_hat_dot[1] = A[1][0]*X_hat[0] + A[1][1]*X_hat[1] + A[1][2]*X_hat[2] + L[1]*(y-y_hat) + B[1]*u;
+			X_hat_dot[2] = A[2][0]*X_hat[0] + A[2][1]*X_hat[1] + A[2][2]*X_hat[2] + L[2]*(y-y_hat) + B[2]*u;
+
+			X_hat[0] += (X_hat_dot[0] + pre_X_hat_dot[0])*dt/2;
+			X_hat[1] += (X_hat_dot[1] + pre_X_hat_dot[1])*dt/2;
+			X_hat[2] += (X_hat_dot[2] + pre_X_hat_dot[2])*dt/2;
+
+			pre_X_hat_dot[0] = X_hat_dot[0];
+			pre_X_hat_dot[1] = X_hat_dot[1];
+			pre_X_hat_dot[2] = X_hat_dot[2];
+
+			y_hat = X_hat[0];
+
+			u = -(K[0]*X_hat[0] + K[1]*X_hat[1] + K[2]*X_hat[2]);
+
+			if(u > 24) u = 24;
+			else if(u <= -24) u = -24;
+
+			if(u > 0)
+			{
+				MotorDir(CW);
+				PwmDutyRatio = u/24.0;
+			}
+			else
+			{
+				MotorDir(CCW);
+				PwmDutyRatio = -u/24.0;
+			}
+		}
+
+		else
+		{
+			if(flag == 1)	swing_time = t;
+
+			flag = 0;
+
+			if(theta_up_dot < 0)
+			{
+				motordir = 0;
+				MotorDir(CW);
+			}
+			else
+			{
+				motordir = 1;
+				MotorDir(CCW);
+			}
+
+			if(t - swing_time < 0.5) PwmDutyRatio = 0;
+			else PwmDutyRatio = (-(m*g*l*(1+cos(theta_up))+1/2*J*theta_up_dot*theta_up_dot)+(2*m*g*l))*ratio;
+		}
+
+		if(PwmDutyRatio >= 1.0) PwmDutyRatio = 1.0;
+		EPwm1Regs.CMPA.bit.CMPA = EPwm1Regs.TBPRD * PwmDutyRatio;
+	}
+
+	else EPwm1Regs.CMPA.bit.CMPA = EPwm1Regs.TBPRD * 0.0;
+
+	count++;
+
+	EPwm4Regs.ETCLR.bit.INT = 1;
+	PieCtrlRegs.PIEACK.bit.ACK1 = 1;
+}
+
+void InitEPwm1Module(void)
+{
+	/* Setup Counter Mode and Clock */
+	EPwm1Regs.TBCTL.bit.CTRMODE = 0;	/* Count Up (Asymmetric) */
+
+	EPwm1Regs.TBCTL.bit.HSPCLKDIV = 0;		/* TBCLK = SYSCLKOUT / (HSPCLKDIV * CLKDIV) = 200MHz */
+	EPwm1Regs.TBCTL.bit.CLKDIV = 4;			/* (200/16)MHz */
+
+	/* Setup Phase */
+	EPwm1Regs.TBPHS.bit.TBPHS = 0;			/* Phase is 0 */
+	EPwm1Regs.TBCTL.bit.PHSEN = 0;			/* Disable phase loading */
+
+	/* Setup Period (Carrier Frequency) */
+	EPwm1Regs.TBPRD = (TBCLK2/PWM_CARRIER)-1;	/* Set Timer Period*/
+	EPwm1Regs.TBCTR = 0;						/* Clear Counter */
+
+	/* Set Compare Value */
+
+	/* Set Compare A Value to 50% */
+	EPwm1Regs.CMPA.bit.CMPA = (Uint16)((EPwm1Regs.TBPRD + 1) * PWM_DUTY_RATIO);
+
+	/* Setup shadowing */
+	EPwm1Regs.TBCTL.bit.PRDLD = 0;			/* Period Register is loaded from its shadow when CNTR=Zero */
+	EPwm1Regs.CMPCTL.bit.SHDWAMODE = 0;		/* Compare A Register is loaded from its shadow when CNTR=Zero */
+	EPwm1Regs.CMPCTL.bit.LOADAMODE = 0;
+
+	/* Set actions */
+	EPwm1Regs.AQCTLA.bit.ZRO = 2;		/* Set EPWM4A on CNTR=Zero */
+	EPwm1Regs.AQCTLA.bit.CAU = 1;		/* Clear EPWM4A on CNTR=CMPA, Up-Count */
+}
+
+void InitEPwm4Module(void)
+{
+	/* Setup Counter Mode and Clock */
+	EPwm4Regs.TBCTL.bit.CTRMODE = 0;	/* Count Up (Asymmetric) */
+
+	EPwm4Regs.TBCTL.bit.HSPCLKDIV = 0;		/* TBCLK = SYSCLKOUT / (HSPCLKDIV * CLKDIV) = 200MHz */
+	EPwm4Regs.TBCTL.bit.CLKDIV = 4;			/* (200/16)MHz */
+
+	/* Setup Phase */
+	EPwm4Regs.TBPHS.bit.TBPHS = 0;			/* Phase is 0 */
+	EPwm4Regs.TBCTL.bit.PHSEN = 0;			/* Disable phase loading */
+
+	/* Setup Period (Carrier Frequency) */
+	EPwm4Regs.TBPRD = (TBCLK2/1000)-1;	/* Set Timer Period*/
+	EPwm4Regs.TBCTR = 0;						/* Clear Counter */
+
+	/* Set Compare Value */
+
+	/* Set Compare A Value to 20% */
+	EPwm4Regs.CMPA.bit.CMPA = (Uint16)((EPwm4Regs.TBPRD + 1) * PWM_DUTY_RATIO);
+
+	/* Setup shadowing */
+	EPwm4Regs.TBCTL.bit.PRDLD = 0;			/* Period Register is loaded from its shadow when CNTR=Zero */
+	EPwm4Regs.CMPCTL.bit.SHDWAMODE = 0;		/* Compare A Register is loaded from its shadow when CNTR=Zero */
+	EPwm4Regs.CMPCTL.bit.LOADAMODE = 0;
+
+	/* Set actions */
+	EPwm4Regs.AQCTLA.bit.ZRO = 2;		/* Set EPWM4A on CNTR=Zero */
+	EPwm4Regs.AQCTLA.bit.CAU = 1;		/* Clear EPWM4A on CNTR=CMPA, Up-Count */
+
+	/* Set Interrupts */
+	EPwm4Regs.ETSEL.bit.INTSEL = 1;			/* Select INT on CNTR=Zero */
+	EPwm4Regs.ETSEL.bit.INTEN = 1;			/* Enable INT */
+	EPwm4Regs.ETPS.bit.INTPRD = 1;			/* Generate INT on 1st event */
+}
+
+void InitEQep1(Uint32 LineEncoder)
+{
+	EQep1Regs.QDECCTL.bit.QSRC = 0;			/* Quadrature count mode */
+	EQep1Regs.QEPCTL.bit.FREE_SOFT = 2;
+	EQep1Regs.QEPCTL.bit.PCRM = 1;			/* Position Counter Reset on First Index */
+	EQep1Regs.QPOSMAX = 4000*LineEncoder;	/* 24 pulse @ 1 revolution */
+	EQep1Regs.QEPCTL.bit.QPEN = 1; 			/* QEP enable */
+}
+
+
+void MotorDir(Uint32 dir)
+{
+	if(dir == CW)
+	{
+		GpioDataRegs.GPCCLEAR.bit.GPIO85 = 1;
+	}
+	else if(dir == CCW)
+	{
+		GpioDataRegs.GPCSET.bit.GPIO85 = 1;
+	}
+}
+
+double Calc_angle(void)
+{
+	PositionCounter = EQep1Regs.QPOSCNT;
+
+	if(PositionCounter < EQep1Regs.QPOSMAX /2) theta = (PositionCounter%8192-2*(float)ENCODER_REV)*1.57075/(float)ENCODER_REV;
+	else if(PositionCounter > EQep1Regs.QPOSMAX /2) theta = ((PositionCounter-EQep1Regs.QPOSMAX)%8192-2*(float)ENCODER_REV)*1.57075/(float)ENCODER_REV;
+
+	return theta;
+}
+/*======================================================================
+	End of file.
+======================================================================*/
+
+
+
