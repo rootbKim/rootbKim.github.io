@@ -7,18 +7,33 @@ category: "Dev"
 
 Docker 유용한 기능에 대해서 정리한다.
 
-## 1. Docker Image Export/Import to FILE
+## 1. Docker Image Save/Load, Container Export/Import to FILE
 
-Export: 도커 이미지를 파일로 추출
+Save: 도커 이미지를 파일로 추출
+
+```bash
+docker save [option] [이미지명] > [추출파일명].tar
+```
+
+Load: 추출된 파일을 도커 이미지로 로드
+
+```bash
+docker load < [추출파일명].tar
+```
+
+Export: 도커 컨테이너를 파일로 추출
 
 ```bash
 docker save [이미지명] > [추출파일명].tar
 ```
 
 Import: 추출된 파일을 도커 이미지로 로드
+
 ```bash
 docker load < [추출파일명].tar
 ```
+
+> save는 이미지를 export는 컨테이너를 저장한다는 차이점이있다. 그 외에 두 가지의 큰 차이점은 메타 정보도 함께 저장되는지 아닌지에 따라 다르다는 점이다. Docker 이미지는 파일의 다른 정도가 레이어로 중첩되어 있는 구조가 되어 있어, save는 레이어의 정보 등도 포함된 상태로 저장된다. 한편 export는 Docker로써의 구조나 메타 정보가 저장되지 않고, 파일 시스템만 저장된다. 그러므로 파일사이즈는 save보다 export쪽이 적다.
 
 ## 2. Docker cp
 
@@ -114,6 +129,8 @@ docker exec -it [컨테이너 이름] /bin/bash
 ## 참고문헌
 
 - [[Docker] Docker 이미지를 파일로 import/export 하기](https://engineer-mole.tistory.com/257)
+- [Docker image 명령어 정리](https://inhyeokyoo.github.io/docker/docker-image-cli/)
+- [[Docker] 도커 이미지 저장 및 로드하기](https://tttap.tistory.com/132)
 - [[docker] container host간의 데이터 전송](https://velog.io/@starbirdnara/docker-container-host%EA%B0%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1)
 - [[Docker] 도커에서 올린 ubuntu 컨테이너에 ssh로 접근하기 (feat.PuTTY)](https://jong-bae.tistory.com/14)
 - [[Docker] SSH로 Docker Contrainer에 접속하는 방법](https://prup.tistory.com/55)
