@@ -1,20 +1,29 @@
 .post-layout {
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 15%;
+  margin-right: 15%;
 
   h1 {
     font-size: 1.3em;
   }
+
   h5 {
-    // margin-top: -2%;
     font-weight: normal;
   }
 }
 
+.hits-badge {
+  float: right;
+
+  img {
+    max-width: 100%; // 이미지의 최대 너비를 부모 요소의 너비에 맞춤
+    height: auto; // 이미지의 높이는 자동으로 조절됨
+  }    
+}
+
 @media screen and (max-width: $break) {
   .post-layout {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
 

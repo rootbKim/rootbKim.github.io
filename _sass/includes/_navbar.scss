@@ -1,25 +1,25 @@
 .head-layout {
-  margin-left: 380px;
-  margin-right: 380px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 @media screen and (max-width: $sm-break) {
   .head-layout {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
   
 @media screen and (max-width: $break) {
   .head-layout {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
 
 // To clear things when we float the element inside nav and ul
 .clear {
-  *zoom: 1;
+  // *zoom: 1;
   font-family: $font-family-pages;
   &:after {
     clear: both;
