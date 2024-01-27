@@ -36,7 +36,7 @@ comments:
   cusdis_app_id: # Your cusdis data-app-id
   utterances: # Enable by filling below information. For more info, go to https://utteranc.es
     repo: rootbKim/blog_comments # your public comments repository (e.g. owner/repo)
-    issue-term: comments         # Issue term (e.g. "comment" consider issues with this word in the title as comments)
+    issue-term: pathname         # Issue term (e.g. "comment" consider issues with this word in the title as comments)
     theme: github-dark           # OPTIONAL: Take the `color_theme` by default, or set a custom one like github-dark-orange
     label: comments              # OPTIONAL: Adds an issue label in the issue
 
