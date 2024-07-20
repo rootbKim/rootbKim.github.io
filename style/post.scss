@@ -1,0 +1,31 @@
+@import 'general';
+
+.post-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    max-width: 960px;
+    width: 100%;
+}
+
+.post-list {
+    font-size: 20px;
+    font-family: $font-title;
+    width: 100%;
+    height: 100%;
+    background-color: $color-second;
+}
+
+.post-tag {
+    font-size: 20px;
+    font-family: $font-title;
+    width: 100%;
+    height: 100%;
+    background-color: $color-third;
+}

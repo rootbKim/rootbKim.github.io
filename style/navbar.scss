@@ -1,19 +1,26 @@
 @import 'general';
 
+.navbar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar-container {
     height: 6.5vh;
     display: grid;
-    grid-template-columns: 30px 100px 10fr 1fr;
+    grid-template-columns: 150px 20fr 1fr;
+    max-width: 960px;
     padding-left: 30px;
     padding-right: 30px;
-    border-bottom: 1px solid lightgray;
+    width: 100%;
 }
 
 .navbar-content {
     display: flex;
     align-items: center;
 
-    font-size: 20px;
+    font-size: 28px;
     font-family: $font-title;
 
     &.icon {
@@ -25,13 +32,13 @@
         font-family: $font-theme;
         margin-left: 50px;
         display: grid;
-        grid-template-columns: 80px 80px 1fr;
+        grid-template-columns: 80px 80px 80px 80px;
     }
 }
 
 .subtitle-content {
     padding: 0px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
 }

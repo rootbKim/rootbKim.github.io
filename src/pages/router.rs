@@ -1,6 +1,6 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
-use super::{home::Home, navbar::Navbar};
+use super::{blog::Blog, navbar::Navbar};
 
 pub struct Router {
 }
@@ -19,9 +19,11 @@ impl Component for Router {
         html! {
             <BrowserRouter>
                 <Navbar />
-                <main>
-                    <Switch<Route> render={switch} />
-                </main>
+                <div class="main-wrapper">
+                    <div class="main-content">
+                        <Switch<Route> render={switch} />
+                    </div>
+                </div>
             </BrowserRouter>
         }
     }
@@ -29,8 +31,8 @@ impl Component for Router {
 
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Home => {
-            html! { <Home /> }
+        Route::Blog => {
+            html! { <Blog /> }
         }
         Route::NotFound => {
             html! { "Page Not Found" }
@@ -41,7 +43,7 @@ fn switch(routes: Route) -> Html {
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
     #[at("/")]
-    Home,
+    Blog,
     #[not_found]
     #[at("/404")]
     NotFound,

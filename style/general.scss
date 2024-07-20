@@ -3,10 +3,30 @@ $font-subtitle: 'PlayFair Display', helvetica, sans-serif;
 $font-theme: 'JetBrains Mono', helvetica, sans-serif;
 $font-contents: 'Roboto', helvetica, sans-serif;
 
+$color-first: #FFFBE9;
+$color-second: #E3CAA5;
+$color-third: #CEAB93;
+$color-fourth: #AD8B73;
+
 body {
-  margin: 0;
+    margin: 0;
+    background-color: $color-first;
 }
 
 .row {
-  margin: 0;
+    margin: 0;
+}
+
+.main-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    max-width: 960px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
 }
