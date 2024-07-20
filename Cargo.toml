@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
+yew = { version = "0.21.0", features = ["csr"] }
+yew-router = "0.18.0"
+
 gloo = "0.11.0"
 js-sys = "0.3.69"
 wasm-bindgen = "0.2.92"
