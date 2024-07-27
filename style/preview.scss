@@ -1,0 +1,37 @@
+@import 'general';
+
+.preview {
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-fourth;
+}
+
+.preview-title {
+    font-family: $font-preview;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.preview-date {
+    font-family: $font-contents;
+    font-size: 14px;
+    color: $color-subfont;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.preview-excerpt {
+    font-family: $font-contents;
+    font-size: 16px;
+    color: $color-subfont;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 150%;
+}
+
+.preview-tags {
+    font-family: $font-contents;
+}

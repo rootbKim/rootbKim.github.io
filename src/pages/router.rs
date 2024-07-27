@@ -1,18 +1,17 @@
+use super::{navbar::Navbar, post::Post};
+use crate::component::page::Page;
+use log::info;
 use yew::prelude::*;
 use yew_router::prelude::*;
-use super::{blog::Blog, navbar::Navbar};
 
-pub struct Router {
-}
+pub struct Router {}
 
 impl Component for Router {
     type Message = ();
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        Self {
-            
-        }
+        Self {}
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
@@ -31,8 +30,11 @@ impl Component for Router {
 
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Blog => {
-            html! { <Blog /> }
+        Route::Post => {
+            html! { <Post /> }
+        }
+        Route::Page { filename } => {
+            html! { <Page filename={filename.clone()} /> }
         }
         Route::NotFound => {
             html! { "Page Not Found" }
@@ -43,7 +45,9 @@ fn switch(routes: Route) -> Html {
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
     #[at("/")]
-    Blog,
+    Post,
+    #[at("/page/:filename")]
+    Page { filename: String },
     #[not_found]
     #[at("/404")]
     NotFound,

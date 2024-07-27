@@ -1,0 +1,42 @@
+@import 'general';
+
+.page-metadata {
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-fourth;
+}
+
+.page-title {
+    font-family: $font-title;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.page-date {
+    font-family: $font-contents;
+    font-size: 14px;
+    color: $color-subfont;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+
+.page-excerpt {
+    font-family: $font-subtitle;
+    font-size: 16px;
+    color: $color-subfont;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 150%;
+}
+
+.page-tags {
+    font-family: $font-contents;
+}
+
+.page-content {
+    font-family: $font-contents;
+    padding-top: 20px;
+}

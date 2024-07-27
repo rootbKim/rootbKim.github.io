@@ -19,7 +19,6 @@
     font-family: $font-title;
     width: 100%;
     height: 100%;
-    background-color: $color-second;
 }
 
 .post-tag {
@@ -27,5 +26,9 @@
     font-family: $font-title;
     width: 100%;
     height: 100%;
-    background-color: $color-third;
+    margin-left: 50px;
+}
+
+.post-tag-title {
+    margin-top: 20px;
 }
