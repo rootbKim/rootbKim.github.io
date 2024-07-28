@@ -2,13 +2,16 @@
 
 .page-metadata {
     margin: 0px;
+    margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid $color-fourth;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .page-title {
-    font-family: $font-title;
+    font-family: $font;
     font-size: 24px;
     font-weight: 800;
 }
@@ -19,16 +22,13 @@
     color: $color-subfont;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 5px;
 }
 
 .page-excerpt {
-    font-family: $font-subtitle;
+    font-family: $font-contents;
     font-size: 16px;
     color: $color-subfont;
     margin-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
     line-height: 150%;
 }
 
@@ -39,4 +39,50 @@
 .page-content {
     font-family: $font-contents;
     padding-top: 20px;
+
+    h1 {
+        font-family: $font-contents;
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $color-third;
+    }
+
+    h2 {
+        font-family: $font-contents;
+        font-size: 26px;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 18px;
+        padding-bottom: 5px;
+    }
+
+    h3 {
+        font-family: $font-contents;
+        font-size: 22px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 16px;
+        padding-bottom: 5px;
+    }
+
+    h4 {
+        font-family: $font-contents;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 14px;
+        padding-bottom: 5px;
+    }
+
+    h5 {
+        font-family: $font-contents;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        padding-bottom: 5px;
+    }
 }

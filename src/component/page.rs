@@ -2,6 +2,8 @@ use crate::component::metadata::{extract_yaml_block_and_rest, parse_yaml, Metada
 use gloo_net::http::Request;
 use log::info;
 use pulldown_cmark::{html, Options, Parser};
+use wasm_bindgen::prelude::*;
+use web_sys::window;
 use yew::platform::*;
 use yew::prelude::*;
 use yew::virtual_dom::VNode;
@@ -104,6 +106,18 @@ impl Component for Page {
                     }
                 }
             });
+        }
+
+        if let Some(win) = window() {
+            let func = win
+                .get("eval")
+                .unwrap()
+                .dyn_into::<js_sys::Function>()
+                .unwrap();
+
+            let js_code = "Prism.highlightAll()";
+
+            let _result = func.call1(&JsValue::NULL, &JsValue::from_str(js_code));
         }
     }
 }
