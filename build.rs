@@ -1,15 +1,15 @@
+use serde_json::to_string;
 use std::fs::{self, File};
 use std::io::Write;
 use std::path::Path;
-use serde_json::to_string;
 
 fn main() {
-    update_markdown();
+    update_post();
 }
 
-fn update_markdown() {
-    let markdown_dir = Path::new("markdown/");
-    let output_file = Path::new("markdown/list.json");
+fn update_post() {
+    let markdown_dir = Path::new("posts/");
+    let output_file = Path::new("posts/list.json");
 
     let mut file_list = vec![];
 

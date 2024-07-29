@@ -21,6 +21,13 @@
     height: 100%;
 }
 
+.post-preview {
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
 .post-tag {
     font-size: 20px;
     font-family: $font;

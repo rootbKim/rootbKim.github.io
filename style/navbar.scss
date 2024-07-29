@@ -23,6 +23,8 @@
     font-size: 28px;
     font-family: 'Oswald';
 
+    color: $color-font;
+
     &.icon {
         font-size: 16px;
     }
@@ -32,8 +34,12 @@
         font-weight: 600;
         font-family: $font-theme;
         margin-left: 50px;
-        display: grid;
-        grid-template-columns: 80px 80px 80px 80px;
+    }
+
+    &:hover {
+        color: $color-font;
+        text-decoration: none;
+        cursor: pointer;
     }
 }
 
@@ -42,4 +48,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $color-font;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+        color: $color-font;
+        text-decoration: none;
+        cursor: pointer;
+    }
 }

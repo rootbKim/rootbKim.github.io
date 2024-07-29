@@ -4,11 +4,14 @@
     margin: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-bottom: 1px solid $color-fourth;
 }
 
 .preview-title {
     font-family: $font;
+    color: $color-font;
     font-size: 24px;
     font-weight: 800;
 }
@@ -19,7 +22,6 @@
     color: $color-subfont;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-left: 5px;
 }
 
 .preview-excerpt {
@@ -27,8 +29,6 @@
     font-size: 16px;
     color: $color-subfont;
     margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
     line-height: 150%;
 }
 

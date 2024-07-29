@@ -1,4 +1,6 @@
+use super::router::Route;
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 pub struct Navbar;
 
@@ -14,13 +16,13 @@ impl Component for Navbar {
         html! {
             <div class="navbar-wrapper">
                 <div class="navbar-container">
-                    <div class="navbar-content" style="justify-content: center;">
+                    <Link<Route> classes={classes!("navbar-content")} to={Route::Home}>
                         { "RobotNotes" }
-                    </div>
+                        </Link<Route>>
                     <div class="navbar-content subtitle" style="justify-content: right;">
-                        <div class="subtitle-content">
-                            { "BLOG" }
-                        </div>
+                        <Link<Route> classes={classes!("subtitle-content")} to={Route::Post}>
+                        { "POST" }
+                        </Link<Route>>
                         <div class="subtitle-content">
                             { "PORTFOLIO" }
                         </div>

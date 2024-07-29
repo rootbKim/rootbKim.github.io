@@ -1,8 +1,10 @@
-use crate::component::preview::Preview;
+use crate::component::{preview::Preview, post_page::PostPage};
 use gloo_net::http::Request;
 use log::info;
 use yew::platform::*;
 use yew::prelude::*;
+use super::router::Route;
+use yew_router::prelude::*;
 
 pub struct Post {
     preview: Vec<Html>,
@@ -27,8 +29,13 @@ impl Component for Post {
             Msg::Update(list) => {
                 let preview: Vec<Html> = list
                     .iter()
+                    .rev()
                     .map(|filename| {
-                        html! { <Preview filename={filename.clone()} /> }
+                        html! { 
+                            <Link<Route> classes={classes!("post-preview")} to={Route::PostPage { filename: filename.to_string() }}>
+                                <Preview filename={filename.clone()} />
+                            </Link<Route>>
+                        }
                     })
                     .collect();
                 self.preview = preview;
@@ -62,7 +69,7 @@ impl Component for Post {
         if first_render {
             let link = _ctx.link().clone();
             spawn_local(async move {
-                match Request::get("markdown/list.json").send().await {
+                match Request::get("posts/list.json").send().await {
                     Ok(resp) => match resp.text().await {
                         Ok(text) => match serde_json::from_str::<Vec<String>>(&text) {
                             Ok(list) => {

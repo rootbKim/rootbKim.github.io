@@ -8,7 +8,7 @@ use yew::platform::*;
 use yew::prelude::*;
 use yew::virtual_dom::VNode;
 
-pub struct Page {
+pub struct PostPage {
     metadata: Metadata,
     text: String,
 }
@@ -22,7 +22,7 @@ pub enum Msg {
     Update(String),
 }
 
-impl Component for Page {
+impl Component for PostPage {
     type Message = Msg;
     type Properties = Props;
 
@@ -90,7 +90,7 @@ impl Component for Page {
     fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
         if first_render {
             let link = _ctx.link().clone();
-            let url = format!("/markdown/{}.md", _ctx.props().filename);
+            let url = format!("/posts/{}", _ctx.props().filename);
             spawn_local(async move {
                 match Request::get(url.as_str()).send().await {
                     Ok(resp) => match resp.text().await {
@@ -122,7 +122,7 @@ impl Component for Page {
     }
 }
 
-impl Page {
+impl PostPage {
     pub fn markdown_to_html(&self, markdown: &str) -> String {
         let mut options = Options::empty();
         options.insert(Options::ENABLE_TABLES);
