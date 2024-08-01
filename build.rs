@@ -21,8 +21,8 @@ fn update_post() {
             if path.is_file() {
                 if let Some(extension) = path.extension() {
                     if extension == "md" {
-                        if let Some(file_name) = path.file_name() {
-                            file_list.push(file_name.to_string_lossy().into_owned());
+                        if let Some(file_stem) = path.file_stem() {
+                            file_list.push(file_stem.to_string_lossy().into_owned());
                         }
                     }
                 }
@@ -48,8 +48,8 @@ fn update_archive() {
             if path.is_file() {
                 if let Some(extension) = path.extension() {
                     if extension == "md" {
-                        if let Some(file_name) = path.file_name() {
-                            file_list.push(file_name.to_string_lossy().into_owned());
+                        if let Some(file_stem) = path.file_stem() {
+                            file_list.push(file_stem.to_string_lossy().into_owned());
                         }
                     }
                 }
