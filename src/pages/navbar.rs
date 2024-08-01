@@ -26,9 +26,9 @@ impl Component for Navbar {
                         <div class="subtitle-content">
                             { "PORTFOLIO" }
                         </div>
-                        <div class="subtitle-content">
+                        <Link<Route> classes={classes!("subtitle-content")} to={Route::Archive}>
                             { "ARCHIVE" }
-                        </div>
+                        </Link<Route>>
                         <div class="subtitle-content">
                             { "ABOUT" }
                         </div>

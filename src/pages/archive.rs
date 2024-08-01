@@ -6,7 +6,7 @@ use yew::prelude::*;
 use super::router::Route;
 use yew_router::prelude::*;
 
-pub struct Post {
+pub struct Archive {
     preview: Vec<Html>,
 }
 
@@ -14,7 +14,7 @@ pub enum Msg {
     Update(Vec<String>),
 }
 
-impl Component for Post {
+impl Component for Archive {
     type Message = Msg;
     type Properties = ();
 
@@ -32,8 +32,8 @@ impl Component for Post {
                     .rev()
                     .map(|filename| {
                         html! { 
-                            <Link<Route> classes={classes!("post-preview")} to={Route::Page { class: "post".to_string(), filename: filename.to_string() }}>
-                                <Preview class={"post".to_string()} filename={filename.clone()} />
+                            <Link<Route> classes={classes!("post-preview")} to={Route::Page { class: "archive".to_string(), filename: filename.to_string() }}>
+                                <Preview class={"archive".to_string()} filename={filename.clone()} />
                             </Link<Route>>
                         }
                     })
@@ -69,7 +69,7 @@ impl Component for Post {
         if first_render {
             let link = _ctx.link().clone();
             spawn_local(async move {
-                match Request::get("/post/list.json").send().await {
+                match Request::get("/archive/list.json").send().await {
                     Ok(resp) => match resp.text().await {
                         Ok(text) => match serde_json::from_str::<Vec<String>>(&text) {
                             Ok(list) => {

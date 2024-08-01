@@ -1,8 +1,5 @@
 ---
-layout: post
 title: 프로그래밍 디자인 방법에 대하여
-feature-img: "assets/img/posts/programming/programming.png"
-thumbnail: "assets/img/posts/programming/programming.png"
 date: 05 September 2023
 tags: [Programming]
 excerpt: 프로그램의 개발 요청을 받았을 때, 처음 프로그램을 디자인을 하는 단계에서 사용하고 있는 디자인 방법에 대해 정리한다.

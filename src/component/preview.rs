@@ -10,6 +10,7 @@ pub struct Preview {
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
+    pub class: String,
     pub filename: String,
 }
 
@@ -73,7 +74,7 @@ impl Component for Preview {
     fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
         if first_render {
             let link = _ctx.link().clone();
-            let url = format!("/posts/{}", _ctx.props().filename);
+            let url = format!("/{}/{}", _ctx.props().class, _ctx.props().filename);
             spawn_local(async move {
                 match Request::get(url.as_str()).send().await {
                     Ok(resp) => match resp.text().await {

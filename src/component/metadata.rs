@@ -6,9 +6,6 @@ use serde_yaml::Value;
 pub struct Metadata {
     pub layout: Option<String>,
     pub title: Option<String>,
-    #[serde(rename = "feature-img")]
-    pub feature_img: Option<String>,
-    pub img: Option<String>,
     pub date: Option<String>,
     pub excerpt: Option<String>,
 }

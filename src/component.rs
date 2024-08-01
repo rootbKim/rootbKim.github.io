@@ -1,3 +1,3 @@
 pub mod metadata;
-pub mod post_page;
+pub mod page;
 pub mod preview;

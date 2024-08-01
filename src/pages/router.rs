@@ -1,5 +1,5 @@
-use super::{home::Home, navbar::Navbar, post::Post};
-use crate::component::post_page::PostPage;
+use super::{archive::Archive, home::Home, navbar::Navbar, post::Post};
+use crate::component::page::Page;
 use log::info;
 use yew::prelude::*;
 use yew_router::prelude::*;
@@ -36,8 +36,11 @@ fn switch(routes: Route) -> Html {
         Route::Post => {
             html! { <Post /> }
         }
-        Route::PostPage { filename } => {
-            html! { <PostPage filename={filename.clone()} /> }
+        Route::Archive => {
+            html! { <Archive /> }
+        }
+        Route::Page { class, filename } => {
+            html! { <Page class={class.clone()} filename={filename.clone()} /> }
         }
         Route::NotFound => {
             html! { "Page Not Found" }
@@ -49,10 +52,12 @@ fn switch(routes: Route) -> Html {
 pub enum Route {
     #[at("/")]
     Home,
-    #[at("/post")]
+    #[at("/post/")]
     Post,
-    #[at("/post/:filename")]
-    PostPage { filename: String },
+    #[at("/archive/")]
+    Archive,
+    #[at("/:class/:filename")]
+    Page { class: String, filename: String },
     #[not_found]
     #[at("/404")]
     NotFound,
