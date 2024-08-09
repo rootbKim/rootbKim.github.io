@@ -2,7 +2,7 @@
 
 .preview {
     margin: 0px;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px;
     transition: background-color 0.3s, transform 0.1s;
@@ -23,22 +23,35 @@
 
 .preview-date {
     font-family: $font-contents;
-    font-size: 14px;
+    font-size: 12px;
     color: $color-subfont;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 2px;
 }
 
 .preview-excerpt {
     font-family: $font-contents;
-    font-size: 16px;
+    font-size: 15px;
     color: $color-subfont;
-    margin-top: 10px;
+    margin-top: 5px;
     line-height: 100%;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $color-fourth;
 }
 
 .preview-tags {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $color-fourth;
+}
+
+.tag {
     font-family: $font-contents;
+    display: inline-block;
+    padding: 5px 8px !important;
+    background-color: $color-fourth;
+    border-radius: 4px;
+    color: $color-first;
+    font-size: 13px;
+    line-height: 13px;
+    text-decoration: none;
+    margin-left: 1px;
+    margin-right: 1px;
 }

@@ -4,7 +4,7 @@
     margin: 0px;
     margin-bottom: 20px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid $color-fourth;
     padding-left: 5px;
     padding-right: 5px;
@@ -12,16 +12,15 @@
 
 .page-title {
     font-family: $font;
-    font-size: 24px;
+    font-size: 35px;
     font-weight: 800;
 }
 
 .page-date {
     font-family: $font-contents;
-    font-size: 14px;
+    font-size: 12px;
     color: $color-subfont;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
 }
 
 .page-excerpt {
@@ -33,7 +32,7 @@
 }
 
 .page-tags {
-    font-family: $font-contents;
+    margin-top: 5px;
 }
 
 .page-content {

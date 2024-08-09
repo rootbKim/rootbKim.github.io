@@ -68,6 +68,21 @@ impl Component for Page {
         let html_content = self.markdown_to_html(&self.text);
         let vnodes = VNode::from_html_unchecked(html_content.into());
 
+        let tags: Vec<Html> = self
+            .metadata
+            .tags
+            .clone()
+            .iter()
+            .rev()
+            .map(|tag| {
+                html! {
+                    <div class="tag">
+                        {"#"}{ tag }
+                    </div>
+                }
+            })
+            .collect();
+
         html! {
             <>
                 <div class="page-metadata">
@@ -79,6 +94,9 @@ impl Component for Page {
                     </div>
                     <div class="page-excerpt">
                         { excerpt }
+                    </div>
+                    <div class="page-tags">
+                        { tags }
                     </div>
                 </div>
                 <div class="page-content">

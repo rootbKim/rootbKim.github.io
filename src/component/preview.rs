@@ -12,6 +12,8 @@ pub struct Preview {
 pub struct Props {
     pub class: String,
     pub filename: String,
+    pub tag_cb: Callback<Vec<String>>,
+    pub selected_tag: String,
 }
 
 pub enum Msg {
@@ -37,6 +39,10 @@ impl Component for Preview {
                     Some(block) => match parse_yaml(block) {
                         Ok(metadata) => {
                             self.metadata = metadata;
+                            let tags = self.metadata.tags.clone();
+                            if !tags.is_empty() {
+                                _ctx.props().tag_cb.emit(tags);
+                            }
                         }
                         Err(e) => info!("Error parsing YAML: {:?}", e),
                     },
@@ -48,26 +54,48 @@ impl Component for Preview {
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
-        let title = self.metadata.title.clone().unwrap_or_default();
-        let date = self.metadata.date.clone().unwrap_or_default();
-        let excerpt = self.metadata.excerpt.clone().unwrap_or_default();
+        if self.metadata.tags.contains(&_ctx.props().selected_tag)
+            || _ctx.props().selected_tag == "".to_string()
+        {
+            let title = self.metadata.title.clone().unwrap_or_default();
+            let date = self.metadata.date.clone().unwrap_or_default();
+            let excerpt = self.metadata.excerpt.clone().unwrap_or_default();
 
-        html! {
-            <>
-                <div class="preview">
-                    <div class="preview-title">
-                        { title }
+            let tags: Vec<Html> = self
+                .metadata
+                .tags
+                .clone()
+                .iter()
+                .rev()
+                .map(|tag| {
+                    html! {
+                        <div class="tag">
+                            {"#"}{ tag }
+                        </div>
+                    }
+                })
+                .collect();
+
+            html! {
+                <>
+                    <div class="preview">
+                        <div class="preview-title">
+                            { title }
+                        </div>
+                        <div class="preview-date">
+                            { date }
+                        </div>
+                        <div class="preview-excerpt">
+                            { excerpt }
+                        </div>
+                        <div class="preview-tags">
+                            { tags }
+                        </div>
                     </div>
-                    <div class="preview-date">
-                        { date }
-                    </div>
-                    <div class="preview-excerpt">
-                        { excerpt }
-                    </div>
-                    <div class="preview-tags">
-                    </div>
-                </div>
-            </>
+                </>
+            }
+        } else {
+            html! {}
         }
     }
 

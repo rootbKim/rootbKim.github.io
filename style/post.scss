@@ -29,13 +29,32 @@
 }
 
 .post-tag {
-    font-size: 20px;
-    font-family: $font;
-    width: 100%;
     height: 100%;
     margin-left: 50px;
 }
 
-.post-tag-title {
-    margin-top: 20px;
+.post-tag-list {
+    font-family: $font-contents;
+    display: inline-block;
+    padding: 5px 8px !important;
+    background-color: $color-fourth;
+    border-radius: 4px;
+    color: $color-first;
+    font-size: 13px;
+    line-height: 13px;
+    text-decoration: none;
+    margin: 3px;
+    border: none;
+
+    &.selected {
+        background-color: $color-second;
+    }
+}
+
+.post-tag-list:hover {
+    background-color: $color-second;
+}
+
+.post-tag-list:focus {
+    outline: none;
 }

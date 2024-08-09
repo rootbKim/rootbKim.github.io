@@ -8,6 +8,7 @@ pub struct Metadata {
     pub title: Option<String>,
     pub date: Option<String>,
     pub excerpt: Option<String>,
+    pub tags: Vec<String>,
 }
 
 pub fn extract_yaml_block_and_rest(text: &str) -> (Option<&str>, Option<&str>) {
