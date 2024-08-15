@@ -33,9 +33,9 @@ impl Component for Navbar {
                             { "ABOUT" }
                         </div>
                     </div>
-                    <div class="navbar-content icon" style="justify-content: right;">
+                    <Link<Route> classes={classes!("navbar-content", "icon")} to={Route::Search}>
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
+                    </Link<Route>>
                 </div>
             </div>
         }

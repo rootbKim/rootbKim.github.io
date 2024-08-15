@@ -1,4 +1,4 @@
-use super::{archive::Archive, home::Home, navbar::Navbar, post::Post};
+use super::{archive::Archive, home::Home, navbar::Navbar, post::Post, search::Search};
 use crate::component::page::Page;
 use log::info;
 use yew::prelude::*;
@@ -42,6 +42,9 @@ fn switch(routes: Route) -> Html {
         Route::Page { class, filename } => {
             html! { <Page class={class.clone()} filename={filename.clone()} /> }
         }
+        Route::Search => {
+            html! { <Search /> }
+        }
         Route::NotFound => {
             html! { "Page Not Found" }
         }
@@ -58,6 +61,8 @@ pub enum Route {
     Archive,
     #[at("/:class/:filename")]
     Page { class: String, filename: String },
+    #[at("/search/")]
+    Search,
     #[not_found]
     #[at("/404")]
     NotFound,

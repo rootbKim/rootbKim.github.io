@@ -12,7 +12,7 @@ pub struct Preview {
 pub struct Props {
     pub class: String,
     pub filename: String,
-    pub tag_cb: Callback<Vec<String>>,
+    pub tag_cb: Option<Callback<Vec<String>>>,
     pub selected_tag: String,
 }
 
@@ -41,7 +41,9 @@ impl Component for Preview {
                             self.metadata = metadata;
                             let tags = self.metadata.tags.clone();
                             if !tags.is_empty() {
-                                _ctx.props().tag_cb.emit(tags);
+                                if let Some(cb) = &_ctx.props().tag_cb {
+                                    cb.emit(tags);
+                                }
                             }
                         }
                         Err(e) => info!("Error parsing YAML: {:?}", e),
@@ -75,7 +77,11 @@ impl Component for Preview {
                     }
                 })
                 .collect();
-
+            let border = if title.is_empty() {
+                "preview-tags"
+            } else {
+                "preview-tags exist"
+            };
             html! {
                 <>
                     <div class="preview">
@@ -88,7 +94,7 @@ impl Component for Preview {
                         <div class="preview-excerpt">
                             { excerpt }
                         </div>
-                        <div class="preview-tags">
+                        <div class={border}>
                             { tags }
                         </div>
                     </div>

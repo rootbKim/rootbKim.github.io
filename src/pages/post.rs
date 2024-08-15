@@ -6,8 +6,6 @@ use yew::prelude::*;
 use super::router::Route;
 use yew_router::prelude::*;
 
-pub enum Tags {}
-
 pub struct Post {
     list: Vec<String>,
     preview: Vec<Html>,
