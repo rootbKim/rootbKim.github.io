@@ -1,0 +1,35 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+body {
+  margin: 0;
+  background-color: #FFFBE9;
+}
+
+.row {
+  margin: 0;
+}
+
+.main-wrapper {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  max-width: 960px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.not-found {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 48px;
+}
+
+.not-found-contents {
+  font-family: "JetBrains Mono", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}

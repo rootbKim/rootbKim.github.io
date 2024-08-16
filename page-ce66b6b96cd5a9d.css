@@ -1,0 +1,206 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+body {
+  margin: 0;
+  background-color: #FFFBE9;
+}
+
+.row {
+  margin: 0;
+}
+
+.main-wrapper {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  max-width: 960px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.not-found {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 48px;
+}
+
+.not-found-contents {
+  font-family: "JetBrains Mono", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.page-metadata {
+  margin: 0px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #AD8B73;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.page-title {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.page-date {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 12px;
+  color: #828282;
+  margin-top: 2px;
+}
+
+.page-excerpt {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 16px;
+  color: #828282;
+  margin-top: 5px;
+  line-height: 150%;
+}
+
+.page-tags {
+  margin-top: 5px;
+}
+
+.page-content {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  padding-top: 20px;
+}
+.page-content h1 {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #CEAB93;
+}
+.page-content h2 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  padding-bottom: 5px;
+}
+.page-content h3 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  padding-bottom: 5px;
+}
+.page-content h4 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 14px;
+  padding-bottom: 5px;
+}
+.page-content h5 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
+.page-content a {
+  color: #AD8B73;
+}
+.page-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1.2px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.page-content th {
+  font-size: 15px;
+  padding: 0.2em 1.5em;
+  color: #FFFBE9;
+  background-color: #AD8B73;
+  border: 1px solid #CEAB93;
+  text-align: center;
+  width: auto;
+}
+.page-content td {
+  font-size: 13px;
+  padding: 0.1em 0.7em;
+  border: 1px solid #CEAB93;
+  text-align: center;
+  width: auto;
+}
+.page-content th:first-child {
+  border-top-left-radius: 3px;
+}
+.page-content th:last-child {
+  border-top-right-radius: 3px;
+}
+.page-content tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+.page-content tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+.page-content img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+}
+.about-content h1 {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #CEAB93;
+}
+.about-content h2 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  padding-bottom: 5px;
+}
+.about-content h3 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  padding-bottom: 5px;
+}
+.about-content h4 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 14px;
+  padding-bottom: 5px;
+}
+.about-content h5 {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
+.about-content a {
+  color: #AD8B73;
+}

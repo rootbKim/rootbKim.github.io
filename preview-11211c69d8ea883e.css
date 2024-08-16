@@ -1,0 +1,96 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+body {
+  margin: 0;
+  background-color: #FFFBE9;
+}
+
+.row {
+  margin: 0;
+}
+
+.main-wrapper {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  max-width: 960px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.not-found {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 48px;
+}
+
+.not-found-contents {
+  font-family: "JetBrains Mono", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.preview {
+  margin: 0px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s, transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
+}
+
+.preview:hover {
+  background-color: #E3CAA5;
+  transform: scale(1.01);
+  transform: translateX(3px);
+  color: var(#E3CAA5);
+}
+
+.preview-title {
+  font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.preview-date {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 12px;
+  color: #828282;
+  margin-top: 2px;
+}
+
+.preview-excerpt {
+  font-family: "Roboto", "Spoqa Han Sans", helvetica, sans-serif;
+  font-size: 15px;
+  color: #828282;
+  margin-top: 5px;
+  line-height: 100%;
+}
+
+.preview-tags {
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+.preview-tags.exist {
+  border-bottom: 1px solid #AD8B73;
+}
+
+.tag {
+  font-family: "JetBrains Mono", "Spoqa Han Sans", helvetica, sans-serif;
+  display: inline-block;
+  padding: 5px 8px !important;
+  background-color: #AD8B73;
+  border-radius: 4px;
+  color: #FFFBE9;
+  font-size: 13px;
+  line-height: 13px;
+  text-decoration: none;
+  margin-left: 1px;
+  margin-right: 1px;
+}
