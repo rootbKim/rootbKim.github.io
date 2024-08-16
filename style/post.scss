@@ -30,11 +30,11 @@
 
 .post-tag {
     height: 100%;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
 .post-tag-list {
-    font-family: $font-contents;
+    font-family: $font-theme;
     display: inline-block;
     padding: 5px 8px !important;
     background-color: $color-fourth;
@@ -45,6 +45,7 @@
     text-decoration: none;
     margin: 3px;
     border: none;
+    text-align: left;
 
     &.selected {
         background-color: $color-second;

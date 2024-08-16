@@ -1,3 +1,4 @@
+pub mod about;
 pub mod archive;
 pub mod home;
 pub mod navbar;

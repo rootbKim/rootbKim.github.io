@@ -11,6 +11,7 @@ use yew::virtual_dom::VNode;
 pub struct Page {
     metadata: Metadata,
     text: String,
+    not_found: bool,
 }
 
 #[derive(Properties, PartialEq)]
@@ -31,6 +32,7 @@ impl Component for Page {
         Self {
             metadata: Metadata::default(),
             text: String::new(),
+            not_found: false,
         }
     }
 
@@ -44,16 +46,16 @@ impl Component for Page {
                         Ok(metadata) => {
                             self.metadata = metadata;
                         }
-                        Err(e) => info!("Error parsing YAML: {:?}", e),
+                        Err(e) => self.not_found = true,
                     },
-                    None => info!("No YAML block found."),
+                    None => self.not_found = true,
                 }
 
                 match rest_of_text {
                     Some(rest) => {
                         self.text = rest.to_string();
                     }
-                    None => info!("No rest of the text found."),
+                    None => self.not_found = true,
                 }
                 true
             }
@@ -61,48 +63,61 @@ impl Component for Page {
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
-        let title = self.metadata.title.clone().unwrap_or_default();
-        let date = self.metadata.date.clone().unwrap_or_default();
-        let excerpt = self.metadata.excerpt.clone().unwrap_or_default();
+        if self.not_found {
+            html! {
+                <>
+                    <div class="not-found">
+                        {"Page Not Found"}
+                    </div>
+                    <div class="not-found-contents">
+                        { "The page you visited has an invalid or deleted address." }
+                    </div>
+                </>
+            }
+        } else {
+            let title = self.metadata.title.clone().unwrap_or_default();
+            let date = self.metadata.date.clone().unwrap_or_default();
+            let excerpt = self.metadata.excerpt.clone().unwrap_or_default();
 
-        let html_content = self.markdown_to_html(&self.text);
-        let vnodes = VNode::from_html_unchecked(html_content.into());
+            let html_content = self.markdown_to_html(&self.text);
+            let vnodes = VNode::from_html_unchecked(html_content.into());
 
-        let tags: Vec<Html> = self
-            .metadata
-            .tags
-            .clone()
-            .iter()
-            .rev()
-            .map(|tag| {
-                html! {
-                    <div class="tag">
-                        {"#"}{ tag }
-                    </div>
-                }
-            })
-            .collect();
+            let tags: Vec<Html> = self
+                .metadata
+                .tags
+                .clone()
+                .iter()
+                .rev()
+                .map(|tag| {
+                    html! {
+                        <div class="tag">
+                            {"#"}{ tag }
+                        </div>
+                    }
+                })
+                .collect();
 
-        html! {
-            <>
-                <div class="page-metadata">
-                    <div class="page-title">
-                        { title }
+            html! {
+                <>
+                    <div class="page-metadata">
+                        <div class="page-title">
+                            { title }
+                        </div>
+                        <div class="page-date">
+                            { date }
+                        </div>
+                        <div class="page-excerpt">
+                            { excerpt }
+                        </div>
+                        <div class="page-tags">
+                            { tags }
+                        </div>
                     </div>
-                    <div class="page-date">
-                        { date }
+                    <div class="page-content">
+                        { vnodes }
                     </div>
-                    <div class="page-excerpt">
-                        { excerpt }
-                    </div>
-                    <div class="page-tags">
-                        { tags }
-                    </div>
-                </div>
-                <div class="page-content">
-                    { vnodes }
-                </div>
-            </>
+                </>
+            }
         }
     }
 

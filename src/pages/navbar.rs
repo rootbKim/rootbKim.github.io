@@ -29,9 +29,9 @@ impl Component for Navbar {
                         <Link<Route> classes={classes!("subtitle-content")} to={Route::Archive}>
                             { "ARCHIVE" }
                         </Link<Route>>
-                        <div class="subtitle-content">
+                        <Link<Route> classes={classes!("subtitle-content")} to={Route::About}>
                             { "ABOUT" }
-                        </div>
+                        </Link<Route>>
                     </div>
                     <Link<Route> classes={classes!("navbar-content", "icon")} to={Route::Search}>
                         <i class="fa-solid fa-magnifying-glass"></i>

@@ -1,7 +1,4 @@
-use crate::component::preview::Preview;
-use gloo_net::http::Request;
-use log::info;
-use yew::platform::*;
+use super::post::Post;
 use yew::prelude::*;
 
 pub struct Home {}
@@ -15,9 +12,6 @@ impl Component for Home {
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
-        html! {
-            <>
-            </>
-        }
+        html! { <Post /> }
     }
 }

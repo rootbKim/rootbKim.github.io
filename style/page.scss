@@ -11,7 +11,7 @@
 }
 
 .page-title {
-    font-family: $font;
+    font-family: $font-title;
     font-size: 35px;
     font-weight: 800;
 }
@@ -40,7 +40,7 @@
     padding-top: 20px;
 
     h1 {
-        font-family: $font-contents;
+        font-family: $font-title;
         font-size: 30px;
         font-weight: 600;
         margin-top: 50px;
@@ -83,5 +83,109 @@
         margin-top: 20px;
         margin-bottom: 12px;
         padding-bottom: 5px;
+    }
+
+    a {
+        color: $color-fourth;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 1.2px;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    th {
+        font-size: 15px;
+        padding: 0.2em 1.5em;
+        color: $color-first;
+        background-color: $color-fourth;
+        border: 1px solid $color-third;
+        text-align: center;
+        width: auto;
+    }
+
+    td {
+        font-size: 13px;
+        padding: 0.1em 0.7em;
+        border: 1px solid $color-third;
+        text-align: center;
+        width: auto;
+    }
+
+    /* 상단 왼쪽 모서리 */
+    th:first-child {
+        border-top-left-radius: 3px;
+    }
+
+    /* 상단 오른쪽 모서리 */
+    th:last-child {
+        border-top-right-radius: 3px;
+    }
+
+    /* 하단 왼쪽 모서리 */
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 3px;
+    }
+
+    /* 하단 오른쪽 모서리 */
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 3px;
+    }
+}
+
+.about-content {
+    font-family: $font-contents;
+
+    h1 {
+        font-family: $font-title;
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $color-third;
+    }
+
+    h2 {
+        font-family: $font-contents;
+        font-size: 26px;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 18px;
+        padding-bottom: 5px;
+    }
+
+    h3 {
+        font-family: $font-contents;
+        font-size: 22px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 16px;
+        padding-bottom: 5px;
+    }
+
+    h4 {
+        font-family: $font-contents;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 14px;
+        padding-bottom: 5px;
+    }
+
+    h5 {
+        font-family: $font-contents;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        padding-bottom: 5px;
+    }
+
+    a {
+        color: $color-fourth;
     }
 }

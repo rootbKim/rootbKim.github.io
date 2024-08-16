@@ -5,17 +5,21 @@
     padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    transition: background-color 0.3s, transform 0.1s;
     border-radius: 0.25rem;
+    transition: background-color 0.3s, transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
 }
 
 .preview:hover {
     background-color: $color-second;
     transform: scale(1.01);
+    transform: translateX(3px);
+    color: var($color-second);
 }
 
+
 .preview-title {
-    font-family: $font;
+    font-family: $font-title;
     color: $color-font;
     font-size: 24px;
     font-weight: 800;
@@ -46,7 +50,7 @@
 }
 
 .tag {
-    font-family: $font-contents;
+    font-family: $font-theme;
     display: inline-block;
     padding: 5px 8px !important;
     background-color: $color-fourth;

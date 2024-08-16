@@ -2,7 +2,7 @@ use regex::Regex;
 use serde::{Deserialize, Serialize};
 use serde_yaml::Value;
 
-#[derive(Debug, Deserialize, Serialize, Default, Clone)]
+#[derive(Debug, Deserialize, Serialize, Default, Clone, PartialEq)]
 pub struct Metadata {
     pub layout: Option<String>,
     pub title: Option<String>,
