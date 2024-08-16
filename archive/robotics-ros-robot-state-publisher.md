@@ -7,7 +7,7 @@ category: "Robotics"
 
 로봇의 robot state publisher 튜토리얼을 통해 robot state publisher의 동작을 이해한다.
 
-## 1. robot_state_publisher 패키지란?
+# 1. robot_state_publisher 패키지란?
 
 robot_state_publisher는 로봇의 상태 정보를 제공하는 패키지이다. 이 패키지는 `URDF`(Unified Robot Description Format) 파일을 읽어서 로봇의 구조와 다양한 조인트(joint)들의 상태 정보를 파악하고, 이 정보를 기반으로 tf2(Transform Library) 메시지를 생성한다. 그리고 `joint_states` 토픽([`sensor_msgs/msg/JointState`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/JointState.html))을 subscribe한다. 이 토픽은 URDF에 정의된 조인트의 상태정보를 업데이트하며, 이 업데이트 받은 조인트 값을 tf2에 반영한다.
 
@@ -17,28 +17,28 @@ robot_state_publisher는 fixed와 movable 두 가지 타입의 클래스를 사�
 
 > robot_state_publisher는 일반적으로 시뮬레이션 환경에서 사용되며, Gazebo와 같은 시뮬레이터와 함께 사용될 수 있고, 또한 실제 하드웨어에서도 사용할 수 있다.
 
-### 1.1 Published Topics
+## 1.1 Published Topics
 
 * `robot_description(std_msgs/msg/String)`: URDF에 대한 설명을 string으로 게시한다.
 * `tf(tf2_msgs/msg/TFMessage)`: movable joint에 해당하는 tf
 * `tf_static(tf2_msgs/msg/TFMessage)`: static joint에 해당하는 tf
 
-### 1.2 Subscribed Topics
+## 1.2 Subscribed Topics
 
 * `joint_states(sensor_msgs/msg/JointState)`: 해당 토픽을 subscribe하여 로봇 포즈를 업데이트 하고, 업데이트된 `tf`를 게시한다.
 
-### 1.3 Parameters
+## 1.3 Parameters
 
 * `robot_description(string)`: URDF에 대한 설명으로, robot_state_publisher가 실행될 때 설정되어야 한다. 이 파라미터가 업데이트 될 때 `robot_description` 토픽에 반영된다.
 * `publish_frequency(double)`: `/tf` 토픽이 발행될 수 있는 최대 주파수. 디폴트 값은 20hz
 * `ignore_timestamp(bool)`: 타임스탬프에 관계없이 모든 joint states를 사용할지(true), 또는 마지막으로 게시된 것보다 최신의 상태만 업데이트할 것인지 설정(false). 디폴트 값음 false.
 * `frame_prefix(string)`: `tf2`에 추가하는 임의의 prefix. 디폴트는 빈 문자열.
 
-## 2. robot_state_publisher 튜토리얼
+# 2. robot_state_publisher 튜토리얼
 
 [Using URDF with robot_state_publisher](https://docs.ros.org/en/foxy/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.html)의 튜토리얼을 기반한다.
 
-### 2.1 Create Package
+## 2.1 Create Package
 
 `second_ros2_ws`를 만들고, `urdf_tutorial_r2d2` 패키지를 생성한다.
 
@@ -50,7 +50,7 @@ ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclp
 cd urdf_tutorial_r2d2
 ```
 
-### 2.2 URDF 파일 설치
+## 2.2 URDF 파일 설치
 
 패키지 내에 urdf 폴더를 만들고 [URDF](https://docs.ros.org/en/foxy/_downloads/872802005223ffdb75b1ab7b25ad445b/r2d2.urdf.xml)을 `r2d2.urdf.xml` 이름으로 저장하고, [RVIZ CONFIG](https://docs.ros.org/en/foxy/_downloads/96d68aef72c4f27f32af5961ef48c475/r2d2.rviz) 파일도 `r2d2.rviz` 이름으로 저장한다.
 
@@ -58,7 +58,7 @@ cd urdf_tutorial_r2d2
 mkdir -p urdf
 ```
 
-### 2.3 Publisher 작성
+## 2.3 Publisher 작성
 
 로봇의 현재 상태를 특정하는 방법을 지정해야 하는데, 이를 위해 로봇의 세 개의 조인트와 `odom`을 정의해야 한다.
 
@@ -155,7 +155,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### 2.4 Launch
+## 2.4 Launch
 
 튜토리얼을 실행하기 위한 launch 파일 `~/second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo.launch.py`을 다음과 같이 작성한다.
 
@@ -198,7 +198,7 @@ def generate_launch_description():
     ])
 ```
 
-### 2.5 setup.py 작성
+## 2.5 setup.py 작성
 
 파이썬 ROS2 패키지 빌드를 위한 설정파일 `~/second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`를 수정한다.
 
@@ -229,7 +229,7 @@ data_files=[
 ],
 ```
 
-### 2.6 빌드
+## 2.6 빌드
 
 ```bash
 cd ~/second_ros2_ws
@@ -237,7 +237,7 @@ colcon build --symlink-install --packages-select urdf_tutorial_r2d2
 source install/setup.bash
 ```
 
-### 2.7 실행 및 결과
+## 2.7 실행 및 결과
 
 런치
 
@@ -251,7 +251,7 @@ RVIZ
 rviz2 -d ~/second_ros2_ws/install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [Using URDF with robot_state_publisher](https://docs.ros.org/en/foxy/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.html)
 - [github - ros/robot_state_publisher](https://github.com/ros/robot_state_publisher)

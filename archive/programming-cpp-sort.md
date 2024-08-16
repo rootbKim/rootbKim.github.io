@@ -7,7 +7,7 @@ category: "Programming"
 
 C++ algorithm 라이브러리의 sort 함수에 대한 설명과 그 사용법에 대하여 정리한다.
 
-## 1. Sort 함수
+# 1. Sort 함수
 
 C++의 sort 함수는 `array`나 `vector`와 같이 `Random Access Iterator`를 갖는 컨테이너에 대하여 정렬을 해주는 함수이다.
 
@@ -31,9 +31,9 @@ Binary function that accepts two elements in the range as arguments, and returns
 The function shall not modify any of its arguments.
 This can either be a function pointer or a function object.
 
-## 2. 사용 예
+# 2. 사용 예
 
-### 기본 예
+## 기본 예
 
 기본적으로 사용되는 `operator<`를 사용하여 정렬(오름차순)
 
@@ -54,7 +54,7 @@ int main(void)
 }
 ```
 
-### comp를 이용한 예
+## comp를 이용한 예
 
 sort 함수 인자에 compare 함수를 이용하여 해당 조건에 맞게 정렬하며, 해당 예시는 내림차순으로 정렬된다.
 
@@ -78,7 +78,7 @@ int main(void)
 }
 ```
 
-### class의 operator< 오버로딩을 이용한 예
+## class의 operator< 오버로딩을 이용한 예
 
 sort 함수는 기본적으로 `operator<`를 이용하여 정렬하므로, 연산자 오버로딩을 통해 해당 클래스를 정렬시킬 수 있다.
 
@@ -113,6 +113,6 @@ int main(void)
 }
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [std::sort - algorithm - CPlusPlus.com](https://cplusplus.com/reference/algorithm/sort/)

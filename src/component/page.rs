@@ -85,6 +85,8 @@ impl Component for Page {
             let tags: Vec<Html> = self
                 .metadata
                 .tags
+                .as_ref()
+                .unwrap_or(&mut Vec::new())
                 .clone()
                 .iter()
                 .rev()

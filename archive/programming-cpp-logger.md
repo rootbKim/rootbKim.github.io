@@ -7,7 +7,7 @@ category: "Programming"
 
 C++에서 사용할 수 있는 Logger 클래스이다. 해당 클래스는 Logger의 기본적인 기능만 다루고 있으므로, 부가 기능이 필요한 경우 추가 개발해서 사용해서 보완하면 좋겠다.
 
-## LOGGER
+# LOGGER
 
 ROS에서 자동으로 log를 생성하지만, log를 깔끔하게 정리하기 어렵다. 따라서 C++ Logger 클래스를 만들어, log를 생성하는 기능을 추가하고자 한다.
 

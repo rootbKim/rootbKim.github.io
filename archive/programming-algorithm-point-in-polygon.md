@@ -7,7 +7,7 @@ category: "Programming"
 
 3개 이상의 point(x,y)로 구성된 다각형을 정의하는 방법과, 만들어진 다각형 내에 point가 존재하는지 판단하는 알고리즘에 대해 다룬다.
 
-## 다각형 정의 방법
+# 다각형 정의 방법
 
 사용자로부터 다각형을 구성하기 위하여, (x,y) 좌표로 구성된 point 정보를 받아올 수 있다. 이 때, point의 순서가 순서대로 입력이 될 수도 있지만, 만약 순서를 제한하지 않는 경우 순서대로 입력되지 않을 수도 있다. 이런 경우에 point를 시계방향 또는 반시계방향으로 정렬을 시켜줘야 point 정보로 원하는 다각형의 형상을 만들 수 있다.
 
@@ -55,7 +55,7 @@ std::vector<Point> sort(std::vector<Point> points)
 }
 ```
 
-## Point in polygon
+# Point in polygon
 
 이제 다각형을 만들었으면, 임의의 점이 해당 다각형의 내부에 있는지 외부에 있는지 판단하고자 한다. 이를 판별하기 위해 [Point in polygon](https://en.wikipedia.org/wiki/Point_in_polygon) 알고리즘을 사용한다.
 
@@ -85,7 +85,7 @@ for (std::size_t i = 0; i < points.size(); i++) {
 }
 ```
 
-## 참고문헌
+# 참고문헌
 * [시계방향, 반시계 방향 좌표 정렬](https://www.crocus.co.kr/1634)
 * [컨벡스 헐 알고리즘(Convex Hull Algorithm)](https://www.crocus.co.kr/1288)
 * [Point in polygon](https://en.wikipedia.org/wiki/Point_in_polygon)

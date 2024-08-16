@@ -7,7 +7,7 @@ category: "Robotics"
 
 튜토리얼에서는 실행 시 일정 시간이 지난 후에 ‘Hello World!’를 출력하는 behavior를 만드는 것을 목표로 한다.
 
-## 1. Creating a New Behavior
+# 1. Creating a New Behavior
 
 다음의 roslaunch 명령을 통해 flexbe_app을 실행시킨다.
 
@@ -26,7 +26,7 @@ roslaunch flexbe_app flexbe_ocs.launch
 - State Machine Userdata
 - State Machine Interface
 
-## 2. Using the Statemachine Editor
+# 2. Using the Statemachine Editor
 
 다음으로 Statemachine Editor로 이동하여 동작에 필요한 state를 정의한다(state의 세부 생성 방법은 [위키 사이트](http://wiki.ros.org/flexbe/Tutorials/Using%20the%20Statemachine%20Editor) 참조). 여기서 주의할 점은 새로운 state를 만드는 것이 아니라 flexbe에서 제공하는 state를 이용하여 정의하는 것이다.
 
@@ -44,7 +44,7 @@ roslaunch flexbe_app flexbe_ocs.launch
 - 시작점부터 각 state를 연결하고, 마지막엔 finished에 연결한다. 여기서 failed는 사용하지 않았다.
 - [Save Behavior] 버튼을 통해 만든 behavior를 저장할 수 있고, 해당 behavior는 이전에 만든 repository에 생성됨을 확인할 수 있다.
 
-## 3. Execution of a Behavior
+# 3. Execution of a Behavior
 
 Behavior를 만든 이후, 해당 behavior를 동작하기 위해 다음의 명령으로 flexbe의 전체 behavior engine을 실행할 수 있다.
 
@@ -66,7 +66,7 @@ RuntimeControl 탭으로 넘어가면 앞서 만든 behavior를 실행시켜 볼
     - No인 경우에는 모든 state를 사용자가 직접 수행시키며, Low와 High는 각각 state의 Autonomy Level이 Low 또는 High 이상인 경우만 사용자가 직접 수행시키고, Full의 경우 모든 state가 자동으로 진행된다.
 
 
-## 참고문헌
+# 참고문헌
 
 - [flexbe/Tutorials/Creating a New Behavior - ROS Wiki](http://wiki.ros.org/flexbe/Tutorials/Creating%20a%20New%20Behavior)
 - [flexbe/Tutorials/Using the Statemachine Editor - ROS Wiki](http://wiki.ros.org/flexbe/Tutorials/Using%20the%20Statemachine%20Editor)

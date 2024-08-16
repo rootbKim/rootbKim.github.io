@@ -7,9 +7,9 @@ category: "Dev"
 
 Docker 이미지의 관리 방법과 DockerFile의 사용방법을 정리한다.
 
-## 1. Docker 이미지 만들기
+# 1. Docker 이미지 만들기
 
-### 1.1 기본 이미지를 이용한 새로운 컨테이너 만들기
+## 1.1 기본 이미지를 이용한 새로운 컨테이너 만들기
 
 Docker 이미지를 만들기 위해 우분투 20.04 기본 이미지를 가져와, ROS2 Foxy 환경을 직접 설치한 새로운 컨테이너를 만들어 볼 것이다.
 
@@ -53,7 +53,7 @@ docker ps
 
 > 설치 시간이 꽤 소요될 것이다. ROS에서도 docker 이미지를 제공하므로, 해당 이미지를 받아서 작업하면 편하지만, 지금은 이미지 작업의 이해를 돕기 위해 해당 과정을 거치므로, 시간이 너무 소요가 된다면 설치 과정은 중간에 생략해도 좋다.
 
-### 1.2 커밋(Commit)
+## 1.2 커밋(Commit)
 
 원하는 작업이 container 안에서 완료가 되면 현재까지 작업된 내용을 커밋하여 새로운 이미지로 생성하는 단계이다. 명령어는 다음과 같다.
 
@@ -63,15 +63,15 @@ docker commit ubuntu_foxy ubuntu:foxy_1
 
 > 첫 번째 인자로 현재 실행 중인 컨테이너 명을 입력하고, 두 번째 인자로 `[이미지명]:[태그]`를 입력한다.
 
-## 2. Docker Hub과 Push Pull
+# 2. Docker Hub과 Push Pull
 
-### 2.1 Docker Hub
+## 2.1 Docker Hub
 
 Docker Hub([https://hub.docker.com/](https://hub.docker.com/))는 GitHub나 Bitbucket과 같은 소스코드 관리 툴과 연계하여 코드를 빌드하는 기능이나 실행 가능한 애플리케이션의 이미지를 관리하는 Docker의 공식 리포지토리 서비스이다. 즉, Docker Hub에 내가 만든 이미지를 등록하여 관리하고, 필요할 때 다운받을 수 있는 원격 저장소 역할을 하며, 해당 원격 저장소를 이용하여 다른 사람과 Docker 이미지를 공유할 수 있고, 다른 사람의 이미지를 이용할 수도 있으며, 버전 관리에 유용하게 사용할 수 있다. 단, Docker Hub는 개인 대상이 아닌 기업 대상으로는 유료화를 하기 때문에 사용에 유의해야 한다.
 
 Docker Hub를 사용하면 먼저 계정을 만들고 진행한다.
 
-### 2.2 푸쉬(Push)
+## 2.2 푸쉬(Push)
 
 Docker Hub의 개인 계정에 푸쉬를 하기 위해 로그인을 진행한다.
 
@@ -97,7 +97,7 @@ docker push [계정이름]/ubuntu:foxy_1
 
 푸쉬가 다 되면 Docker Hub의 Repository에서 푸쉬한 이미지를 확인한다.
 
-### 2.3 풀(Pull)
+## 2.3 풀(Pull)
 
 다음으로 Docker Hub에 저장된 이미지를 가져오기 위해서는 계정 이름과, 가져오고자 하는 이미지 명, 태그를 이용하면 된다.
 
@@ -105,9 +105,9 @@ docker push [계정이름]/ubuntu:foxy_1
 docker pull [계정이름]/ubuntu:foxy_1
 ```
 
-## 3. DcokerFile을 이용한 이미지 빌드하기
+# 3. DcokerFile을 이용한 이미지 빌드하기
 
-### 3.1 DockerFile과 빌드란?
+## 3.1 DockerFile과 빌드란?
 
 `도커 파일`(DockerFile)은 docker 에서 이미지를 생성하기 위한 용도로 작성하는 스크립트 파일로, 만들고자 하는 이미지에 대한 정보를 기술해 둔 템플릿(template)이라고 볼 수 있다.
 
@@ -117,7 +117,7 @@ DockerFile을 이용하여 이미지를 빌드하는 것의 장점은 다음과 
 - 이미지로 배포하는 것이 아닌 도커파일만 있으면 배포를 용이하게 할 수 있다.
 - 컨테이너 실행 시 특정 명령을 수행하도록 작성할 수 있다.
 
-### 3.2 DockerFile
+## 3.2 DockerFile
 
 DockerFile에 사용되는 기본적인 지시어가 정리된 내용이다. 해당 내용은 기본이 되는 내용이며, 추가적인 기능이나 각 기능의 자세한 내용은 [Docker 문서](https://docs.docker.com/engine/reference/builder/)를 참조한다.
 
@@ -178,7 +178,7 @@ DockerFile에 사용되는 기본적인 지시어가 정리된 내용이다. 해
 
 - ARG : Argument 설정
 
-### 3.3 DockerFile 예시
+## 3.3 DockerFile 예시
 
 다음은 ROS Foxy 버전에서 제공하는 Dockerfile의 예시이다.
 
@@ -244,7 +244,7 @@ RUN sed --in-place --expression \
 CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
 ```
 
-### 3.4 생성한 Dockerfile을 Image로 빌드
+## 3.4 생성한 Dockerfile을 Image로 빌드
 
 빌드 명령은 기본적으로 다음과 같은 형태이다.
 
@@ -260,7 +260,7 @@ docker build -t ros-foxy .
 
 빌드가 완료되고, image를 확인하면 `ros-foxy:latest`라는 새로운 이미지가 생성된 것을 확인할 수 있다.
 
-## 참고문헌
+# 참고문헌
 
 - [[Docker] 개념 정리 및 사용방법까지](https://cultivo-hy.github.io/docker/image/usage/2019/03/14/Docker%EC%A0%95%EB%A6%AC/)
 - [도커와 컨테이너의 이해 (3/3) - Docker image, Dockerfile, Docker compose](https://tech.cloudmt.co.kr/2022/06/29/%EB%8F%84%EC%BB%A4%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9D%B4%ED%95%B4-3-3-docker-image-dockerfile-docker-compose/)

@@ -39,7 +39,12 @@ impl Component for Preview {
                     Some(block) => match parse_yaml(block) {
                         Ok(metadata) => {
                             self.metadata = metadata;
-                            let tags = self.metadata.tags.clone();
+                            let tags = self
+                                .metadata
+                                .tags
+                                .as_ref()
+                                .unwrap_or(&mut Vec::new())
+                                .clone();
                             if !tags.is_empty() {
                                 if let Some(cb) = &_ctx.props().tag_cb {
                                     cb.emit(tags);
@@ -56,7 +61,12 @@ impl Component for Preview {
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
-        if self.metadata.tags.contains(&_ctx.props().selected_tag)
+        if self
+            .metadata
+            .tags
+            .as_ref()
+            .unwrap_or(&mut Vec::new())
+            .contains(&_ctx.props().selected_tag)
             || _ctx.props().selected_tag == "".to_string()
         {
             let title = self.metadata.title.clone().unwrap_or_default();
@@ -66,6 +76,8 @@ impl Component for Preview {
             let tags: Vec<Html> = self
                 .metadata
                 .tags
+                .as_ref()
+                .unwrap_or(&mut Vec::new())
                 .clone()
                 .iter()
                 .rev()
@@ -109,6 +121,7 @@ impl Component for Preview {
         if first_render {
             let link = _ctx.link().clone();
             let url = format!("/{}/{}.md", _ctx.props().class, _ctx.props().filename);
+            info!("{}", url);
             spawn_local(async move {
                 match Request::get(url.as_str()).send().await {
                     Ok(resp) => match resp.text().await {

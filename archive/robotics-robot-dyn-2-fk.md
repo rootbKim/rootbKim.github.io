@@ -7,7 +7,7 @@ category: "Robotics"
 
 이전에 정리한 Homogeneous 변환 행렬을 이용하여 로봇의 각 조인트 변수가 주어졌을 때, 글로벌 좌표계에 대한 End Effector의 3차원 공간에서의 위치 및 방향을 구하는 Forward Kinematics(FK)에 대해서 정리한다.
 
-## 1. Forward Kinematics
+# 1. Forward Kinematics
 
 Forward Kinematics(FK)는 로봇의 각 joint variable이 주어졌을 때의 End-Effector의 위치와 방향을 계산하는 방식을 말한다. 여기서 joint variable은 두 개의 링크를 연결하는 revolute 또는 prismatic joint의 각도 또는 길이 값이다.
 
@@ -23,7 +23,7 @@ $$
 - frame `i`는 link `i`에 고정된다. 즉, link `i`가 움직이면, frame `i`도 움직인다.
 - link `0`은 ground이며, 고정된 좌표계가 된다.
 
-## 2. Homogeneous Transformation
+# 2. Homogeneous Transformation
 
 앞서 정리한 Homogeneous 변환 행렬을 $$A_i$$라고 표현하고, 이는 $$o_{i-1}x_{i-1}y_{i-1}z_{i-1}$$ 좌표계에 대한 $$o_{i}x_{i}y_{i}z_{i}$$ 좌표계의 Homogeneous 변환 행렬을 뜻한다.
 
@@ -53,7 +53,7 @@ $$
 
 이 0번 프레임에서 End-Effector 프레임인 n번 프레임까지의 Homogenous 회전 행렬을 구하면 이게 바로 Forward Kinematics가 된다. 즉, 기준 좌표계에 대한 End-Effector의 position 및 orientation을 구할 수 있게 된 것이다!
 
-## 3. Denavit-Hartenberg(D-H) Convention
+# 3. Denavit-Hartenberg(D-H) Convention
 
 위에서 Homogeneous 변환 행렬을 이용하여 3차원 공간에서의 해를 구하려면 6개의 자유도를 고려해야 한다. 이를 계산하는 것은 쉬운 일이 아니다. 이러한 문제를 해결하기 위해 Denavit-Hartenberg(D-H) Convention을 이용한다. D-H convention은 각 Frame의 좌표계를 잘 설정하여, 6개의 자유도를 4개의 자유도만 고려하도록 하여 계산하는 방법을 제안한다.
 
@@ -85,9 +85,9 @@ $$
 
 이 규칙을 만족하도록 좌표계를 잡고, 각각의 조인트에 대한 변환 행렬을 잡은 후, 0번 조인트부터 n번 조인트까지의 변환 행렬을 곱하여 $$T^0_n$$을 구하면 최종적인 FK 식이 된다. 이 때, 0번 좌표계와 n번 좌표계는 동일한 방향으로 잡아야하는데, 일반적으로 0번 좌표계에 대한 end-effector의 위치를 계산하기 때문이다.
 
-## 4. D-H Convention을 이용한 FK 계산 예제
+# 4. D-H Convention을 이용한 FK 계산 예제
 
-### Planar Elbow Manipulator
+## Planar Elbow Manipulator
 
 <img src="/assets/img/posts/230325_dh_convention_example1.png">
 
@@ -111,7 +111,7 @@ $$
 T^0_2 = A_1A_2 = \begin{bmatrix} c_{12} & -s_{12} & 0 & a_1c_1 + a_2c_{12} \\ s_{12} & c_{12} & 0 & a_1s_1 + a_2s_{12} \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}
 $$
 
-### Three-Link Cylindrical Robot
+## Three-Link Cylindrical Robot
 
 <img src="/assets/img/posts/230325_dh_convention_example2.png">
 

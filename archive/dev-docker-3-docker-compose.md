@@ -7,11 +7,11 @@ category: "Dev"
 
 Docker Compose를 이용한 여러 개의 컨테이너를 한 번에 관리하는 방법에 대해서 정리한다.
 
-## 1. Docker Compose
+# 1. Docker Compose
 
 도커 컴포즈는 여러 개의 컨테이너의 옵션과 환경을 정의한 파일을 읽어 컨테이너를 순차적으로 생성하는 방식으로 동작하게 한다. 도커 컴포즈의 설정 파일은 도커 엔진의 run 명령어의 옵션을 그대로 사용할 수 있으며, 각 컨테이너의 의존성, 네트워크, 볼륨 등을 함께 정의할 수 있다.
 
-### 1.1 Install Docker Compose
+## 1.1 Install Docker Compose
 
 [Docker compose 설치 홈페이지](https://docs.docker.com/compose/install/standalone/)에서 curl을 이용한 설치 명령어를 이용하여 설치한다. 아래의 명령어를 그대로 사용해도 되지만, 최신 버전이 아닐 수 있으므로, 홈페이지에서 명령어를 가져오거나, 최신 버전을 [git release 페이지](https://github.com/docker/compose/releases)에서 확인해볼 수 있다.
 
@@ -25,7 +25,7 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.23.3/docker
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-### 1.2 docker-compose.yaml
+## 1.2 docker-compose.yaml
 
 도커 컴포즈는 `docker-compose.yaml` 파일을 읽어서 컨테이너를 생성한다. 다음은 `postgresql`, `redis`, `rabbitmq` 컨테이너를 생성하는 `docker-compose.yaml` 파일이다.
 
@@ -63,7 +63,7 @@ services:
 
 도커 컴포즈는 위와 같은 `docker-compose.yaml` 파일을 읽어 로컬의 도커 엔진에게 각각의 컨테이너 생성을 요청한다. 이러한 방법은 docker run을 이용해 각각의 컨테이너를 실행하는 방법을 하나의 yaml 파일에 정의함으로써 한번에 컨테이너를 생성할 수 있음을 보여준다.
 
-### 1.3 docker compose의 실행 및 종료
+## 1.3 docker compose의 실행 및 종료
 
 도커 컴포즈를 실행 및 종료하기 위해서는 다음과 같은 명령을 사용할 수 있다.
 
@@ -80,7 +80,7 @@ docker-compose ps                   # 컴포즈 목록 확인
 
 > 도커 컴포즈를 실행했을 때 실행에 필요한 이미지가 없다면 이미지를 자동으로 pull 하여 설치하여 실행하며, 만약 로컬에 이미지를 갖고 있다면, 로컬에 있는 이미지를 실행한다.
 
-### 1.4 docker-compose.yaml 옵션
+## 1.4 docker-compose.yaml 옵션
 
 도커 컴포즈 yaml 파일에 정의되는 각 테그에 대해서 간략하게 정리한다.
 
@@ -93,21 +93,21 @@ docker-compose ps                   # 컴포즈 목록 확인
 * `depends_on`: 특정 컨테이너에 대한 의존 관계를 나타냄. 이 항목에 명시된 컨테이너가 먼저 실행되고, 해당 컨테이너가 그 이후에 실행됨.
 * `ports`: `docker run` 명령어의 `-p` 옵션. 포트포워딩
 
-## 2. 도커 볼륨
+# 2. 도커 볼륨
 
 도커 컨테이너는 일반적으로 컨테이너가 실행되고 종료되면 안에서 생성된 데이터는 사라지게 된다. 도커 컨테이너에서 생성된 데이터를 보존하기 위해서 사용되는 개념이 도커 마운트와 도커 볼륨이다.
 
 여기서의 볼륨의 개념이 `docker-compose.yaml`의 `volumes`에 해당하는 내용이다. 즉, 해당 볼륨 설정으로 데이터를 보관하게 할 수 있다. `postgresql`의 경우 `/var/lib/postgresql/data`에 데이터를 저장하는데, 컨테이너 내의 이 폴더를 호스트의 `volumes/postgres`에 보관하게 함으로써 컨테이너가 삭제되어도 데이터를 유지하게 할 수 있다.
 
-### 도커 마운트
+## 도커 마운트
 
 도커 마운트는 호스트 상의 경로와 컨테이너를 연결하는 개념으로 다음 링크에 예시가 정리되어 있다: [[Infra] 도커(docker)(9) 도커 PostgreSQL 컨테이너 배포하기](https://losskatsu.github.io/it-infra/docker09/#25-%EB%8F%84%EC%BB%A4-%EB%A7%88%EC%9A%B4%ED%8A%B8mount---%ED%98%B8%EC%8A%A4%ED%8A%B8-%EA%B2%BD%EB%A1%9C%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%97%B0%EA%B2%B0)
 
-### 도커 볼륨
+## 도커 볼륨
 
 도커 볼륨은 호스트 시스템과 도커 컨테이너 간의 데이터를 공유하고 보관하기 위한 기능으로, 다음 링크에서 예시를 확인해볼 수 있다.: [[Infra] 도커(docker)(9) 도커 PostgreSQL 컨테이너 배포하기](https://losskatsu.github.io/it-infra/docker09/#26-%EB%8F%84%EC%BB%A4-%EB%B3%BC%EB%A5%A8volume), [Docker 컨테이너에 데이터 저장 (볼륨/바인드 마운트)](https://www.daleseo.com/docker-volumes-bind-mounts/)
 
-## 3. 도커 포트포워딩
+# 3. 도커 포트포워딩
 
 도커는 `eth0` 네트워크 인터페이스에 내부망 IP 주소로 Gateway가 `172.17.0.1` (netmask 255.255.0.0)으로 자동 설정된다. 이 네트워크는 `docker0` 라는 네트워크 인터페이스에 연결이 되는데, 도커 컨테이너가 생성 될 때 이 docker0에 연결되며 ip는 컨테이너 실행 순서에 따라 순차적으로 할당된다
 
@@ -123,7 +123,7 @@ docker run -p <host port>:<container port>/<protocol> [IMAGE NAME] [OTHER OPTION
 
 > 만약에 호스트에서 `5432` 포트를 사용 중이라면, 이미 포트를 사용 중이므로 실행할 수 없게 된다.
 
-## 참고문헌
+# 참고문헌
 
 - [Docker compose 설치 홈페이지](https://docs.docker.com/compose/install/standalone/)
 - [Docker compose git release 페이지](https://github.com/docker/compose/releases)

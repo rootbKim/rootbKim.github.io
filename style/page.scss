@@ -115,24 +115,25 @@
         width: auto;
     }
 
-    /* 상단 왼쪽 모서리 */
     th:first-child {
         border-top-left-radius: 3px;
     }
 
-    /* 상단 오른쪽 모서리 */
     th:last-child {
         border-top-right-radius: 3px;
     }
 
-    /* 하단 왼쪽 모서리 */
     tr:last-child td:first-child {
         border-bottom-left-radius: 3px;
     }
 
-    /* 하단 오른쪽 모서리 */
     tr:last-child td:last-child {
         border-bottom-right-radius: 3px;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 20px;
     }
 }
 

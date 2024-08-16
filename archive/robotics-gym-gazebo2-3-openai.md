@@ -7,11 +7,11 @@ category: "Robotics"
 
 OpenAI에서 제공하는 GYM 라이브러리에 대해서 정리하고, gym 라이브러리를 사용하기 위한 기본 API 문서를 정리한다.
 
-## 1. OpenAI gym
+# 1. OpenAI gym
 
 [Open AI Gym 소개](https://c548adc0c815.gitbooks.io/javacafe-ml/content/open-ai-gym.html) 포스팅에서 Open AI Gym에 대해서 간략하게 잘 정리해주고 있다. 포스팅 내용을 간략하게 정리하면, 강화학습 알고리즘을 비교해보고 테스트해 볼 수 있도록 돕는 도구로써 강화학습을 위한 환경을 제공해주는 역할을 한다.
 
-## 2. OpenAI의 사용
+# 2. OpenAI의 사용
 
 해당 블로그의 [OpenAI GYM을 이용한 간단한 게임 실습](https://c548adc0c815.gitbooks.io/javacafe-ml/content/open-ai-gym-ex.html)에 Gym 라이브러리의 간단한 사용 예를 보여주고 있다.
 
@@ -32,9 +32,9 @@ for _ in range(1000):
     observation, reward, done, info = env.step(action)
 ```
 
-## 3. ENV
+# 3. ENV
 
-### 3.1 step()
+## 3.1 step()
 
 `action`을 파라미터로 받아 그 액션을 수행한다.
 
@@ -43,11 +43,11 @@ for _ in range(1000):
 - `done`(bool): episode가 종료 여부를 반환, `done`이 반환되면 그 이상의 `step()`은 undefined result를 반환한다. `done`이 반환되는 경우는 작업이 성공적으로 수행되었거나, 정해진 시간이 초과되었거나, 물리 환경이 유효하지 않은 상태가 되었을 때 반한된다.
 - `info`(dictionary): 학습에 대한 구체적인 정보를 반환한다.
 
-### 3.2 reset()
+## 3.2 reset()
 
 환경을 초기 상태로 재설정하고 초기 `observation`을 반환한다. 입력 파라미터로 `seed`를 받아 환경을 랜덤하게 설정할 수 있다.
 
-### 3.3 render()
+## 3.3 render()
 
 `render_mode`에 정의된 데로 render frame을 계산한다. 지원되는 모드는 환경 세팅에 따라 달라질 수 있고, 기본적으로 `render_mode`는 다음과 같다.
 
@@ -57,27 +57,27 @@ for _ in range(1000):
 - `rgb_array_list`: rgb차원으로 구성된 3차원 array list가 리턴된다.
 - `ansi`: `string` 또는 `StringIO`를 반환한다. `StringIO`는 각 타임 스탭에서의 터미널 상의 텍스트를 나타낸다. 
 
-### 3.4 close()
+## 3.4 close()
 
 `close` 함수를 이용하여 `Env`의 종료를 정의한다. 
 
-### 3.5 action_space
+## 3.5 action_space
 
 `action_space`는 action의 유효 범위를 부여하며, Gym에서 제공되는 `Space`라는 데이터 타입이다. 예를 들어, `action_space`가 `Discrete` 타입이면, `Discrete(2)`로 선언하고, action이 0 또는 1이라는 것을 나타낸다.
 
-### 3.6 observation_space
+## 3.6 observation_space
 
 `observation_space`는 observation의 유효 범위를 부여하며, 마찬가지로 `Space` 데이터 타입이다. 예를 들어, `observation_space`가 `Box` 타입이면, 해당 object는 `(4,)` 형태이며, observation이 4개의 숫자의 배열이라는 것을 나타낸다.
 
-### 3.7 reward_range
+## 3.7 reward_range
 
 `reward_range`는 reward 값의 최소, 최대값에 대한 tuple로, 디폴트 값은 `(-inf,+inf)`이다.
 
-## 4. 새로운 Env 만들기
+# 4. 새로운 Env 만들기
 
 [Make your own custom environment](https://www.gymlibrary.dev/content/environment_creation/)에 가면 새로운 Env 클래스를 생성하는 자세한 방법에 대해 나와있다.
 
-### 4.1 GridWorldEnv
+## 4.1 GridWorldEnv
 
 새로운 `GridWorldEnv` 예제의 디렉토리 구조는 다음과 같다.
 
@@ -102,7 +102,7 @@ gym-examples/
 - `Done` 신호는 agnet가 목적지에 도착하면 발행된다.
 - `Reward`는 바이너리이며, `sparse data(희소 데이터: 차원/전체 공간에 비해 데이터가 있는 공간이 매우 협소한 데이터)`이다. 즉각적인 보상은 0이고, 에이전트가 목적지에 도착하지 않으면 1이다.
 
-### 4.2 선언 및 정의
+## 4.2 선언 및 정의
 
 `GridWorldEnv` 클래스는 추상 클래스인 `gym.Env` 클래스를 상속받는다. `metadata`를 선언하고, `render_modes`와 `render_fps`를 지정해야 한다. 만약 랜더링하지 않는다면, 즉 `None`이라면 metadata에 추가하지 않아도 된다.
 
@@ -160,7 +160,7 @@ class GridWorldEnv(gym.Env):
         self.clock = None
 ```
 
-### 4.3 Observation과 Environments 상태 설계
+## 4.3 Observation과 Environments 상태 설계
 
 `reset()`과 `step()`에서 `dobservation`을 계산하기 위한 메소드 `_get_bos()`를 정의한다. 이 메소드는 환경 상태를 `observation` 자료형으로 반환해준다. 그러나 이는 필수적으로 선언되어야 하는 것은 아니며, `reset()`과 `step()`에서 별도로 구현해도 상관없다. 
 
@@ -176,7 +176,7 @@ class GridWorldEnv(gym.Env):
         return {"distance": np.linalg.norm(self._agent_location - self._target_location, ord=1)}
 ```
 
-### 4.4 reset()
+## 4.4 reset()
 
 `reset()` 메소드는 episode를 초기화 할 때 호출된다. `reset()` 메소드가 호출되기 전 까지 `step()` 메소드는 호출되지 않는다고 가정하며, 언제든지 호출될 수 있다. 특히 seeding할 때 자주 호출된다. 랜덤하게 환경을 초기화할 때 gym.Env 클래스의 메소드인 `self.np_random` 메소드를 사용하는 것이 추천된다. 이 예제에서는 agnet의 위치와 target 위치를 랜덤하게 설정하는데 사용된다.
 
@@ -206,7 +206,7 @@ class GridWorldEnv(gym.Env):
         return observation, info
 ```
 
-### 4.5 step()
+## 4.5 step()
 
 `step()` 메소드는 학습하고자 하는 환경의 핵심 로직이 담겨있는 함수이다. `action`을 받아서, 액션을 수행한 이후의 환경 상태를 계산하고, `4-tuple (observation, reward, done, info)`을 반환한다. 새로운 환경 상태를 한번 계산하면, 상태가 terminate 되었는지, 그에 따라 완료가 되었는지를 확인할 수 있다. 여기서는 `reward`로 `sparse binary`를 사용하기 때문에, 그 결과값 자체는 작을 것이다. 여기서도 `observation`과 `info`를 반환하기 위해 `_get_bos`와 `_get_info` 메소드를 사용하여 리턴하고 있다.
 
@@ -230,7 +230,7 @@ class GridWorldEnv(gym.Env):
         return observation, reward, terminated, False, info
 ```
 
-### 4.6 rendering()
+## 4.6 rendering()
 
 이 예제는 `PyGame`을 이용하여 랜더링한다. 이 예제는 `PyGame`을 이용하여 랜더링하는 경우 이 예제를 스켈레톤 버전으로 활용할 수 있다.
 
@@ -302,7 +302,7 @@ class GridWorldEnv(gym.Env):
             )
 ```
 
-### 4.7 close()
+## 4.7 close()
 
 `close()` 메소드는 환경에서 사용되고 있는 자원들을 종료시키며, 이 메소드는 반드시 사용되고 있는 자원들을 종료시키는 역할을 수행해야 한다.
 
@@ -313,7 +313,7 @@ class GridWorldEnv(gym.Env):
             pygame.quit()
 ```
 
-### 4.8 ENV 등록
+## 4.8 ENV 등록
 
 새로만들어진 `Env` 환경을 사용하기 위해서 아래와 같이 `register`를 이용하여 등록해야 한다. 이 코드는 `gym-examples/gym_examples/__init__.py`에 정의되어야 한다.
 
@@ -347,7 +347,7 @@ env = gym.make('gym_examples/GridWorld-v0')
 env = gym.make('gym_examples/GridWorld-v0', size=10)
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [OpenAI gym github](https://github.com/openai/gym)
 - [Gymnasium is a standard API for reinforcement learning, and a diverse collection of reference environments](https://gymnasium.farama.org/), 

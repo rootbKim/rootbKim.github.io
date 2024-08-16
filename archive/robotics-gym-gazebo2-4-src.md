@@ -7,7 +7,7 @@ category: "Robotics"
 
 OpenAI Gym 라이브러리를 이용해 구현된 gym-gazebo2 패키지의 코드 내용을 분석한다.
 
-## 1. gg_random.py
+# 1. gg_random.py
 
 해당 코드는 강화학습을 위한 코드는 아니고, gym-gazebo2 환경을 학습하기 위한 코드라고 한다. 정의된 `MARA-v0` 환경을 등록하고, 랜덤한 `action`을 부여하는 코드라고 보면 될 것 같다.
 
@@ -22,7 +22,7 @@ while True:
     observation, reward, done, info = env.step(env.action_space.sample())
 ```
 
-## 2. Register
+# 2. Register
 
 `~/gym_gazebo2/gym_gazebo2/__init__.py`에 다음과 같이 `MARAEnv`가 register되어 있다.
 
@@ -35,7 +35,7 @@ register(
 )
 ```
 
-## 3. MARAEnv
+# 3. MARAEnv
 
 위에서 가져온 환경인 `MARA-v0`는 gym-gazebo2 패키지 내에 `MARAEnv`라는 클래스로 정의되어 있다.
 
@@ -88,7 +88,7 @@ from PyKDL import ChainJntToJacSolver # For KDL Jacobians
 class MARAEnv(gym.Env):
 ```
 
-### 3.1 init
+## 3.1 init
 
 초기화 시 ros node를 만들고, target_position, target_orientation의 범위의 지정, 각 조인트와 링크 선언, end effectr의 위치와 속도, 초기 위치 등의 변수들을 선언한다. `_pub`은 GAZEBO 상에 각 조인트의 정보를 publish하고, `_sub`은 GAZEBO 상에서의 Joint 상태를 subscription 한다. `_sub_coll`은 충돌 결과를 sub하고, reset_sim은 reset 시 simulation 환경을 reset을 요청하는 service client이다. `action_space`와 `observation_space`를 선언하고, `spawn_cli`를 이용하여 초기 위치에 대하여 GAZEBO상에 spawn한다.
 
@@ -260,7 +260,7 @@ class MARAEnv(gym.Env):
         self.collided = 0
 ```
 
-### 3.2 observation_callback, collision_callback, set_episode_size
+## 3.2 observation_callback, collision_callback, set_episode_size
 
 각각 GAZEBO Joint 결과와, 충돌 여부를 콜백받고, episode 크기를 결정하는 메소드이다.
 
@@ -284,7 +284,7 @@ class MARAEnv(gym.Env):
         self.max_episode_steps = episode_size
 ```
 
-### 3.3 take_observation
+## 3.3 take_observation
 
 `take_observation()`은 JointTrajectoryControllerState 결과를 이용하여 F.K. 계산 및 Jacobian 계산을 통하여 EE의 위치, 속도를 계산한다.
 
@@ -341,7 +341,7 @@ class MARAEnv(gym.Env):
             return state
 ```
 
-### 3.4 collision
+## 3.4 collision
 
 `collision()`은 Gazebo로부터 받은 충돌 메세지를 확인하여, 환경을 리셋하는 메소드이다.
 
@@ -361,7 +361,7 @@ class MARAEnv(gym.Env):
             return False
 ```
 
-### 3.5 seed
+## 3.5 seed
 
 `seed()` 메소드는 초기 위치와 목적지 위치를 랜덤하게 하기 위한 메소드이다.
 
@@ -371,7 +371,7 @@ class MARAEnv(gym.Env):
         return [seed]
 ```
 
-### 3.6 step
+## 3.6 step
 
 `step()` 메소드는 각 단계별로 액션을 수행하는 메소드이다. Gazebo에 action을 수행하도록 publish한다.
 
@@ -441,7 +441,7 @@ class MARAEnv(gym.Env):
         return obs, reward, done, info
 ```
 
-### 3.7 reset
+## 3.7 reset
 
 `reset()`이 호출되면 iterator를 0으로 초기화, GAZEBO를 초기화하고 초기화에 대한 observation을 리턴한다.
 
@@ -469,7 +469,7 @@ class MARAEnv(gym.Env):
         return obs
 ```
 
-### 3.8 close
+## 3.8 close
 
 `close()`를 정의하며, ROS 노드를 종료시키고, 관련된 환경들을 종료시킨다.
 
@@ -486,6 +486,6 @@ class MARAEnv(gym.Env):
 
 이상으로 `MARAEnv`에 대해서 간략하게 정리하였는데, utility 관련된 부분이나, F.K. 및 Jacobian 계산 등 더 깊은 이해가 필요할 것이다.
 
-## 참고문헌
+# 참고문헌
 
 - [gym-gazebo2 깃헙 페이지](https://github.com/AcutronicRobotics/gym-gazebo2)

@@ -7,13 +7,13 @@ category: "Robotics"
 
 로봇 모델을 Gazebo나 RViz와 같은 시뮬레이션 환경에 로드하고 실행할 때 사용되는는 도구인 spawner에 대해 알아본다.
 
-## 1. Spawner란?
+# 1. Spawner란?
 
 `ROS2 spawner`는 로봇 모델을 Gazebo나 RViz와 같은 시뮬레이션 환경에 로드하고 실행할 때 사용되는 도구이다. 일반적으로 URDF 또는 SDF 형식으로 정의된 로봇 모델 파일을 사용하여 spawner를 사용하여 시뮬레이션 환경에 로봇 모델을 로드할 수 있다.
 
 ROS2에서 spawner를 사용하기 위해서는 `gazebo_ros` 패키지와 `robot_state_publisher` 패키지가 필요하며, 또한 URDF 또는 SDF 형식으로 정의된 로봇 모델 파일이 필요하다.
 
-## 2. Spawner 사용하기
+# 2. Spawner 사용하기
 
 `gazebo_ros_pkgs` 패키지의 `spawn_entity.py` 스크립트를 사용하여 Gazebo 시뮬레이터에 로봇 모델을 로드하고 실행한다. `spawn_entity.py` 스크립트는 `gazebo_msgs/msg/SpawnEntity` 메시지를 사용하여 Gazebo 시뮬레이터에 로봇 모델을 추가한다.
 
@@ -67,5 +67,5 @@ def generate_launch_description():
     ])
 ```
 
-## 참고문헌
+# 참고문헌
 * [ros-simulation/gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs)

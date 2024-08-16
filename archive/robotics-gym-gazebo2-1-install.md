@@ -7,17 +7,17 @@ category: "Robotics"
 
 ROS2 환경에서 구동되는 gym-gazebo2의 설치 및 예제에 대해서 정리한다.
 
-## 1. Docker를 이용한 설치
+# 1. Docker를 이용한 설치
 
 우분투 및 ROS2 버전의 문제로, 직접 설치하여 사용하지 않고, 도커를 이용하여 설치한다. 설치 방법은 [gym-gazebo2 깃헙 페이지](https://github.com/AcutronicRobotics/gym-gazebo2/blob/dashing/docker/README.md)의 내용을 가져온 것이다.
 
-#### gym-gazebo2 도커 이미지 설치
+### gym-gazebo2 도커 이미지 설치
 
 ```bash
 docker pull acutronicrobotics/gym-gazebo2
 ```
 
-#### 도커 이미지 실행
+### 도커 이미지 실행
 
 ```bash
 # xhost 연결
@@ -49,7 +49,7 @@ docker run --rm \
 cp -r /root/ros2_mara_ws /tmp/gym-gazebo2 #Inside the docker container, used to load visual models
 ```
 
-## 2. MARA 예제 실행
+# 2. MARA 예제 실행
 
 `MARA`는 `Modular Articulated Robotic Arm`의 약자로 협동 로봇이며, ROS2 환경을 지원하는 로봇이다.
 
@@ -58,6 +58,6 @@ cd ~/gym-gazebo2/examples/MARA
 python3 gg_random.py -g
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [gym-gazebo2 깃헙 페이지](https://github.com/AcutronicRobotics/gym-gazebo2)

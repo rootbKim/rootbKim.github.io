@@ -7,7 +7,7 @@ category: "Programming"
 
 정렬 알고리즘은 어떤 데이터셋이 주어졌을 때 이를 정해진 순서대로 나열하여 재배치하는 문제로, 개발을 하다보면 불규칙하게 정렬된 데이터들을 일정한 규칙에 맞게 정렬 후 탐색해야하는 경우가 발생한다. 이때 사용되는 정렬 알고리즘들에 대해 설명한다.
 
-## 1. 선택정렬(Selection Sort)
+# 1. 선택정렬(Selection Sort)
 
 <img src="/assets/img/posts/230104_sort_1.gif">
 
@@ -19,7 +19,7 @@ category: "Programming"
 
 선택정렬은 항상 전체 리스트를 순회하기 때문에 시간복잡도는 항상 O(n^2)이 된다.
 
-## 2. 삽입정렬(Insertion Sort)
+# 2. 삽입정렬(Insertion Sort)
 
 <img src="/assets/img/posts/230104_sort_2.gif">
 
@@ -33,7 +33,7 @@ category: "Programming"
 
 삽입정렬은 최선의 경우 한 번만 순회를 하면 되기 때문에 O(n)의 시간복잡도를 가질 수 있으나, 최악의 경우 O(n^2)의 시간복잡도를 가지게 된다.
 
-## 3. 버블정렬(Bubble Sort)
+# 3. 버블정렬(Bubble Sort)
 
 <img src="/assets/img/posts/230104_sort_3.gif" width='1000px'>
 
@@ -48,7 +48,7 @@ category: "Programming"
 
 버블정렬의 시간복잡도는 항상 O(n^2)이 된다.
 
-## 4. 병합정렬(Merge Sort)
+# 4. 병합정렬(Merge Sort)
 
 <img src="/assets/img/posts/230104_sort_4.gif">
 
@@ -60,7 +60,7 @@ category: "Programming"
 
 병합정렬의 시간복잡도는 O(nlog n)이 된다.
 
-## 5. 퀵 정렬(Quick Sort)
+# 5. 퀵 정렬(Quick Sort)
 
 <img src="/assets/img/posts/230104_sort_5.gif" width='1000px'>
 
@@ -73,7 +73,7 @@ category: "Programming"
 
 퀵 정렬의 시간복잡도는 O(nlog n)이 된다.
 
-## 참고문헌
+# 참고문헌
 
 - [[자료구조] 기본 정렬 알고리즘 총 정리](https://roytravel.tistory.com/328)
 - [나무위키 정렬 알고리즘](https://namu.wiki/w/%EC%A0%95%EB%A0%AC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98#s-2.1.3)

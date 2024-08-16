@@ -7,7 +7,7 @@ category: "Programming"
 
 중첩 클래스에 대해서 알아보고, 중첩 클래스를 사용하는 이유와 예제에 대해 다룬다.
 
-## 1. 중첩 클래스(Nested Class)
+# 1. 중첩 클래스(Nested Class)
 
 클래스 안에서 다른 클래스를 정의할 수 있는데, 특정 클래스 안에서만 사용하기 위한 용도로 사용되는 경우에 사용한다. 중첩 클래스를 사용함으로써 클래스를 그룹화할 수 있고, 클래스의 사용 범위를 제한할 수 있다.
 
@@ -20,19 +20,19 @@ class OuterClass
 };
 ```
 
-## 2. 중첩 클래스를 사용하는 이유
+# 2. 중첩 클래스를 사용하는 이유
 
 1. 클래스를 논리적으로 그룹화할 수 있다.
 2. 특정 클래스 내부에서만 사용되기 때문에 코드를 더 쉽게 파악할 수 있으며, 유지 관리가 쉽다.
 3. 특정 클래스 내부에서만 사용되므로 클래스 구조가 단순해지고, 사용자로부터 내부 클래스를 감출 수 있다.
 
-## 3. 중첩 클래스 특징
+# 3. 중첩 클래스 특징
 
 - `OuterClass` 밖에서 `InnerClass`를 참조하기 위해서 `OuterClass::` 스코프 지정자를 사용해야 한다.
 - 위의 `InnerClass`처럼 `OuterClass` 에서 `InnerClass`를 선언만 하고, 정의 코드는 따로 작성할 수 있다.
 - `InnerClass`에서 `OuterClass`의 `private` 멤버에 접근이 가능하다.
 
-## 4. 중첩 클래스 예제
+# 4. 중첩 클래스 예제
 
 다음 예제는 `open-rmf`에서 개발 중인 [rmf_traffic](https://github.com/open-rmf/rmf_traffic) 라이브러리의 geometry 부분의 일부를 가져왔다.
 
@@ -119,7 +119,7 @@ Shape::~Shape()
 ```
 
 
-## 참고문헌
+# 참고문헌
 
 - [[C#]중첩 클래스(Nested Class)](https://developer-talk.tistory.com/473)
 - [open-rmf/rmf_traffic github pages](https://github.com/open-rmf/rmf_traffic)

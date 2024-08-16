@@ -7,7 +7,7 @@ category: "Robotics"
 
 gym-gazebo2의 분석을 위해서 ROS 1 기반인 gym-gazebo 관련 논문 [Extending the OpenAI Gym for robotics: a toolkit for reinforcement learning using ROS and Gazebo](https://arxiv.org/pdf/1608.05742.pdf)과 [Acutronic Robotics](https://acutronicrobotics.com/)에서 발표한 arxiv 논문 [gym-gazebo2, a toolkit for reinforcement learning using ROS 2 and Gazebo](https://arxiv.org/pdf/1903.06278.pdf)의 내용을 간략하게 정리한다.
 
-## 1 Extending the OpenAI Gym for robotics: a toolkit for reinforcement learning using ROS and Gazebo
+# 1 Extending the OpenAI Gym for robotics: a toolkit for reinforcement learning using ROS and Gazebo
 
 [OpenAI gym](https://www.gymlibrary.dev/)을 이용하여, ROS와 GAZEBO 시뮬레이션 환경에서 강화학습의 방법에 대한 내용이다.
 
@@ -37,7 +37,7 @@ gym-gazebo2의 분석을 위해서 ROS 1 기반인 gym-gazebo 관련 논문 [Ext
 
 두 강화학습의 결과는 Q-Learning의 방식이 Sarsa 보다 더 빠르게 학습할 수 있지만, Q-Learning이 Sarsa보다 움직임이 더 위험한 움직임(벽에 붙어서 주행)을 보여주고, Sarsa는 조금 더 부드러운 움직임을 보여준다는 것으로 정리된다.
 
-## 2 gym-gazebo2, a toolkit for reinforcement learning using ROS 2 and Gazebo
+# 2 gym-gazebo2, a toolkit for reinforcement learning using ROS 2 and Gazebo
 
 gym-gazebo의 업그레이드 버전으로, gym-gazebo와 마찬가지로 OpenAI의 Gym 모듈을 사용한다.
 
@@ -65,7 +65,7 @@ MARA를 이용한 강화학습은 총 4 가지 환경에 따라 학습을 진행
 
 ROS2Learn 레포지토리에 gym-gazebo2를 이용하여 위 4 가지 환경에 대한 학습을 할 수 있는 테스트를 모아두었다. 자세한 reward 식과, 학습의 결과는 논문을 참조한다.
 
-## 참고문헌
+# 참고문헌
 
 - [gym-gazebo arxiv 논문](https://arxiv.org/pdf/1608.05742.pdf)
 - [gym-gazebo2 arxiv 논문](https://arxiv.org/pdf/1903.06278.pdf)

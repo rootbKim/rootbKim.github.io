@@ -7,7 +7,7 @@ category: "Dev"
 
 리눅스에서 자주 사용되는 command를 알파벳 순으로 정리하였다.
 
-## A
+# A
 
 - alias : 명령어를 간소화하여 다른 이름으로 사용할 수 있도록 해주는 쉘 내부 명령어
 
@@ -61,11 +61,11 @@ sudo apt-get purge [package_name]
 sudo apt-get source [package_name]
 ```
 
-## B
+# B
 
 - bg : "background"를 나타내며, 작업을 백그라운드로 보내는 명령어, "foreground"에 해당하는 fg와 반대되는 명령어
 
-## C
+# C
 
 - cal : 캘린더를 띄우는 명령어
 
@@ -161,7 +161,7 @@ cp [filename1] [filename2]
 cp [filename] [directory]
 ```
 
-## D
+# D
 
 - date : 날짜 출력 명령어
 
@@ -294,7 +294,7 @@ du -d N [directory name]
 du -a [directory name]
 ```
 
-## E
+# E
 
 - echo : 문자열을 컴퓨터 터미널에 출력하는 명령어이다. 일반적으로 셸 스크립트와 배치 파일에서 화면이나 파일로 상황을 알리는 문자열을 출력할 때에 사용
 
@@ -324,7 +324,7 @@ export
 export [env var name]=[value]
 ```
 
-## F
+# F
 
 - fg : "foreground"를 나타내며, 현재 백그라운드로 실행중인 명령어를 포그라운드작업으로 전환을 할때 사용하는 명령어
 
@@ -383,7 +383,7 @@ free -m
 free -g
 ```
 
-## G
+# G
 
 - grep : 입력으로 전달된 파일의 내용에서 특정 문자열을 찾고자할 때 사용하는 명령어
 
@@ -416,7 +416,7 @@ grep "^[pattern]" [file name]
 grep "[pattern]$" [file name]
 ```
 
-## H
+# H
 
 - head : 텍스트로된 파일의 앞부분을 지정한 만큼 출력하는 명령어
 
@@ -440,7 +440,7 @@ head [file name 1] [file name 2]
 head -q [file name]
 ```
 
-## I
+# I
 
 - id : 현재 사용자의 실제 id와 유효 사용자 id, 그룹 id를 출력하며 내부 bash 변수인 $UID, $EUID, $GROUPS와 짝을 이룸.
 
@@ -462,7 +462,7 @@ ifconfig [ethernet name] netmask [netmask address]
 ifconfig [ehternet name] broadcast [broadcast address]
 ```
 
-## J
+# J
 
 - join : 두 파일을 의미있는 형태로 묶어 하나의 파일로 만드는 명령어로 공통으로 표시된 필드가 들어 있는 줄에 대응하여 합침.
 
@@ -474,7 +474,7 @@ join [file name 1] [file name 2]
 join -v [file name 1] [file name 2]
 ```
 
-## K
+# K
 
 - kill : 프로세스에 특정한 signal을 보내는 명령어
 
@@ -488,7 +488,7 @@ kill -TERM [pid]
 kill -l
 ```
 
-## L
+# L
 
 - ll : ls -l 과 동일한 명령어
 
@@ -546,7 +546,7 @@ ls -lu
 ls -lc
 ```
 
-## M
+# M
 
 - man : 각 종 명령어들의 자세한 사용법이나 매뉴얼을 볼 때 사용하는 명령어
 
@@ -600,7 +600,7 @@ mv [file name 1] [file name 2] [directory name]
 mv [directory name 1] [directory name 2]
 ```
 
-## N
+# N
 
 - nslookup : name server 관련한 조회를 할 수 있는 명령어, 서버의 네트워크가 제대로 설정되었는지 확인하는 용도로 주로 사용
 
@@ -627,7 +627,7 @@ nslookup 209.132.183.181
 nslookup redhat.com 8.8.8.8
 ```
 
-## P
+# P
 
 - ps : 현재 실행 중인 프로세스 목록과 상태를 출력
 
@@ -672,7 +672,7 @@ ping -f www.google.com
 ping -i 0.2 www.google.com
 ```
 
-## R
+# R
 
 - rm : 파일 또는 디렉토리를 제거하는 명령어
 
@@ -706,7 +706,7 @@ rmdir [directory name 1] [directory name 2]
 rmdir -p [directory name 1]/[directory name 2]
 ```
 
-## S
+# S
 
 - scp : ssh를 기반으로 한 파일 전송 프로토콜
 
@@ -750,7 +750,7 @@ ssh -p [port num] [user name]@[ip address]
 
 - sudo : root 권한을 이용하여 명령어를 실행할 때 사용
 
-## T
+# T
 
 - tail : 파일의 마지막 부분을 출력하는 프로그램
 
@@ -805,7 +805,7 @@ touch [filename]
 sudo apt-get install tree
 ```
 
-## U
+# U
 
 - uname : 시스템의 정보(커널명, 호스트명, 커널 릴리즈, 커널 버전, 머신, 프로세스 하드웨어 플랫폼, OS)를 확인하는 명령어
 
@@ -851,7 +851,7 @@ uptime -p
 uptime -s
 ```
 
-## V
+# V
 
 - vi : vi 편집기 사용
 
@@ -860,7 +860,7 @@ uptime -s
 vi [file name]
 ```
 
-## W
+# W
 
 - w : 서버에 접속한 사용자의 접속정보 및 작업 정보 내용을 확인하는 명령어
 

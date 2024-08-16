@@ -7,7 +7,7 @@ category: "RObotics"
 
 ROS2 CLI를 구현에 사용되는 ros2cli 패키지에 대해 정리하고, ros2cli 패키지를 이용한 커스텀 cli를 만드는 예제를 정리한다.
 
-## 1. ros2cli
+# 1. ros2cli
 
 [ros2cli](https://github.com/ros2/ros2cli)는 ROS2 command line interface 도구로써, 모든 ROS2 distro에 표준으로 사용되는 도구이다.
 
@@ -21,11 +21,11 @@ ros2 <command> <verb> --options
 
 <img src="/assets/img/posts/230530_ros2cli_cheatsheet.png">
 
-## 2. Add New Verbs
+# 2. Add New Verbs
 
 [python entry points](https://setuptools.pypa.io/en/latest/pkg_resources.html#entry-points)를 이용하여 새로운 Command와 Verb를 추가할 수 있다. 새로운 Command와 Verb를 추가한 예제로 [ros2hellocli](https://github.com/artivis/ros2hellocli)가 있다.
 
-## 3. ros2hellocli
+# 3. ros2hellocli
 
 ros2hellocli에 대해 내용을 정리한 문서가 있다. [다음](https://ubuntu.com/blog/creating-a-ros-2-cli-command-and-verb)을 참조한다.
 
@@ -99,7 +99,7 @@ setup(
 )
 ```
 
-### 3.1 command
+## 3.1 command
 
 `command`폴더는 ros2cli의 `<command>` 부분으로, ROS2 CLI 사용 시 새 명령을 검색할 수 있게 한다.
 
@@ -143,7 +143,7 @@ class HelloCommand(CommandExtension):
 ```
 * hello라는 command가 되었다.
 
-### 3.2 verb
+## 3.2 verb
 
 `verb`폴더는 `<command>` 다음에 오는 `<verb>`의 역할을 하는 확장점으로, 실제 기능 구현을 하는 동사 확장점이 된다.
 
@@ -193,7 +193,7 @@ class WorldVerb(VerbExtension):
 )
 ```
 
-### 3.3 api
+## 3.3 api
 
 이제 `command`와 `verb`를 구현하였으니, 사용자의 입력 인수를 처리하기 위하여 `api`에 기능을 추가할 것이다.
 
@@ -235,7 +235,7 @@ class WorldVerb(VerbExtension):
 
 > cli의 옵션을 넣거나, argument의 completer 기능 등은 ros2cli 패키지에 구현되어 있는 ros2service, ros2topic 등과 같은 패키지 또는 [ros2_control](https://github.com/ros-controls/ros2_control)의 ros2controlcli에 잘 구현되어있으니 실제 구현 시 참고하여 만들면 좋다.
 
-### 3.4 완성된 cli의 실행
+## 3.4 완성된 cli의 실행
 
 구현이 완료된 ros2hellocli 패키지를 빌드하면, 다음과 같이 터미널에서 명령을 할 수 있게 된다.
 
@@ -244,7 +244,7 @@ ros2 hello world
 ros2 hello world --leet 
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [ros2cli repo](https://github.com/ros2/ros2cli)
 - [ros2cli example ros2hellocli](https://github.com/artivis/ros2hellocli)

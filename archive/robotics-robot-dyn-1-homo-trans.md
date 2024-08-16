@@ -7,7 +7,7 @@ category: "Robotics"
 
 로봇동역학에서 기본이 되는 회전 행렬 및 Homogeneous 변환 행렬에 대해서 정리한다.
 
-## 1. Orientation Matrix(Rotation Matrix)
+# 1. Orientation Matrix(Rotation Matrix)
 
 2차원 평면 상에서 $$o_0x_0y_0$$ 좌표계에 대하여 $$\theta$$만큼 회전한 $$o_1x_1y_1$$ 좌표계의 Rotation Matrix $$R^0_1$$는 다음과 같다.
 
@@ -45,7 +45,7 @@ R_{x,\theta} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & cos\theta & -sin\theta  \\ 0 & s
 R_{y,\theta} = \begin{bmatrix} cos\theta & 0 & sin\theta \\ 0 & 1 & 0 \\ -sin\theta & 0 & cos\theta \end{bmatrix}
 $$
 
-## 2. 현재 좌표계에 대한 회전
+# 2. 현재 좌표계에 대한 회전
 
 현재 좌표계에 대한 회전은 각 프레임이 이전 프레임에 대하여 회전하는 경우를 말한다.
 
@@ -72,7 +72,7 @@ $$
 
 > 좌표변환 순서에 따라 회전 행렬도 달라지므로, 순서에 주의해야한다.
 
-## 3. 고정 좌표계에 대한 회전
+# 3. 고정 좌표계에 대한 회전
 
 고정 좌표계에 대한 회전은 고정된 글로벌한 좌표계에 대하여 항상 회전을 고려하는 경우로, 현재 화표계에 대한 회전과 회전 행렬의 순서가 반대가 된다.
 
@@ -86,7 +86,7 @@ $$
 
 이 순서는 회전 좌표계에서의 회전과 반대되는 순서이다.
 
-## 4. Euler Angles
+# 4. Euler Angles
 
 현재 좌표계를 사용하며, $$(\phi, \theta, \psi)$$ 각도로 세 번 회전한 좌표계로, 그 순서는 다양하나, 대표적으로 z, y, z 순서로 회전한 좌표계가 대표적이다. 즉, 오일러 회전 행렬은 다음과 같다.
 
@@ -127,7 +127,7 @@ $$
 
 만약에 $$r_{13} = r_{23} = 0, r_{33} = \pm 1 (\theta = 0)$$ 와 같다면, 무수히 많은 해가 존재하게 된다. 이와 같이 z, y, z 순서의 Euler Angle은 $$sin\theta = 0$$ 이면 정의가 불가능하다.
 
-## 5. Roll, Pitch Yaw Angles
+# 5. Roll, Pitch Yaw Angles
 
 고정 좌표계를 사용한 방식으로 고정 좌표계 기준으로 x, y, z 회전한 행렬이다. 이는 Euler Angle의 z, y, x 회전과 동일하다. 여기서 Roll은 $$\phi$$, Pitch는 $$\theta$$, Yaw는 $$\psi$$가 된다.
 
@@ -146,7 +146,7 @@ or \\
 \psi = Atan2(s_\phi r_{31} - c_\phi r_{23}, -s_\phi r_{12} + c_\phi r_{22})
 $$
 
-## 6. Homogeneous Transformations
+# 6. Homogeneous Transformations
 
 0번 좌표계에 대하여 회전한 1번 좌표계를 $$d^0_1$$만큼 선형변환하면 $$p^0$$는 다음과 같다.
 

@@ -7,17 +7,17 @@ category: "Dev"
 
 많이 사용되는 DBMS 중 하나인 PostgreSQL에 대해서 알아보고, MySQL과의 차이점 및 PostgreSQL의 장점과 리눅스에서의 설치 및 테스트 방법을 정리한다.
 
-## 1. PostgreSQL이란?
+# 1. PostgreSQL이란?
 
 [PostgreSQL](http://www.postgresql.org/)은 북미와 일본에서는 높은 인지도와 많은 인기를 얻고 있는 `RDBMS`다. 국내에서는 아직 잘 사용하지 않고 있지만, 기능과 성능면에서 매우 훌륭한 RDBMS이기 때문에 PostgreSQL가 어떠한 데이터베이스인지 시간을 들여 알아볼 필요는 있다.
 
 `PostgreSQL`(포스트-그레스-큐엘 [Post-Gres-Q-L]로 발음)은 `객체-관계형 데이터베이스 시스템(ORDBMS)`으로, 엔터프라이즈급 DBMS의 기능과 차세대 DBMS에서나 볼 수 있을 법한 많은 기능을 제공하는 `오픈소스` DBMS다. 실제 기능적인 면에서는 `Oracle`과 유사한 것이 많아, Oracle 사용자들이 가장 쉽게 적응할 수 있는 오픈소스 DBMS가 PostgreSQL이라는 세간의 평 또한 많다.
 
-## 2. MySQL vs. PostgreSQL
+# 2. MySQL vs. PostgreSQL
 
 DBMS를 선택할 때, 어떤 DBMS를 사용할 것인지에 대한 고민은 필요하다. DBMS마다 가지는 장점과 단점이 있을 것이고, 이러한 장단점을 고려해, 프로젝트의 목적에 맞게 효과적인 DBMS를 선택하는 것이 중요할 것이다. 여기서는 해당 포스팅에서 다루고자 하는 PostgreSQL과 널리 사용되고 있는 MySQL의 장점을 비교해보고자 한다.
 
-#### MySQL의 장점
+### MySQL의 장점
 
 1. 고도의 유연성 및 확장성: MySQL을 사용하면 스토리지 엔진에 대한 선택의 폭이 커진다. 따라서 다양한 테이블 유형의 데이터를 유연하게 통합할 수 있다. MySQL 8.0은 다음과 같은 스토리지 엔진을 지원한다다.
   - InnoDB, MyISAM, Memory, CSV, Archive, Blackhole, NDB/NDBCLUSTER,  Merge, Federated, Example
@@ -27,7 +27,7 @@ DBMS를 선택할 때, 어떤 DBMS를 사용할 것인지에 대한 고민은 �
 5. 클라우드 지원 DBMS: MySQL은 클라우드를 지원한다. 여러 클라우드 플랫폼에서 MySQL 데이터베이스를 유료로 설치하고 유지 관리해주는 MySQL 기능을 제공한다.
 6. InnoDB 엔진에서 다중 버전 동시성 제어(MVCC) 및 ACID 규정 준수 제공: 현재 MySQL 버전의 기본 엔진은 InnoDB으로, MVCC와 ACID 규정 준수가 추가되었다. 그러나 MySQL의 InnoDB는 MyISAM 테이블 형식 때문에 테이블 오염 관련 문제가 계속해서 발생할 수 있다. MySQL에 따르면, "MyISAM 테이블 형식은 매우 신뢰할 만하지만(SQL 문에 의한 테이블의 모든 변경 사항은 해당 SQL 문이 반환되기 전에 작성됨) 테이블의 오염 가능성은 여전히 존재"한다고 한다. 그리고 다른 엔진을 선택하면 MVCC와 ACID 규정을 준수하지 못하는 결과가 초래될 수 있다.
 
-#### PostgreSQL의 장점
+### PostgreSQL의 장점
 
 1. 단순히 RDBMS가 아닌 ORDBMS: PostgreSQL은 개체 관계형 프로그래밍 언어(ORDBMS)로서 개체 지향 프로그래밍과 관계 지향/절차 지향 프로그래밍 사이를 연결하는 역할을 한다(C++와 유사). 따라서 개체 및 테이블 상속을 정의할 수 있으므로 데이터 구조가 더 복잡해진다. ORDBMS는 엄격한 관계형 모델에 맞지 않는 데이터를 처리할 때 탁월하다.
 2. 복잡한 쿼리에 탁월: 유효성 검사가 필요한 데이터를 사용하면서 복잡한 읽기-쓰기 작업을 수행해야 하는 경우 PostgreSQL이 유리하다. 그러나 ORDBMS는 읽기 전용 작업을 처리할 때 속도가 느려질 수 있다(**이 경우 MySQL이 탁월**).
@@ -41,17 +41,17 @@ DBMS를 선택할 때, 어떤 DBMS를 사용할 것인지에 대한 고민은 �
 10. 여전히 발전중인 데이터베이스
 11. 장점이자 단점인 독창적인 자료형 및 문법: 표준SQL 만으로 PostgreSQL를 사용해도 좋다. 하지만 독창적인 자료형,문법, 함수들을 익힌다면 더욱 효과적이고 파워풀하게 데이터베이스를 활용할 수 있다. (예를 들자면 ARRAY, JSON, RANGE등의 자료형, ILIKE 등의 문법은 개발자들에게 큰 편의성과 효율성을 제공한다)
 
-## 3. PostgreSQL 설치
+# 3. PostgreSQL 설치
 
 우분투 환경에서 PostgreSQL의 설치 방법에 대해서 알아보고, 계정 및 DB 생성과 연결을 통한 TEST 방법에 대해서 알아본다.
 
-#### 설치
+### 설치
 
 ```bash
 sudo apt install postgresql
 ```
 
-#### 설치 확인
+### 설치 확인
 
 ```bash
 sudo systemctl is-active postgresql
@@ -59,13 +59,13 @@ sudo systemctl is-enable postgresql
 sudo systemctl status postgresql
 ```
 
-#### 클라이언트 연결 준비상태 확인
+### 클라이언트 연결 준비상태 확인
 
 ```bash
 sudo pg_isready
 ```
 
-#### postgresql 접속
+### postgresql 접속
 
 ```bash
 # postgres 시스템 사용자 계정으로 전환
@@ -75,7 +75,7 @@ sudo su - postgres
 psql
 ```
 
-#### 사용자 계정 생성 및 db 생성 / 연결
+### 사용자 계정 생성 및 db 생성 / 연결
 
 ```bash
 postgres=# CREATE USER [USERID] WITH PASSWORD '[USERPW]';
@@ -90,7 +90,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE [DBNAME] to [USERID];
 
 <img src="/assets/img/posts/230204_postgresql.png">
 
-## 참고문헌
+# 참고문헌
 
 - [한눈에 살펴보는 PostgreSQL](https://d2.naver.com/helloworld/227936)
 - [PostgreSQL과 MySQL 비교: 주요 차이점](https://www.integrate.io/ko/blog/postgresql-vs-mysql-the-critical-differences-ko/)

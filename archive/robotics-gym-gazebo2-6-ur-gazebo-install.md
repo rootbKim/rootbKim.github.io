@@ -7,7 +7,7 @@ category: "Robotics"
 
 Gym을 이용한 시뮬레이션 환경을 구성하기 위하여 UR 로봇에서 제공하는 ROS2 Gazebo Simulation 패키지를 설치하고, CLI를 이용하여 로봇을 컨트롤한다.
 
-## 1. UR GAZEBO Simulation 환경 설치
+# 1. UR GAZEBO Simulation 환경 설치
 
 ROS2 Galactic 버전에서 사용이 가능한 것으로 나와있어, Galactic 버전을 사용하여 설치한다.
 
@@ -54,7 +54,7 @@ ros2 topic pub /joint_trajectory_controller/joint_trajectory trajectory_msgs/msg
 ros2 launch ur_bringup test_joint_trajectory_controller.launch.py
 ```
 
-## 참고문헌
+# 참고문헌
 
 - [UR ROS2 Gazebo Simulation github pages](https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation)
 - [ros2_controller joint_trajectory_controller](https://control.ros.org/foxy/doc/ros2_controllers/joint_trajectory_controller/doc/userdoc.html#using-joint-trajectory-controller-s)

@@ -7,7 +7,7 @@ category: "Robotics"
 
 ROS2에서 사용되는 빌드 툴인 colcon에 대해서 간단하게 그 개요에 대해서 정리하고, 자주 사용하는 colcon CLI를 정리한다.
 
-## 1. Colcon 이란?
+# 1. Colcon 이란?
 
 `colcon`은 command line tool로, 빌드, 테스트, 다수의 소프트웨어 패키지를 사용하는데 workflow를 개선하는데 사용된다. `colcon`은 이런 과정을 자동화하고, 명령을 처리하고, 패키지를 사용하도록 환경을 설정한다.
 
@@ -25,7 +25,7 @@ ROS의 workspace는 `src` 폴더 내부에 ROS 패키지들이 들어가게 된�
 source ~/[workspace_name]/install/setup.bash
 ```
 
-## 2. ROS 프로젝트를 진행하며 사용되는 colcon CLI
+# 2. ROS 프로젝트를 진행하며 사용되는 colcon CLI
 
 다음은 `ROS` 프로젝트를 진행하면서 주로 사용되는 build 관련된 `command line arguments`를 정리하였다.
 
@@ -41,7 +41,7 @@ source ~/[workspace_name]/install/setup.bash
 - `--cmake-args [*[* ...]]`
   CMake 과정에서 관련 arguments를 입력할 수 있다.
 
-## 참고문헌
+# 참고문헌
 
 - [Colcon 관련 ROS 2.0 foxy 설치 페이지](https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html)
 - [Build tools 에 대한 비교 및 정리 문서](https://design.ros2.org/articles/build_tool.html)

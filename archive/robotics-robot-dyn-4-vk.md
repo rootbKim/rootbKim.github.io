@@ -7,7 +7,7 @@ category: "Robotics"
 
 End Effector의 선속도 및 각속도와 각 joint variable의 관계를 나타내는 Jacobian에 대해 정리한다.
 
-## 1. Jacobian
+# 1. Jacobian
 
 Jacobian은 End Effector(또는 manipulator의 특정 point)의 선속도 및 각속도와 각 joint의 속도값의 관계를 나타낸다.
 
@@ -30,7 +30,7 @@ $$
 
 Jacobian Matrix는 Manipulator에서 중요한 개념이다. Trajectory를 부드럽게 planning을 하거나, Singular 상황을 결정($$\det(\bold{J}) = 0$$)하거나, 동적 운동 방정식을 도출하거나, End Effector와 각 joint 간의 힘과 토크의 관계를 구하는 등에 사용된다.
 
-## 2. 고정된 축에서의 Angular Velocity 계산의 예
+# 2. 고정된 축에서의 Angular Velocity 계산의 예
 
 고정된 축에 대한 rigid body의 움직임에서, rigid body의 모든 점은 원운동을 한다. 만약 $$\bold{k}$$가 회전 축의 방향을 나타내는 단위 벡터라면, rigid body의 각속도는 다음과 같이 계산된다.
 
@@ -50,11 +50,11 @@ $$
 
 만약 원점의 프레임이 고정되어 있지 않고, 움직이거나, 회전 운동을 하는 경우에는 rigid body의 한 점의 운동을 어떻게 정의할 수 있을까? Manipulator의 운동을 정의하기 위해서는 이 질문에 대한 답이 필요하다.
 
-## 3. Skew Symmetric Matrix
+# 3. Skew Symmetric Matrix
 
 Skew symmetric matrix는 좌표계간의 상대 속도 변환을 단순화하는데 사용된다. 이러한 성질을 이용하여 고정되지 않은 좌표계 위에서의 회전 운동을 일반화하는데 사용한다.
 
-### 3.1 Skew symmetric matrix의 정의
+## 3.1 Skew symmetric matrix의 정의
 Skew symmetric matrix $$S$$의 정의는 다음과 같다.
 
 $$
@@ -79,7 +79,7 @@ $$
 S(a) = \begin{bmatrix} 0 & -a_z & a_y \\ a_z & 0 & -a_x \\ -a_y & a_x & 0 \end{bmatrix}
 $$
 
-### 3.2 Skew symmetric matrix의 성질
+## 3.2 Skew symmetric matrix의 성질
 
 Skew Symmetric 행렬의 성질을 정리하면 다음과 같다.
 
@@ -113,7 +113,7 @@ $$
 X^TSX = 0
 $$
 
-### 3.3 Rotation matrix의 도함수
+## 3.3 Rotation matrix의 도함수
 
 모든 $$\theta$$에 대하여 $$R=R(\theta) \in SO(3)$$일 때 다음을 만족한다.
 
@@ -169,7 +169,7 @@ $$
 \frac{dR_{y,\theta}}{d\theta} = S(j)R_{y,\theta}, \;\frac{dR_{z,\theta}}{d\theta} = S(k)R_{z,\theta}
 $$
 
-## 4. Angular Velocity 구하기
+# 4. Angular Velocity 구하기
 
 회전행렬 $$R$$이 시간에 따라 변한다고 가정하면, $$R = R(t) \in SO(3)$$라고 가정할 수 있다.
 
@@ -265,7 +265,7 @@ w^0_{0,n} = w^0_{0,1} + R^0_1w^1_{1,2} + R^0_2w^2_{2,3} + R^0_3w^3_{3,4} + \dots
  = w^0_{0,1} + w^0_{1,2} + w^0_{2,3} + w^0_{3,4} + \dots + w^0_{n-1,n}
 $$
 
-## 5. Linear Velocity 구하기
+# 5. Linear Velocity 구하기
 
 시간에 따른 Homogeneous Transformation은 다음과 같다.
 
@@ -293,7 +293,7 @@ $$r=Rp^1$$은 $$o_0x_0y_0z_0$$ 좌표계에서 바라본 $$o_1$$에서 $$p$$로�
 
 > 만약 점 p가 $$o_1x_1y_1z_1$$ 좌표계에 대해서도 시간에 따라 변하는 값이라면 $$R(t)\dot{p}^1$$ 항이 추가되어야 한다.
 
-## 6. Jacobian 구하기
+# 6. Jacobian 구하기
 
 n개의 링크와 $$q_1, \dots, q_n$$의 조인트를 가진 매니퓰레이터의 변환행렬은 다음과 같다.
 
@@ -320,7 +320,7 @@ $$
 
 여기서 $$J_v$$, $$J_w$$가 구하고자 하는 Jacobian이 된다. 
 
-### 6.1 Angular Velocity
+## 6.1 Angular Velocity
 
 이제 $$J_w$$를 구하고자 한다. 만약 i 번째 joint가 회전 조인트라면, i-1번 프레임에 대한 angular velcity는 다음과 같이 표현할 수 있다.
 
@@ -348,7 +348,7 @@ $$
 J_w = \begin{bmatrix} \rho_1 z^0_0 & \dots & \rho_n z^0_{n-1} \end{bmatrix}
 $$
 
-### 6.2 Linear Velocity
+## 6.2 Linear Velocity
 
 다음으로 $$J_v$$를 구한다. End Effector의 선형 속도는 revloute, prismatic 조인트에 모두 영향을 받는다. 
 
@@ -358,7 +358,7 @@ $$
 
 그러므로 $$J_{v_i} = \frac{\partial o^0_n}{\partial q_i}$$가 된다. 이는 식은 i 관절만 움직이고 나머지 관절은 움직이지 않을 때 End Effector의 움직임을 나타내는데, 0번 joint부터 n번 조인트까지의 합이 최종적으로 End Effector의 선형 속도가 될 것이다.
 
-#### Prismatic Joint
+### Prismatic Joint
 
 Prismatic Joint에서의 $$J_{v_i}$$ 구할 것이다.
 
@@ -376,7 +376,7 @@ $$
 J_{v_i} = z_{i-1}
 $$
 
-#### Revolute Joint
+### Revolute Joint
 
 다음으로 Revolute Joint에서의 $$J_{v_i}$$ 구할 것이다.
 
@@ -397,7 +397,7 @@ $$
 J_{v_i} = z_{i-1} \times (o_n - o_{i-1})
 $$
 
-### 6.3 Combining Linear and Angular Velocity Jacobian
+## 6.3 Combining Linear and Angular Velocity Jacobian
 
 이제 Linear Velocity Jacobian과 Angular Velocity Jacobian을 합쳐 하나의 Jacobian을 구할 것이다.
 
@@ -433,9 +433,9 @@ $$
 
 > Jacobian은 결국 $$z_i$$와 $$o_i$$를 계산하면 구할 수 있다. $$z_i$$는 변환 행렬 $$T^0_i$$에서의 세 번째 컬럼의 처음 세 개의 요소에 해당하고, $$o_i$$는 네 번째 컬럼의 처음 세 개의 요소에 해당한다. 즉, FK를 통해 얻어진 변환 행렬을 통해 Jacobian을 유도할 수 있는 셈이다.
 
-### 6.4 Jacobian 예제
+## 6.4 Jacobian 예제
 
-#### 2d planar 
+### 2d planar 
 
 <img src="/assets/img/posts/230429_planar_manipulator.png">
 
@@ -471,7 +471,7 @@ $$
 J(q) = \begin{bmatrix} z_0 \times (o_c - o_0) & z_1 \times (o_c - o_1) \\ z_0 & z_1 \end{bmatrix}
 $$
 
-#### Standford manipulator
+### Standford manipulator
 
 <img src="/assets/img/posts/230429_standford_arm.png">
 
@@ -513,7 +513,7 @@ z_4=\begin{bmatrix} -c_1c_2s_4-s_1c_4 \\ -s_1c_2s_4+c_1c_4 \\ s_2s_4 \end{bmatri
 z_5=\begin{bmatrix} c_1c_2c_4s_5-s_1s_4s_5+c_1s_2c_5 \\ s_1c_2c_4s_5+c_1s_4s_5+s_1s_2c_5 \\ -s_2c_4s_5+c_2c_5 \end{bmatrix}
 $$
 
-## 7. Analytical Jacobian
+# 7. Analytical Jacobian
 
 지금까지 유도한 Jacobian은 Geometric Jacobian이라고 한다면, 이제부터는 최소한의 표현식으로 나타내저이즌 Analytical Jacobian $$J_a(q)$$를 구할 것이다.
 

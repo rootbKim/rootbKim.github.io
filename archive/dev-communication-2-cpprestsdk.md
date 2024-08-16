@@ -5,11 +5,11 @@ tags: [REST API, Communication, C++]
 category: "Dev"
 ---
 
-## 1. SERVER
+# 1. SERVER
 
 std::map 자료형의 dictionary 변수를 이용하여 client의 request 처리
 
-#### main 함수
+### main 함수
 
 - http_listener 객체 생성(URI 지정)
 - support() 함수로 request method 지정 및 handler 함수 지정
@@ -85,9 +85,9 @@ int main()
 }
 ```
 
-#### get
+### get
 
-##### function: handle_get()
+#### function: handle_get()
 
 - answer에 요청에 대한 json::value 데이터 저장
 - request.reply(status_codes::OK, json::value::object(answer));를 이용한 response
@@ -126,9 +126,9 @@ void handle_request(
 }
 ```
 
-#### post, put, del
+### post, put, del
 
-##### function: handle_request()
+#### function: handle_request()
 
 - OST, PUT, DEL methods는 GET 방식보다 복잡한 구조로 되어있음
 - handle_request() 함수는 request된 json 값을 처리하고, response할 json 값을 만드는 요청을 처리하기 위한 일반적인 메소드 함수
@@ -168,7 +168,7 @@ void handle_request(
 }
 ```
 
-##### function: handle_post()
+#### function: handle_post()
 
 ```cpp
 void handle_post(http_request request)
@@ -200,7 +200,7 @@ void handle_post(http_request request)
 }
 ```
 
-##### function: handle_put()
+#### function: handle_put()
 
 ```cpp
 void handle_put(http_request request)
@@ -236,7 +236,7 @@ void handle_put(http_request request)
 }
 ```
 
-##### function: handle_del()
+#### function: handle_del()
 
 ```cpp
 void handle_del(http_request request)
@@ -274,7 +274,7 @@ void handle_del(http_request request)
 }
 ```
 
-## 2. CLIENT
+# 2. CLIENT
 
 - server에 HTTP request를 만드는 http_client 객체를 생성
 - request method, path 및 json 값을 지정할 수 있는 오버로드 된 make_request() 함수를 가짐
@@ -379,11 +379,11 @@ int main()
 }
 ```
 
-## 3. RESULT
+# 3. RESULT
 
 <img src="/assets/img/posts/240202_cpprestsdk_result.png">
 
-## 4. uri 분석에 따른 처리
+# 4. uri 분석에 따른 처리
 
 ```cpp
 // GET 요청을 처리하는 handle_get 함수
@@ -458,7 +458,7 @@ void handle_get(http_request request){
 }
 ```
 
-## 5. cpprestsdk status_codes 종류
+# 5. cpprestsdk status_codes 종류
 
 * usr/include/cpprest/details/http_constants.dat에 정의
 
@@ -524,7 +524,7 @@ DAT(NotExtended,           510, _XPLATSTR("Not Extended"))
 DAT(NetworkAuthenticationRequired, 511, _XPLATSTR("Network Authentication Required"))
 #endif // _PHRASES
 ```
-## 참고문헌
+# 참고문헌
 
 - [microsoft/cpprestsdk](https://github.com/Microsoft/cpprestsdk/wiki)
 - [C++ Rest SDK](https://microsoft.github.io/cpprestsdk/namespaces.html)

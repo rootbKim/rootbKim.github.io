@@ -12,6 +12,7 @@ code {
 	font-size: 87.5%;
 	color: #FFFBE9;
 	word-wrap: break-word;
+	padding: 2px 5px 2px 5px;
 	border-radius: 5px;
 	background-color: #AD8B73;
 }
@@ -37,7 +38,7 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-
+	padding: 0;
 }
 
 /* Code blocks */

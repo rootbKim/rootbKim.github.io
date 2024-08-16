@@ -7,7 +7,7 @@ category: "Robotics"
 
 ROS2 패키지 작성 시 패키지의 구조와 인터페이스 정의 및 구현 시 사용되는 기본 패턴을 정리한다.
 
-## 1. ROS2 C++ 패키지 구조
+# 1. ROS2 C++ 패키지 구조
 
 해당 구조는 예시 패키지로 `ros2_design_example`이라는 패키지의 예시 구조이다.
 
@@ -46,13 +46,13 @@ ros2_design_example
 - `main.cpp`는 `ros2_design_exmaple.cpp`에 정의된 노드 클래스를 가져와 실행한다.
 - `ros2_design_example.cpp`는 메인 노드 클래스를 정의하고, 인터페이스를 선언하며, 정의된 `submodule`들을 이용하여 로직을 구현한다.
 
-## 2. ROS2 C++ 디자인 패턴
+# 2. ROS2 C++ 디자인 패턴
 
 - ROS2의 Executor에 대한 내용은 [ROS2 Documentation Executors](https://docs.ros.org/en/foxy/Concepts/About-Executors.html)를 참조한다.
 
-### 2.1 main.cpp에서의 노드 생성
+## 2.1 main.cpp에서의 노드 생성
 
-#### 싱글 노드인 경우
+### 싱글 노드인 경우
 
 `rclcpp::executors::SingleThreadedExecutor`를 이용한다.
 
@@ -76,7 +76,7 @@ int main(int argc, char ** argv)
 }
 ```
 
-#### 멀티 노드인 경우
+### 멀티 노드인 경우
 
 `rclcpp::executors::MultiThreadedExecutor`를 이용하여 여러 개의 노드를 한번에 실행한다.
 
@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
 }
 ```
 
-#### 멀티 노드를 동적으로 생성하는 경우
+### 멀티 노드를 동적으로 생성하는 경우
 
 `executor`를 `MultiThreadedExecutor`의 `shared_ptr`로 생성하여 이를 노드 생성 시 공유 인자로 넘기면, 해당 노드 안에서 `executor`를 이용하여 `add_node`, `remove_node` 등을 수행할 수 있다.
 
@@ -130,9 +130,9 @@ int main(int argc, char ** argv)
 }
 ```
 
-### 2.2 ros2_design_example 코드
+## 2.2 ros2_design_example 코드
 
-#### ros2_design_example.hpp
+### ros2_design_example.hpp
 
 ```cpp
 #ifndef ROS2_DESIGN_EXAMPLE__ROS2_DESIGN_EXAMPLE_HPP_
@@ -200,7 +200,7 @@ private:
 #endif // ROS2_DESIGN_EXAMPLE__ROS2_DESIGN_EXAMPLE_HPP_
 ```
 
-#### ros2_design_example.cpp
+### ros2_design_example.cpp
 
 ```cpp
 #include <ros2_design_example/ros2_design_example.hpp>
@@ -332,9 +332,9 @@ void DesignExample::example_thread(unsigned int ms)
 }
 ```
 
-### 2.3 executor를 이용하여 ros2_design_example 노드 내에서 새로운 노드를 추가하는 경우
+## 2.3 executor를 이용하여 ros2_design_example 노드 내에서 새로운 노드를 추가하는 경우
 
-#### 외부 노드
+### 외부 노드
 
 외부 노드에서는 `main.cpp`에서 생성된 `executor`를 `shared_ptr`로 공유받아 같은 `executor`를 사용하는 것이 핵심이며, 이 `executor`를 이용하여 소스코드 내에서 `add_node`, `remove_node`를 수행할 수 있다.
 
@@ -406,7 +406,7 @@ void DesignExample::delete_node(std::string node_id)
 }
 ```
 
-#### 내부 노드
+### 내부 노드
 
 내부 노드를 생성시 해당 노드도 `rclcpp::Node`를 상속받은 노드로 구현되어야 한다.
 

@@ -7,7 +7,7 @@ category: "Robotics"
 
 ROS2 노드의 실행 관리를 수행하는 Executors에 대해서 알아보고, Executors를 이용한 멀티 스레드의 운용, ROS 인터페이스의 콜백 관리 등에 대해서 정리한다.
 
-## 1. Executor를 이용한 노드 spin
+# 1. Executor를 이용한 노드 spin
 
 ROS2 C++ 패키지에서 rclcpp Node를 생성하고, 생성된 노드를 실행하기 위하여 일반적으로 `rclcpp::spin()` 메소드를 사용한다. 사용 예는 아래와 같다.
 
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 
 > `spin()` 메소드는 executor에 추가된 노드에 대하여 스레드를 동작시키며, 노드가 shutdown 될 때까지 노드 내에 정의된 콜백 함수들을 호출시키는 역할을 한다.
 
-## 2. Executor의 유형
+# 2. Executor의 유형
 
 executor에는 세 가지 유형을 가진다.
 
@@ -70,7 +70,7 @@ executor에는 세 가지 유형을 가진다.
 
 > `StaticSingleThreadedExecutor`에 대해서는 더 연구가 필요하다.
 
-## 3. Callback Groups
+# 3. Callback Groups
 
 콜백 그룹은 `MultiThreadedExecutor`로 추가된 노드에서 subscription, timer, service server, action server에서 호출되는 callback에 대한 단위 그룹을 지정할 수 있도록 지정하는 그룹이다. 위에서 설명했듯이, callback 그룹 내에서 특정 지점에서 block이 발생할 경우, 해당 callback 그룹은 전체가 block이 되어 기능을 수행하지 못할 수 있다. 따라서 각 기능별로 callback 그룹을 적절히 지정하는 것이 중요하다.
 
@@ -95,6 +95,6 @@ callback group에는 다음과 같이 두 가지 타입이 존재한다.
 
 콜백 그룹을 적절히 지정하는 것은 매우 중요하다. 무조건 병렬적으로 처리해야 되는 그룹에 대해서 `Reentrant` 그룹으로 하나로 묶어서 병렬로 처리를 할 수도 있고, `MutuallyExclusive` 그릅으로 두 개로 나눠서 배타적 처리를 할 수도 있다. 방법은 여러가지일 수 있으나, 병렬로 처리해야하는데, 디폴트 콜백그룹을 사용하여, 병렬처리를 하지 못하는 상황을 만들어서는 안된다.
 
-## 참고문헌
+# 참고문헌
 
 - [ROS 2.0 humble Executors Documentation](https://docs.ros.org/en/humble/Concepts/About-Executors.html)

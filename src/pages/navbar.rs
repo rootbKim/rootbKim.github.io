@@ -21,11 +21,11 @@ impl Component for Navbar {
                         </Link<Route>>
                     <div class="navbar-content subtitle" style="justify-content: right;">
                         <Link<Route> classes={classes!("subtitle-content")} to={Route::Post}>
-                        { "POST" }
+                            { "POST" }
                         </Link<Route>>
-                        <div class="subtitle-content">
+                        <Link<Route> classes={classes!("subtitle-content")} to={Route::Portfolio}>
                             { "PORTFOLIO" }
-                        </div>
+                        </Link<Route>>
                         <Link<Route> classes={classes!("subtitle-content")} to={Route::Archive}>
                             { "ARCHIVE" }
                         </Link<Route>>

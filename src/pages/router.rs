@@ -1,5 +1,6 @@
 use super::{
-    about::About, archive::Archive, home::Home, navbar::Navbar, post::Post, search::Search,
+    about::About, archive::Archive, home::Home, navbar::Navbar, portfolio::Portfolio, post::Post,
+    search::Search,
 };
 use crate::component::page::Page;
 use log::info;
@@ -38,6 +39,9 @@ fn switch(routes: Route) -> Html {
         Route::Post => {
             html! { <Post /> }
         }
+        Route::Portfolio => {
+            html! { <Portfolio /> }
+        }
         Route::Archive => {
             html! { <Archive /> }
         }
@@ -71,6 +75,8 @@ pub enum Route {
     Home,
     #[at("/post/")]
     Post,
+    #[at("/portfolio/")]
+    Portfolio,
     #[at("/archive/")]
     Archive,
     #[at("/:class/:filename")]

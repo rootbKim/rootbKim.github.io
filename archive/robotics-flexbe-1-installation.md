@@ -5,7 +5,7 @@ tags: [FlexBE]
 category: "Robotics"
 ---
 
-## 1. FlexBE 설치
+# 1. FlexBE 설치
 
 ```bash
 cd ~/catkin_ws/src
@@ -20,7 +20,7 @@ cd ~/catkin_ws
 catkin_make
 ```
 
-## 2. Behavior Repository 생성
+# 2. Behavior Repository 생성
 
 ```bash
 # your_project_name_behaviors 이름으로 repository 생성
@@ -37,7 +37,7 @@ catkin_make
 
 <img src="/assets/img/posts/240202_flexbe_repository.png">
 
-## 3. FlexBe App 실행
+# 3. FlexBe App 실행
 
 ```bash
 rosrun flexbe_app run_app
@@ -57,7 +57,7 @@ FlexBE App 최초 실행 시 위에서 생성한 behavior repository가 나타�
 
 <img src="/assets/img/posts/240202_flexbe_discover.png">
 
-## 참고문헌
+# 참고문헌
 
 - [FlexBE](http://philserver.bplaced.net/fbe/)
 - [ros wiki - flexbe](http://wiki.ros.org/flexbe)

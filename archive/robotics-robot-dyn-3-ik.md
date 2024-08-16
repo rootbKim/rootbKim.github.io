@@ -7,7 +7,7 @@ category: "Robotics"
 
 3차원 공간에서의 End Effector의 좌표와 방향이 주어졌을 때 로봇의 각 조인트 변수를 구하는 방법인 Inverse Kinematics(IK)에 대해 정리한다.
 
-## 1. Inverse Kinematics
+# 1. Inverse Kinematics
 
 Forward Kinematics가 로봇의 각 조인트 변수가 주어졌을 때의 End Effector의 좌표를 구하는 방법이었다면, Inverse Kinematics는 3차원 공간에서의 End Effector의 좌표와 방향이 주어졌을 때 로봇의 각 조인트 변수를 구하는 방법이다.
 
@@ -29,7 +29,7 @@ $$
 
 <img src="/assets/img/posts/230403_standford_manipulator.png" width=500>
 
-## 2. Decouple
+# 2. Decouple
 
 $$
 R^0_6(q_1 \dots q_6) = R \\
@@ -71,7 +71,7 @@ $$
 
 이 $$R^3_6$$를 통해서 $$q_4$$, $$q_5$$, $$q_6$$를 구할 수 있는데, $$R^3_6$$를 구하기 위해서는 $$R^0_3$$를 알아야 한다. 이 문제는 Geometric 방법을 이용한다.
 
-## 3. Geometric
+# 3. Geometric
 
 위에서 decouple을 통해서 $$o_c$$의 위치를 구했기 때문에, 이를 Geometric한 방법으로 $$R^0_3$$를 구할 수 있다.
 
@@ -109,7 +109,7 @@ $$
 
 여기서 $$\theta_3$$도 $$\theta_1$$과 마찬가지로 두 개의 해를 가질 수 있는데, $$\theta_3$$에 따라 elbow-up 형태와, elbow-down 형태가 될 수 있다. 즉, IK를 계산하면 4 개의 해를 구할 수 있게 된다.
 
-## 4. Orientation
+# 4. Orientation
 
 앞에서 Geometric 방법으로 $$\theta_1$$, $$\theta_2$$, $$\theta_3$$를 구했기 때문에, 나머지 $$\theta_4$$, $$\theta_5$$, $$\theta_6$$을 구하면 된다. spherical wrist는 `Euler transformation`가 동일한 형태의 rotation matrix를 가진다.
 
@@ -181,7 +181,7 @@ $$
 
 이로써 6개의 조인트 값을 구할 수 있게 되었다.
 
-## 5. Numerical Approach
+# 5. Numerical Approach
 
 Numerical하게 IK를 풀 수 있는데, Iteration을 돌며, FK를 이용하여 조인트 변수를 End Effector의 위치 및 방향 오차가 줄어드는 방향으로 업데이트하는 방법이다.
 

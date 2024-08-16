@@ -7,11 +7,11 @@ category: "Robotics"
 
 ROS2에서 사용되는 Nav2의 Costmap2D Plugin에 대해 설명하고, Custom Costmap2D Layer를 만드는 방법에 대해서 정리한다.
 
-## 1. Costmap2D Plugin 만들기
+# 1. Costmap2D Plugin 만들기
 
 Costmap2D Plugin의 예제로 [nav2_gradient_costmap_plugin](https://github.com/ros-planning/navigation2_tutorials/tree/master/nav2_gradient_costmap_plugin)을 참조한다.
 
-## 1.1 Costmap2D Layer 패키지 구조
+# 1.1 Costmap2D Layer 패키지 구조
 
 기본적으로 costmap plugin은 다음과 같은 구조를 갖는다. 이는 plugin 형태로 만들고 내보내기 위해 필요한 것들로 구성되어있는데, 각각에 대한 자세한 내용은 뒤에서 다룬다.
 
@@ -27,7 +27,7 @@ nav2_gradient_costmap_plugin
     └── gradient_layer.cpp
 ```
 
-## 1.2 Costmap2D 코드 구현
+# 1.2 Costmap2D 코드 구현
 
 플러그인 클래스는 `nav2_costmap_2d::Layer` 클래스를 상속받는다.
 
@@ -47,7 +47,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
 
 <img src="/assets/img/posts/230107_costmap_functions.png">
 
-### 1.2.1 onInitailize()
+## 1.2.1 onInitailize()
 
 `onInitalize()`는 해당 플러그인이 초기화 되고 호출이 되며, 이 함수 내에서 필요한 초기화들이 이루어진다. 해당 플러그인에서 사용되는 ROS Topic, Service나 Parameter를 정의하고 초기화한다.
 
@@ -66,7 +66,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
   need_recalculation_ = false;
 ```
 
-### 1.2.2 updateBounds()
+## 1.2.2 updateBounds()
 
 `updateBounds()`는 Costmap에서 cost를 부여할 영역을 주기적으로 업데이트한다. 전체 영역을 업데이트하면 계산량이 많아지기 때문에 적절한 영역을 설정해주어야 한다. 입력 인자로 로봇의 위치(x, y, yaw)와 영역의 최소 x,y 좌표와 영역의 최대 x,y 좌표를 받는다.
 
@@ -86,7 +86,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
     double * min_x, double * min_y, double * max_x, double * max_y) = 0;
 ```
 
-### 1.2.3 updateCosts()
+## 1.2.3 updateCosts()
 
 `updateBounds()`로 업데이트된 영역 내의 cost를 주기적으로 계산하고, 계산된 cost를 costmap에 반영하는 함수이다. 입력 인자로 영역의 경계 정보와 `master_grid`라는 costmap 결과를 반영할 참조자 변수가 있다. `matser_grid`는 다음 업데이트 방법 4 가지(`updateWithAddition()`,`updateWithMax()`, `updateWithOverwrite()`, `updateWithTrueOverwrite()`) 중 하나의 옵션으로 영역 범위 내에 cost를 계산하여 업데이트 된다.
 
@@ -114,7 +114,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
     int min_i, int min_j, int max_i, int max_j) = 0;
 ```
 
-### 1.2.4 matchSize()
+## 1.2.4 matchSize()
 
 `matchSize()`는 맵 사이즈가 변경될 때마다 호출된다.
 
@@ -123,7 +123,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
   virtual void matchSize() {}
 ```
 
-### 1.2.5 onFootprintChanged()
+## 1.2.5 onFootprintChanged()
 
 `onFootprintChanged()`는 footprint가 변경될 때마다 호출된다. footprint가 변경되었다는 것은 로봇의 위치가 변경되었다는 의미이므로 `need_recalculation_`을 true로 업데이트하고, cost 계산 영역을 업데이트하도록 트리거한다.
 
@@ -134,7 +134,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
   virtual void onFootprintChanged() {}
 ```
 
-### 1.2.6 reset()
+## 1.2.6 reset()
 
 `reset()`는 costmap을 리셋하는 경우 사용된다.
 
@@ -145,11 +145,11 @@ class GradientLayer : public nav2_costmap_2d::Layer
   virtual void reset() = 0;
 ```
 
-## 2. Costmap2D 플러그인 Export 하기
+# 2. Costmap2D 플러그인 Export 하기
 
 작성된 Costmap2D 플러그인은 기본 부모 클래스로 런타임에 로드된 후 플러그인 처리 모듈에 의해 호출된다. Pluginlib는 런타임에 지정된 플러그인을 열고 내보낸 클래스에서 호출할 수 있는 메서드를 제공하는데, 클래스 내보내기 메커니즘은 이러한 호출 중에 사용해야 하는 기본 클래스를 pluginlib에 알려준다. 이를 통해 애플리케이션 소스 코드를 모르거나 다시 컴파일하지 않고도 플러그인으로 애플리케이션을 확장할 수 있다.
 
-### 2.1 PLUGINLIB_EXPORT_CLASS
+## 2.1 PLUGINLIB_EXPORT_CLASS
 
 플러그인 클래스가 작성된 `.cpp` 파일 끝에 `PLUGINLIB_EXPORT_CLASS` 매크로를 추가한다.
 
@@ -161,7 +161,7 @@ class GradientLayer : public nav2_costmap_2d::Layer
 PLUGINLIB_EXPORT_CLASS(nav2_gradient_costmap_plugin::GradientLayer, nav2_costmap_2d::Layer)
 ```
 
-### 2.2 플러그인 description 파일
+## 2.2 플러그인 description 파일
 
 `.xml` 파일을 만들어 플러그인 정보를 담는다.
 
@@ -181,7 +181,7 @@ PLUGINLIB_EXPORT_CLASS(nav2_gradient_costmap_plugin::GradientLayer, nav2_costmap
 </library>
 ```
 
-### 2.3 CMake function
+## 2.3 CMake function
 
 `CMakeLists.txt`에 `pluginlib_export_plugin_description_file()` 함수를 추가한다. 해당 함수에 앞에서 만든 description 파일을 `share` 디렉토리에 설치하고, ament 인덱스를 설정하여, 설정된 타입의 플러그인을 찾을 수 있도록 한다.
 
@@ -189,7 +189,7 @@ PLUGINLIB_EXPORT_CLASS(nav2_gradient_costmap_plugin::GradientLayer, nav2_costmap
 pluginlib_export_plugin_description_file(nav2_costmap_2d gradient_layer.xml)
 ```
 
-### 2.4 설정 파일
+## 2.4 설정 파일
 
 `package.xml`에 description 파일을 추가한다.
 
@@ -200,11 +200,11 @@ pluginlib_export_plugin_description_file(nav2_costmap_2d gradient_layer.xml)
 </export>
 ```
 
-### 2.5 빌드
+## 2.5 빌드
 
 작업이 완료된 플러그인 패키지를 사용할 워크스페이스에서 빌드하면 된다.
 
-## 3. 작성된 Costmap2D 플러그인 적용
+# 3. 작성된 Costmap2D 플러그인 적용
 
 만들어진 Costmap2D Layer를 적용하기 위해 네비게이션 parameter 파일에 추가한다. Nav2의 parameter는 `.yaml`에 정의되어있는데, global_costmap 또는 local_costmap에 `plugins` 리스트에 이름을 등록하고, 해당 이름에 해당하는 `plugin` 인덱스와 설정할 parameter 값을 작성하면 navigation 실행 시 적용된다.
 
@@ -226,7 +226,7 @@ global_costmap:
 
 > `plugins`에 적용된 플러그인의 순서대로 실행되므로, layer 간의 순서도 고려해야 한다.
 
-## 참고문헌
+# 참고문헌
 
 - [Writing a New Costmap2D Plugin](https://navigation.ros.org/plugin_tutorials/docs/writing_new_costmap2d_plugin.html)
 - [[ROSCon 2014] David V. Lu!!: Navigation illumination: Shedding light on the ROS navstack](https://vimeo.com/106994708)
