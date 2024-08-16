@@ -1,0 +1,48 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+
+$font: 'Noto Sans', 'Spoqa Han Sans', helvetica, sans-serif;
+$font-title: 'Oswald', 'Spoqa Han Sans', helvetica, sans-serif;
+$font-theme: 'JetBrains Mono', 'Spoqa Han Sans', helvetica, sans-serif;
+$font-contents: 'Roboto', 'Spoqa Han Sans', helvetica, sans-serif;
+
+$color-first: #FFFBE9;
+$color-second: #E3CAA5;
+$color-third: #CEAB93;
+$color-fourth: #AD8B73;
+$color-font: #000000;
+$color-subfont: #828282;
+
+body {
+    margin: 0;
+    background-color: $color-first;
+}
+
+.row {
+    margin: 0;
+}
+
+.main-wrapper {
+    margin-top: 50px;
+    margin-bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    max-width: 960px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+}
+
+.not-found {
+    font-family: "Oswald", "Spoqa Han Sans", helvetica, sans-serif;
+    font-size: 48px;
+}
+
+.not-found-contents {
+    font-family: $font-theme;
+    font-size: 16px;
+    margin-top: 10px;
+}

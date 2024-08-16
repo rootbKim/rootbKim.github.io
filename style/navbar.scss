@@ -1,0 +1,61 @@
+@import 'general';
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    height: 6.5vh;
+    display: grid;
+    grid-template-columns: 150px 20fr 1fr;
+    max-width: 960px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+
+    font-size: 28px;
+    font-family: $font-title;
+
+    color: $color-font;
+
+    &.icon {
+        font-size: 16px;
+        justify-content: right;
+    }
+
+    &.subtitle {
+        font-size: 13px;
+        font-weight: 600;
+        font-family: $font-theme;
+        margin-left: 50px;
+    }
+
+    &:hover {
+        color: $color-font;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.subtitle-content {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-font;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+        color: $color-font;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

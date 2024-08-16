@@ -1,0 +1,61 @@
+@import 'general';
+
+.post-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    max-width: 960px;
+    width: 100%;
+}
+
+.post-list {
+    font-size: 20px;
+    font-family: $font;
+    width: 100%;
+    height: 100%;
+}
+
+.post-preview {
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.post-tag {
+    height: 100%;
+    margin-left: 20px;
+}
+
+.post-tag-list {
+    font-family: $font-theme;
+    display: inline-block;
+    padding: 5px 8px !important;
+    background-color: $color-fourth;
+    border-radius: 4px;
+    color: $color-first;
+    font-size: 13px;
+    line-height: 13px;
+    text-decoration: none;
+    margin: 3px;
+    border: none;
+    text-align: left;
+
+    &.selected {
+        background-color: $color-second;
+    }
+}
+
+.post-tag-list:hover {
+    background-color: $color-second;
+}
+
+.post-tag-list:focus {
+    outline: none;
+}

@@ -1,0 +1,40 @@
+@import 'general';
+
+.thumbnail {
+    position: relative;
+    padding: 1.2rem;
+    border-radius: 0.7rem;
+    min-height: 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid $color-fourth;
+}
+
+.thumbnail:hover {
+    transform: scale(1.03);
+}
+
+.thumbnail-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.thumbnail-title {
+    color: $color-first;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    /* 검은색 테두리 효과 */
+    font-size: 20px;
+    font-family: $font-title;
+    font-weight: 800;
+    padding: 10px;
+}

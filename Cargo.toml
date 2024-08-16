@@ -3,8 +3,24 @@ name = "rootb-github-blog"
 version = "0.1.0"
 edition = "2021"
 
+exclude = ["list.json"]
+
 [dependencies]
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
+yew = { version = "0.21.0", features = ["csr"] }
+yew-router = "0.18.0"
+
 gloo = "0.11.0"
+gloo-net = "0.6.0"
 js-sys = "0.3.69"
 wasm-bindgen = "0.2.92"
+serde = "1.0.204"
+serde_json = "1.0.120"
+serde_yaml = "0.9.34+deprecated"
+regex = "1.10.5"
+wasm-logger = "0.2.0"
+log = "0.4.22"
+pulldown-cmark = "0.11.0"
+web-sys = "0.3.69"
+
+[build-dependencies]
+serde_json = "1.0"
