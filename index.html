@@ -29,7 +29,6 @@
   <link data-trunk rel="sass" href="style/search.scss" />
   <link data-trunk rel="css" href="style/prism.css" />
   <link data-trunk rel="copy-file" href="prism.js">
-  <link data-trunk rel="copy-file" href="404.html">
   <link data-trunk rel="copy-dir" href="post">
   <link data-trunk rel="copy-dir" href="portfolio">
   <link data-trunk rel="copy-dir" href="archive">
@@ -40,25 +39,6 @@
   <link data-trunk rel="icon" href="favicon.ico">
 
   <script src="/prism.js"></script>
-
-  <!-- Start Single Page Apps for GitHub Pages -->
-  <script type="text/javascript">
-    (function (l) {
-      if (l.search) {
-        var q = {};
-        l.search.slice(1).split('&').forEach(function (v) {
-          var a = v.split('=');
-          q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
-        });
-
-        // Only replace URL if it needs to be transformed
-        if (q.p !== undefined && !l.href.endsWith(q.p)) {
-          window.history.replaceState(null, null, q.p + (q.q ? ('?' + q.q) : '') + l.hash);
-        }
-      }
-    }(window.location))
-  </script>
-  <!-- End Single Page Apps for GitHub Pages -->
 </head>
 
 <body></body>

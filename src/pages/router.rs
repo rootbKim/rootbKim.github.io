@@ -19,14 +19,14 @@ impl Component for Router {
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
-            <BrowserRouter>
+            <HashRouter>
                 <Navbar />
                 <div class="main-wrapper">
                     <div class="main-content">
                         <Switch<Route> render={switch} />
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         }
     }
 }
