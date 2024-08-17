@@ -51,8 +51,8 @@
           q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
         });
 
-        // Only replace URL if p parameter is present
-        if (q.p !== undefined && l.pathname + l.search !== q.p) {
+        // Only replace URL if it needs to be transformed
+        if (q.p !== undefined && !l.href.endsWith(q.p)) {
           window.history.replaceState(null, null, q.p + (q.q ? ('?' + q.q) : '') + l.hash);
         }
       }
