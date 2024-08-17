@@ -6,23 +6,22 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script type="text/javascript">
-    var segmentCount = 1;
-
     (function () {
       var l = window.location;
 
-      // Only redirect if not already a transformed URL
+      // Check if the URL has already been processed
       if (l.search.indexOf('p=') === -1) {
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=' +
-          encodeURIComponent('/' + l.pathname.slice(1).split('/').slice(segmentCount).join('/')) +
+        // Construct a new URL with the query parameter p
+        var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1).join('/') + '/?p=' +
+          encodeURIComponent('/' + l.pathname.slice(1)) +
           (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
-      } else {
-        // If already transformed, handle it gracefully by redirecting to the root if necessary
-        window.location.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+          l.hash;
+
+        // Only redirect if the new URL is different from the current URL
+        if (l.href !== newUrl) {
+          window.location.replace(newUrl);
+        }
       }
     })();
   </script>

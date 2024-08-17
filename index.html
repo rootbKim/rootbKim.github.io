@@ -36,7 +36,7 @@
   
   
   
-<script type="module" nonce="3ddiB69/pvT+PE4K1FUruQ==">
+<script type="module" nonce="QFlnpywljR/I+LmPtnZm2A==">
 import init, * as bindings from '/rootb-github-blog-8f016aeb8e4e75e4.js';
 const wasm = await init('/rootb-github-blog-8f016aeb8e4e75e4_bg.wasm');
 
@@ -62,8 +62,8 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
           q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
         });
 
-        // Only replace URL if p parameter is present
-        if (q.p !== undefined && l.pathname + l.search !== q.p) {
+        // Only replace URL if it needs to be transformed
+        if (q.p !== undefined && !l.href.endsWith(q.p)) {
           window.history.replaceState(null, null, q.p + (q.q ? ('?' + q.q) : '') + l.hash);
         }
       }
