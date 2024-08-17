@@ -11,14 +11,18 @@
     (function () {
       var l = window.location;
 
-      if (l.search.indexOf('p=') === -1) {  // Check if URL is already transformed
+      // Only redirect if not already a transformed URL
+      if (l.search.indexOf('p=') === -1) {
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
-          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=' +
+          encodeURIComponent('/' + l.pathname.slice(1).split('/').slice(segmentCount).join('/')) +
           (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash
         );
+      } else {
+        // If already transformed, handle it gracefully by redirecting to the root if necessary
+        window.location.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
       }
     })();
   </script>
