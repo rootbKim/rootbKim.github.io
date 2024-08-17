@@ -35,7 +35,7 @@
   
   
   
-<script type="module" nonce="WYTX5wT0aSb4dkRpYkbHAw==">
+<script type="module" nonce="Iybpdtf9axZWtaQH3iCwBA==">
 import init, * as bindings from '/rootb-github-blog-8f016aeb8e4e75e4.js';
 const wasm = await init('/rootb-github-blog-8f016aeb8e4e75e4_bg.wasm');
 
@@ -52,8 +52,29 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
   <script src="/prism.js"></script>
 
   <script type="text/javascript">
-    // This will redirect any 404 requests to the root index.html
-    window.location.href = "/";
+    // Single Page Apps for GitHub Pages
+    (function (l) {
+      if (l.search) {
+        var q = {};
+        l.search
+          .slice(1)
+          .split("&")
+          .forEach(function (v) {
+            var a = v.split("=");
+            q[a[0]] = a.slice(1).join("=").replace(/~and~/g, "&");
+          });
+        if (q.p !== undefined) {
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) +
+            (q.p || "") +
+            (q.q ? "?" + q.q : "") +
+            l.hash
+          );
+        }
+      }
+    })(window.location);
   </script>
 
 <link rel="modulepreload" href="/rootb-github-blog-8f016aeb8e4e75e4.js" crossorigin=anonymous integrity="sha384-ylzX7LVwyIY54hthTu7hhjDjkgUEhExfhhM/MU/yYohcjape0O5PTiXvc3Se/0N7">
