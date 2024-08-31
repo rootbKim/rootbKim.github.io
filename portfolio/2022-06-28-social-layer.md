@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 로봇 간 회피주행을 위한 멀티로봇 아키텍처 및 Social Costmap Layer 개발
 feature-img: "/assets/img/portfolio/social/social.png"
 img: "/assets/img/portfolio/social/social.png"

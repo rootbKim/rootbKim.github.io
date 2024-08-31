@@ -12,6 +12,7 @@ pub enum Msg {
     Update(String, String),
     PostList(Vec<String>),
     ArchiveList(Vec<String>),
+    PortfolioList(Vec<String>),
     Input(String),
     Search,
 }
@@ -19,6 +20,7 @@ pub enum Msg {
 pub struct Search {
     post_list: Vec<String>,
     archive_list: Vec<String>,
+    portfolio_list: Vec<String>,
     input: String,
     search: bool,
     search_list: Vec<(String, String)>,
@@ -34,6 +36,7 @@ impl Component for Search {
         Self {
             post_list: Vec::new(),
             archive_list: Vec::new(),
+            portfolio_list: Vec::new(),
             input: String::new(),
             search: false,
             search_list: Vec::new(),
@@ -71,15 +74,20 @@ impl Component for Search {
                 self.archive_list = list.clone();
                 false
             }
+            Msg::PortfolioList(list) => {
+                self.portfolio_list = list.clone();
+                false
+            }
             Msg::Input(input) => {
                 self.input = input;
                 false
             }
             Msg::Search => {
                 if !self.input.is_empty() {
+                    info!("{}", self.input);
                     self.search = true;
                     self.preview.clear();
-
+                    self.search_list.clear();
 
                     let cb = _ctx
                         .link()
@@ -180,6 +188,25 @@ impl Component for Search {
                         info!("list error");
                     }
                 }
+
+                match Request::get("/portfolio/list.json").send().await {
+                    Ok(resp) => match resp.text().await {
+                        Ok(text) => match serde_json::from_str::<Vec<String>>(&text) {
+                            Ok(list) => {
+                                link.send_message(Msg::PortfolioList(list));
+                            }
+                            Err(_) => {
+                                info!("list error");
+                            }
+                        },
+                        Err(_) => {
+                            info!("list error");
+                        }
+                    },
+                    Err(_) => {
+                        info!("list error");
+                    }
+                }
             });
         }
     }
@@ -190,19 +217,21 @@ impl Search {
         &self,
         update: Callback<(String, String)>,
     ) {
-        let class_list: Vec<String> = vec!["archive".to_string(), "post".to_string()];
+        let class_list: Vec<String> = vec!["archive".to_string(), "post".to_string(), "portfolio".to_string()];
         class_list.iter().for_each(|class| {
             let mut list: Vec<String> = Vec::new();
             if class == "post" {
                 list = self.post_list.clone();
             } else if class == "archive" {
                 list = self.archive_list.clone();
+            } else if class == "portfolio" {
+                list = self.portfolio_list.clone();
             }
             list.iter().for_each(|title| {
                 let update: Callback<(String, String)> = update.clone();
                 let class = class.clone();
                 let url = format!("/{}/{}.md", class, title);
-                let input = self.input.clone();
+                let input = self.input.clone().to_lowercase();
                 let title = title.clone();
                 spawn_local(async move {
                     match Request::get(url.as_str()).send().await {
@@ -218,14 +247,24 @@ impl Search {
                                     Some(block) => match parse_yaml(block) {
                                         Ok(m) => {
                                             metadata = m.clone();
-                                            if metadata.title.unwrap_or_default().contains(&input)
+                                            if metadata.title.unwrap_or_default().to_lowercase().contains(&input)
                                                 || metadata
                                                     .excerpt
                                                     .unwrap_or_default()
+                                                    .to_lowercase()
                                                     .contains(&input)
                                             {
                                                 update.emit((class.clone(), title.clone()));
                                                 find = true;
+                                            }
+
+                                            if !find {
+                                                for tag in metadata.tags.unwrap_or_default() {
+                                                    if tag.to_lowercase().contains(&input) {
+                                                        update.emit((class.clone(), title.clone()));
+                                                        find = true;
+                                                    }
+                                                }
                                             }
                                         }
                                         Err(e) => info!("Error parsing YAML: {:?}", e),
@@ -237,7 +276,7 @@ impl Search {
                                     match rest_of_text {
                                         Some(rest) => {
                                             text = rest.to_string();
-                                            if text.contains(&input) {
+                                            if text.to_lowercase().contains(&input) {
                                                 update.emit((class.clone(), title.clone()));
                                             }
                                         }

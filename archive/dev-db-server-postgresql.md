@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: PostgreSQL
 tags: [DB]
 category: "Dev"

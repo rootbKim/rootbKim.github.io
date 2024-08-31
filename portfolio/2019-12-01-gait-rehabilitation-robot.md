@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 역동역학 기반의 파워어시스트 보행재활로봇 훈련 알고리즘 연구
 feature-img: "/assets/img/portfolio/gait/gait.jpg"
 img: "/assets/img/portfolio/gait/gait.jpg"

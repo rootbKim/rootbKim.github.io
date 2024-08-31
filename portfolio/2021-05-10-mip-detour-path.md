@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: MIP를 이용한 우회경로 알고리즘의 연구
 feature-img: "/assets/img/portfolio/mip/mip.png"
 img: "/assets/img/portfolio/mip/mip.png"

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 라이브러리와 링킹
 tags: [Programming]
 category: "Programming"

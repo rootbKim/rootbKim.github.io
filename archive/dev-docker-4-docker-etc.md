@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Docker etc.
 tags: [Docker]
 category: "Dev"

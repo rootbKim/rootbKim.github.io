@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ 3/5/0의 규칙
 tags: [C++]
 category: "Programming"

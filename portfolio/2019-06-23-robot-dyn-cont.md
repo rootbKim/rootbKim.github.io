@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 로봇 동역학 및 제어 텀프로젝트 - 5절링크 로봇의 동역학 해석
 feature-img: "/assets/img/portfolio/dyn/dyn.png"
 img: "/assets/img/portfolio/dyn/dyn.png"

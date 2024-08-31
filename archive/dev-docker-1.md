@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Docker 개념과 기본 명령어
 tags: [Docker]
 category: "Dev"

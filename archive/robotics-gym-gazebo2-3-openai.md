@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: OpenAI Gym
 tags: [Gym Gazebo]
 category: "Robotics"

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 프로그래밍 디자인 방법에 대하여
 date: 05 September 2023
 tags: [Programming]

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: ROS2CLI
 tags: [ROS2]
 category: "RObotics"

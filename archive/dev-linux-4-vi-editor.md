@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: vi 에디터
 tags: [Linux]
 category: "Dev"

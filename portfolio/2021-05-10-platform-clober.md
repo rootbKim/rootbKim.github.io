@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 연구용 로봇 플랫폼의 ROS 오픈소스 패키지
 feature-img: "/assets/img/portfolio/clober/clober.png"
 img: "/assets/img/portfolio/clober/clober.png"

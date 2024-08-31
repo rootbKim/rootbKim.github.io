@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Docker Compose, Volume, Network
 tags: [Docker]
 category: "Dev"

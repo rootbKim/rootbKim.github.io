@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Message Queue
 tags: [Communication, MQ]
 category: "Dev"

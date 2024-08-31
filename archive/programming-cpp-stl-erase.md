@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ STL 컨테이너의 루프 내 삭제 방법
 tags: [C++]
 category: "Programming"

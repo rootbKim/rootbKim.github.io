@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Docker Cycle
 tags: [Docker]
 category: "Dev"

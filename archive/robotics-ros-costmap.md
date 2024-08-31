@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: ROS2 Costmap2D Layers
 tags: [ROS2, Nav2]
 category: "Robotics"

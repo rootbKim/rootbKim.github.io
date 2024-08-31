@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Point in polygon - 다각형 내부 판별 알고리즘
 tags: [Algorithm]
 category: "Programming"

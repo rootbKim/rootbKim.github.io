@@ -69,6 +69,7 @@ impl Component for Preview {
             .contains(&_ctx.props().selected_tag)
             || _ctx.props().selected_tag == "".to_string()
         {
+            let layout = self.metadata.layout.clone().unwrap_or_default();
             let title = self.metadata.title.clone().unwrap_or_default();
             let date = self.metadata.date.clone().unwrap_or_default();
             let excerpt = self.metadata.excerpt.clone().unwrap_or_default();
@@ -106,8 +107,13 @@ impl Component for Preview {
                         <div class="preview-excerpt">
                             { excerpt }
                         </div>
-                        <div class={border}>
-                            { tags }
+                        <div class={ border }>
+                            <div>
+                                { tags }
+                            </div>
+                            <div class="preview-layout">
+                                { layout }
+                            </div>
                         </div>
                     </div>
                 </>
@@ -121,7 +127,6 @@ impl Component for Preview {
         if first_render {
             let link = _ctx.link().clone();
             let url = format!("/{}/{}.md", _ctx.props().class, _ctx.props().filename);
-            info!("{}", url);
             spawn_local(async move {
                 match Request::get(url.as_str()).send().await {
                     Ok(resp) => match resp.text().await {

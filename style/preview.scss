@@ -6,13 +6,11 @@
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 0.25rem;
-    transition: background-color 0.3s, transform 0.5s ease 0s;
-    transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
+    transition: background-color 0.3s, transform 0.1s ease 0s, opacity 0.1s ease 0s;
 }
 
 .preview:hover {
     background-color: $color-second;
-    transform: scale(1.01);
     transform: translateX(3px);
     color: var($color-second);
 }
@@ -43,10 +41,21 @@
 .preview-tags {
     margin-top: 5px;
     padding-bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 100px;
 
     &.exist {
         border-bottom: 1px solid $color-fourth;
     }
+}
+
+.preview-layout {
+    color: $color-subfont;
+    font-family: $font-title;
+    font-size: 15px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 .tag {

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ 중첩 클래스
 tags: [C++]
 category: "Programming"

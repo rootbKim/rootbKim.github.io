@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 2족보행 로봇의 보행 알고리즘 시뮬레이션
 feature-img: "/assets/img/portfolio/biped/biped.png"
 img: "/assets/img/portfolio/biped/biped.png"
