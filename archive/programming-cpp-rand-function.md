@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ 난수 생성 함수
 tags: [C++]
 category: "Programming"

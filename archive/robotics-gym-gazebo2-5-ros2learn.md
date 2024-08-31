@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: ros2learn을 이용한 gym-gazebo 학습
 tags: [Gym Gazebo]
 category: "Robotics"

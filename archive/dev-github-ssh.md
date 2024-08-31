@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Github SSH 등록하기
 tags: [Git]
 category: "Dev"

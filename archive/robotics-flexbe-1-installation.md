@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: FlexBE 설치
 tags: [FlexBE]
 category: "Robotics"

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ REST SDK
 tags: [REST API, Communication, C++]
 category: "Dev"

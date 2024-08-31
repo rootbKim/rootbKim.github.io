@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: UR GAZEBO Simulation 설치하기
 tags: [Gym Gazebo]
 category: "Robotics"

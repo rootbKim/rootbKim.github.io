@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Git이란?
 tags: [Git]
 category: "Dev"

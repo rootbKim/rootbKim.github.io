@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 정렬 알고리즘
 tags: [Algorithm]
 category: "Programming"

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: FlexBe - Developing Basic States
 tags: [FlexBE]
 category: "Robotics"

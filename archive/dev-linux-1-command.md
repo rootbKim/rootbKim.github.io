@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Linux 명령어 모음
 tags: [Linux]
 category: "Dev"

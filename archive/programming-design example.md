@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 프로그래밍 디자인 (3) - 디자인 예시(chess program)
 tags: [Programming]
 category: "Programming"

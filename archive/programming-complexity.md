@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Complexity
 tags: [Programming]
 category: "Programming"

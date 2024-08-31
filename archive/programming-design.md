@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 프로그래밍 디자인 (1) - 정의와 원칙
 tags: [Programming]
 category: "Programming"

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 저상형 주차로봇의 서비스 관리
 feature-img: "/assets/img/portfolio/parking/parking.jpg"
 img: "/assets/img/portfolio/parking/parking.jpg"

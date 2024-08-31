@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: FlexBE 튜토리얼
 tags: [FlexBE]
 category: "Robotics"

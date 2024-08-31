@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ sort 함수 사용법
 tags: [C++]
 category: "Programming"

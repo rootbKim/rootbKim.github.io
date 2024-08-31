@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Robot State Publisher 이해하기
 tags: [ROS2, GAZEBO]
 category: "Robotics"

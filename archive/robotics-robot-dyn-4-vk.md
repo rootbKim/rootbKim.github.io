@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 로봇동역학 - Velocity Kinematics
 tags: [Robot Dynamics]
 category: "Robotics"

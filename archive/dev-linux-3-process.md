@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Linux 프로세스
 tags: [Linux]
 category: "Dev"

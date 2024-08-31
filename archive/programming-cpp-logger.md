@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: C++ Logger 함수
 tags: [C++]
 category: "Programming"

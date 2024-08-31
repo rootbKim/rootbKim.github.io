@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: Git Submodule
 tags: [Git]
 category: "Dev"

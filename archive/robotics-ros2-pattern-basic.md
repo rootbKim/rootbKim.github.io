@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: ROS2 C++ 기본 디자인 패턴
 tags: [ROS2]
 category: "Robotics"

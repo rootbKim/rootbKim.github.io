@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: 프로그래밍 디자인 (2) - UML 다이어그램
 tags: [Programming]
 category: "Programming"

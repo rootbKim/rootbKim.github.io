@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: ROS2 COLCON
 tags: [ROS2]
 category: "Robotics"

@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: CI/CD
 tags: [CI/CD]
 category: "Dev"

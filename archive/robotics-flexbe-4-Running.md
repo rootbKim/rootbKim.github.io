@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: FlexBe - Running
 tags: [FlexBE]
 category: "Robotics"

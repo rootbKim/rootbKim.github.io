@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: systemd와 우분투 서버 부팅 스크립트
 tags: [Linux, Systemd]
 category: "Dev"

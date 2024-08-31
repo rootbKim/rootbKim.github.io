@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: portfolio
 title: 로봇 미들웨어 시스템 유지보수
 feature-img: "/assets/img/portfolio/middleware/middleware.webp"
 img: "/assets/img/portfolio/middleware/middleware.webp"

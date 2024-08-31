@@ -1,5 +1,5 @@
 ---
-layout: note_page
+layout: archive
 title: gym-gazebo2 분석
 tags: [Gym Gazebo]
 category: "Robotics"
